@@ -604,6 +604,30 @@ document.querySelector("#app").innerHTML = `
       </div>
 
     </section>
+    <div class="texture-intro-footer">
+
+  <div class="texture-wordmark-wrapper">
+    <h1
+      class="texture-wordmark"
+      aria-label="Nectar Noir"
+    >
+      NectarNoir
+    </h1>
+  </div>
+
+  <span class="texture-language">
+    English / 01
+  </span>
+
+  <button
+    class="texture-scroll-button"
+    type="button"
+    aria-label="Scroll to the main website"
+  >
+    (scroll down)
+  </button>
+
+</div>
 
   </main>
 `;

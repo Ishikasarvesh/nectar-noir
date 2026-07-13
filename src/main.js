@@ -681,8 +681,9 @@ function playEntranceAnimation() {
       display: "none",
     })
     .call(() => {
-      document.body.classList.remove("is-loading");
-    })
+  document.body.classList.remove("is-loading");
+  lenis.start();
+})
     .from(".navbar", {
       y: -80,
       opacity: 0,

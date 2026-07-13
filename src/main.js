@@ -969,14 +969,15 @@ function playEntranceAnimation() {
       "-=0.5"
     )
     .from(
-      ".hero-footer",
-      {
-        opacity: 0,
-        y: 20,
-        duration: 0.6,
-      },
-      "-=0.3"
-    );
+  ".hero-footer",
+  {
+    opacity: 0,
+    y: 20,
+    duration: 0.6,
+  },
+  "-=0.3"
+)
+.call(revealTextureGrid);
 }
 
 const hero = document.querySelector(".hero");

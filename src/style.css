@@ -801,6 +801,255 @@ button {
 .website {
   width: 100%;
 }
+/* ========================================
+   HONEY TEXTURE INTRO
+======================================== */
+
+.texture-intro {
+  position: relative;
+  z-index: 5;
+
+  min-height: 100vh;
+
+  color: #222b31;
+  background: #dce4e9;
+
+  overflow: hidden;
+}
+
+.texture-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-auto-rows: minmax(175px, 1fr);
+
+  min-height: calc(100vh - 190px);
+
+  border-top: 1px solid rgba(34, 43, 49, 0.14);
+  border-left: 1px solid rgba(34, 43, 49, 0.14);
+}
+
+.texture-cell,
+.texture-statement,
+.texture-spacer {
+  position: relative;
+
+  min-width: 0;
+
+  border-right: 1px solid rgba(34, 43, 49, 0.14);
+  border-bottom: 1px solid rgba(34, 43, 49, 0.14);
+}
+
+.texture-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 2.7rem 1rem 1rem;
+}
+
+.texture-cell::before,
+.texture-cell::after,
+.texture-statement::before,
+.texture-spacer::before {
+  content: "";
+
+  position: absolute;
+  z-index: 2;
+
+  background: #273138;
+}
+
+.texture-cell::before,
+.texture-statement::before,
+.texture-spacer::before {
+  width: 9px;
+  height: 1px;
+
+  left: -5px;
+  top: 16px;
+}
+
+.texture-cell::after {
+  width: 1px;
+  height: 9px;
+
+  left: -1px;
+  top: 12px;
+}
+
+.texture-index {
+  position: absolute;
+
+  top: 1rem;
+  left: 0.75rem;
+
+  font-family: "DM Mono", monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+
+  color: #273138;
+}
+
+.texture-frame {
+  width: min(52%, 120px);
+  aspect-ratio: 1;
+
+  overflow: hidden;
+
+  background: #bec8ce;
+}
+
+.texture-frame img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  filter:
+    grayscale(1)
+    contrast(1.2)
+    brightness(0.86);
+
+  transform: scale(1.04);
+
+  transition:
+    filter 0.5s ease,
+    transform 0.6s ease;
+}
+
+.texture-cell:hover .texture-frame img {
+  filter:
+    grayscale(0)
+    saturate(1.1)
+    contrast(1.08);
+
+  transform: scale(1.12);
+}
+
+.texture-cell-featured {
+  align-items: flex-start;
+}
+
+.texture-cell-featured .texture-frame {
+  width: min(82%, 220px);
+  aspect-ratio: 1.65 / 1;
+
+  margin-top: 0.3rem;
+
+  outline: 1px solid #273138;
+  outline-offset: 3px;
+}
+
+.texture-cell-featured .texture-frame img {
+  filter:
+    grayscale(0)
+    saturate(1.15)
+    contrast(1.1);
+}
+
+.texture-code {
+  position: absolute;
+
+  left: 1rem;
+  bottom: 0.55rem;
+
+  font-family: "DM Mono", monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.04em;
+}
+
+.texture-statement {
+  display: flex;
+
+  padding: 1.1rem 0.8rem;
+}
+
+.texture-statement p {
+  max-width: 220px;
+
+  font-family: "Manrope", sans-serif;
+  font-size: clamp(1rem, 1.25vw, 1.45rem);
+  line-height: 0.93;
+  letter-spacing: -0.06em;
+  font-weight: 700;
+  text-transform: uppercase;
+
+  color: #8999a3;
+}
+
+.texture-statement-top {
+  align-items: flex-start;
+}
+
+.texture-statement-bottom {
+  align-items: flex-start;
+}
+
+.texture-spacer {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.texture-intro-footer {
+  position: relative;
+
+  min-height: 190px;
+
+  display: flex;
+  align-items: flex-end;
+
+  border-bottom: 1px solid rgba(34, 43, 49, 0.15);
+}
+
+.texture-wordmark {
+  margin-left: 0.5rem;
+
+  font-family: "Arial Narrow", "Manrope", sans-serif;
+  font-size: clamp(6rem, 13.7vw, 15rem);
+  line-height: 0.72;
+  letter-spacing: -0.095em;
+  font-weight: 700;
+
+  color: #91a1ab;
+}
+
+.texture-scroll-button {
+  position: absolute;
+
+  right: 35%;
+  bottom: 0.7rem;
+
+  border: 0;
+  cursor: pointer;
+
+  font-family: "DM Mono", monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+
+  color: #273138;
+  background: transparent;
+}
+
+.texture-scroll-button::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: -3px;
+
+  width: 0;
+  height: 1px;
+
+  background: #273138;
+
+  transition: width 0.3s ease;
+}
+
+.texture-scroll-button:hover::after {
+  width: 100%;
+}
 
 /* ========================================
    NAVBAR

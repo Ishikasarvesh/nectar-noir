@@ -641,12 +641,13 @@ const lenis = new Lenis({
   touchMultiplier: 1.2,
 });
 
-function smoothScroll(time) {
-  lenis.raf(time);
-  requestAnimationFrame(smoothScroll);
-}
+lenis.on("scroll", ScrollTrigger.update);
 
-requestAnimationFrame(smoothScroll);
+gsap.ticker.add((time) => {
+  lenis.raf(time * 1000);
+});
+
+gsap.ticker.lagSmoothing(0);
 
 const accessGate = document.querySelector(".access-gate");
 const accessCard = document.querySelector(".access-card");

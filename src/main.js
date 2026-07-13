@@ -360,6 +360,34 @@ function smoothScroll(time) {
 
 requestAnimationFrame(smoothScroll);
 
+const accessGate = document.querySelector(".access-gate");
+const accessCard = document.querySelector(".access-card");
+
+const openTerminalButton = document.querySelector(
+  ".open-terminal-button"
+);
+
+const passcodeForm = document.querySelector(".passcode-form");
+const passcodeInput = document.querySelector(".passcode-input");
+
+const passcodeFeedback = document.querySelector(
+  ".passcode-feedback"
+);
+
+const loader = document.querySelector(".loader");
+
+const loaderPercentage = document.querySelector(
+  ".loader-percentage"
+);
+
+const loaderMessage = document.querySelector(".loader-message");
+
+const loaderProgressFill = document.querySelector(
+  ".loader-progress-fill"
+);
+
+const correctPasscode = "NN26";
+
 const loaderMessages = [
   "Locating hive network...",
   "Verifying harvest records...",
@@ -368,45 +396,251 @@ const loaderMessages = [
   "Access granted.",
 ];
 
-const loaderPercentage = document.querySelector(".loader-percentage");
-const loaderMessage = document.querySelector(".loader-message");
-const loaderProgressFill = document.querySelector(
-  ".loader-progress-fill"
+document.body.classList.add("is-gate-locked");
+lenis.stop();
+
+/* ========================================
+   LIVE CITY CLOCKS
+======================================== */
+
+function updateCityClocks() {
+  const clocks = document.querySelectorAll(".city-time");
+
+  clocks.forEach((clock) => {
+    const timezone = clock.dataset.timezone;
+
+    const time = new Intl.DateTimeFormat("en-GB", {
+      timeZone: timezone,
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: false,
+    }).format(new Date());
+
+    const offsetLabels = {
+      "Asia/Kolkata": "GMT+5:30",
+      "Asia/Tokyo": "GMT+9",
+      "America/New_York": "GMT-5",
+    };
+
+    clock.textContent = `${time} ${offsetLabels[timezone]}`;
+  });
+}
+
+updateCityClocks();
+setInterval(updateCityClocks, 1000);
+
+/* ========================================
+   OPEN PASSCODE TERMINAL
+======================================== */
+
+function showPasscodeTerminal() {
+  if (passcodeForm.classList.contains("is-visible")) {
+    passcodeInput.focus();
+    return;
+  }
+
+  gsap.to(openTerminalButton, {
+    opacity: 0,
+    y: -10,
+    duration: 0.3,
+
+    onComplete: () => {
+      openTerminalButton.style.display = "none";
+
+      passcodeForm.classList.add("is-visible");
+
+      gsap.fromTo(
+        passcodeForm,
+        {
+          opacity: 0,
+          y: 18,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.5,
+          ease: "power3.out",
+        }
+      );
+
+      passcodeInput.focus();
+    },
+  });
+}
+
+openTerminalButton.addEventListener(
+  "click",
+  showPasscodeTerminal
 );
 
-let loadingValue = 0;
-let messageIndex = 0;
+accessCard.addEventListener(
+  "click",
+  showPasscodeTerminal
+);
 
-document.body.classList.add("is-loading");
+/* Always convert the entered code to uppercase. */
 
-const loadingInterval = setInterval(() => {
-  loadingValue += Math.floor(Math.random() * 8) + 3;
+passcodeInput.addEventListener("input", () => {
+  passcodeInput.value = passcodeInput.value
+    .toUpperCase()
+    .replace(/[^A-Z0-9]/g, "");
+});
 
-  if (loadingValue >= 100) {
-    loadingValue = 100;
+/* ========================================
+   VERIFY PASSCODE
+======================================== */
+
+passcodeForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  const enteredPasscode = passcodeInput.value
+    .trim()
+    .toUpperCase();
+
+  if (enteredPasscode === correctPasscode) {
+    grantArchiveAccess();
+  } else {
+    denyArchiveAccess();
   }
+});
 
-  loaderPercentage.textContent = `${loadingValue}%`;
-  loaderProgressFill.style.width = `${loadingValue}%`;
+function denyArchiveAccess() {
+  passcodeFeedback.textContent =
+    "Access denied — invalid passcode";
 
-  const newMessageIndex = Math.min(
-    Math.floor(loadingValue / 25),
-    loaderMessages.length - 1
+  passcodeFeedback.classList.remove("is-success");
+  passcodeFeedback.classList.add("is-error");
+
+  accessCard.classList.remove("is-denied");
+
+  void accessCard.offsetWidth;
+
+  accessCard.classList.add("is-denied");
+
+  gsap.fromTo(
+    passcodeInput,
+    {
+      color: "#d36e5d",
+    },
+    {
+      color: "#f3eee4",
+      duration: 0.8,
+    }
   );
 
-  if (newMessageIndex !== messageIndex) {
-    messageIndex = newMessageIndex;
-    loaderMessage.textContent = loaderMessages[messageIndex];
-  }
+  passcodeInput.select();
+}
 
-  if (loadingValue === 100) {
-    clearInterval(loadingInterval);
+function grantArchiveAccess() {
+  passcodeFeedback.textContent =
+    "Identity verified — access granted";
 
-    setTimeout(() => {
-      playEntranceAnimation();
-    }, 500);
-  }
-}, 120);
+  passcodeFeedback.classList.remove("is-error");
+  passcodeFeedback.classList.add("is-success");
+
+  passcodeInput.disabled = true;
+
+  const accessTimeline = gsap.timeline({
+    defaults: {
+      ease: "power3.inOut",
+    },
+  });
+
+  accessTimeline
+    .to(".access-city", {
+      opacity: 0,
+      y: -15,
+      stagger: 0.08,
+      duration: 0.4,
+    })
+    .to(
+      ".access-footer",
+      {
+        opacity: 0,
+        y: 20,
+        duration: 0.4,
+      },
+      "<"
+    )
+    .to(
+      ".passcode-form",
+      {
+        opacity: 0,
+        y: 20,
+        duration: 0.4,
+      },
+      "<"
+    )
+    .to(".access-card", {
+      scale: 1.08,
+      rotationX: 0,
+      filter: "brightness(1.45)",
+      duration: 0.55,
+    })
+    .to(".access-card", {
+      scale: 3.2,
+      opacity: 0,
+      duration: 0.75,
+      ease: "power4.in",
+    })
+    .to(
+      ".access-gate",
+      {
+        opacity: 0,
+        duration: 0.45,
+      },
+      "-=0.2"
+    )
+    .set(".access-gate", {
+      display: "none",
+    })
+    .call(startArchiveLoader);
+}
+
+/* ========================================
+   START LOADER AFTER ACCESS
+======================================== */
+
+function startArchiveLoader() {
+  loader.classList.remove("loader-hidden");
+
+  document.body.classList.remove("is-gate-locked");
+  document.body.classList.add("is-loading");
+
+  let loadingValue = 0;
+  let messageIndex = 0;
+
+  const loadingInterval = setInterval(() => {
+    loadingValue += Math.floor(Math.random() * 8) + 3;
+
+    if (loadingValue >= 100) {
+      loadingValue = 100;
+    }
+
+    loaderPercentage.textContent = `${loadingValue}%`;
+    loaderProgressFill.style.width = `${loadingValue}%`;
+
+    const newMessageIndex = Math.min(
+      Math.floor(loadingValue / 25),
+      loaderMessages.length - 1
+    );
+
+    if (newMessageIndex !== messageIndex) {
+      messageIndex = newMessageIndex;
+
+      loaderMessage.textContent =
+        loaderMessages[messageIndex];
+    }
+
+    if (loadingValue === 100) {
+      clearInterval(loadingInterval);
+
+      setTimeout(() => {
+        playEntranceAnimation();
+      }, 450);
+    }
+  }, 95);
+}
 
 function playEntranceAnimation() {
   const timeline = gsap.timeline({

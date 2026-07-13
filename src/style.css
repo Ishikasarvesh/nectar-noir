@@ -2,37 +2,65 @@
 
 :root {
   font-family: "Manrope", sans-serif;
-  color: #f4ead9;
-  background: #110d0a;
+
+  color: #fff4df;
+  background: #100905;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
 
-  /* Core brand colours */
-  --black: #110d0a;
-  --charcoal: #1a120d;
-  --soft-black: #241811;
+  /* Dark surfaces */
+  --black: #100905;
+  --charcoal: #1b0f08;
+  --soft-black: #29170c;
+  --espresso: #211108;
+  --deep-brown: #351b0a;
 
-  --cream: #f4ead9;
-  --muted: #a99b8d;
+  /* Text */
+  --cream: #fff4df;
+  --muted: #bda98d;
+  --ink: #261509;
 
-  --gold: #d79a2b;
-  --bright-gold: #f2c66d;
-  --dark-gold: #6f350d;
+  /* Honey colours */
+  --gold: #d99122;
+  --bright-gold: #ffc75a;
+  --honey-light: #ffd98a;
+  --amber: #b86612;
+  --burnt-honey: #703408;
+  --dark-gold: #5a2705;
 
-  /* Nectar Noir archive palette */
-  --archive-cream: #e8dfcf;
-  --archive-paper: #d8cbb7;
-  --archive-line: rgba(55, 38, 26, 0.2);
+  /* Light archive surfaces */
+  --archive-cream: #f0e1c7;
+  --archive-paper: #ddc49b;
+  --archive-amber: #c8944a;
+  --archive-line: rgba(73, 43, 19, 0.24);
 
-  --honey-gold: #d79a2b;
-  --honey-light: #f2c66d;
-  --amber: #a95f16;
-  --burnt-honey: #6f350d;
+  /* Main gradient */
+  --amber-gradient:
+    radial-gradient(
+      circle at 75% 30%,
+      rgba(255, 190, 72, 0.2),
+      transparent 30%
+    ),
+    linear-gradient(
+      135deg,
+      #100905 0%,
+      #251208 47%,
+      #4a2309 100%
+    );
 
-  --espresso: #21150d;
-  --charcoal-brown: #110d0a;
-  --ink: #17120e;
+  --amber-light-gradient:
+    radial-gradient(
+      circle at 12% 18%,
+      rgba(255, 194, 82, 0.24),
+      transparent 30%
+    ),
+    linear-gradient(
+      135deg,
+      #f0e1c7 0%,
+      #ddc49b 52%,
+      #c8944a 100%
+    );
 }
 
 * {
@@ -49,7 +77,15 @@ body {
   min-width: 320px;
   min-height: 100vh;
   overflow-x: hidden;
-  background: var(--black);
+
+  color: var(--cream);
+  background:
+    radial-gradient(
+      circle at 80% 10%,
+      rgba(255, 185, 62, 0.12),
+      transparent 30%
+    ),
+    #100905;
 }
 
 body.is-gate-locked,
@@ -839,15 +875,15 @@ button {
 
   background:
     radial-gradient(
-      circle at 18% 10%,
-      rgba(215, 154, 43, 0.14),
-      transparent 27%
+      circle at 8% 12%,
+      rgba(242, 182, 78, 0.22),
+      transparent 28%
     ),
     linear-gradient(
       135deg,
-      var(--archive-cream) 0%,
-      var(--archive-paper) 55%,
-      #c8b89f 100%
+      #f0e1c7 0%,
+      #ddc49b 52%,
+      #c8944a 100%
     );
 }
 

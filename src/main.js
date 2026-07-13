@@ -1034,3 +1034,45 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
     });
   });
 });
+const textureIntro = document.querySelector(".texture-intro");
+
+const textureScrollButton = document.querySelector(
+  ".texture-scroll-button"
+);
+
+const textureCells = gsap.utils.toArray(
+  ".texture-cell, .texture-statement"
+);
+
+gsap.set(textureCells, {
+  opacity: 0,
+  y: 24,
+});
+
+function revealTextureGrid() {
+  gsap.to(textureCells, {
+    opacity: 1,
+    y: 0,
+    stagger: {
+      amount: 1.1,
+      from: "start",
+    },
+    duration: 0.7,
+    ease: "power3.out",
+  });
+
+  gsap.from(".texture-wordmark", {
+    yPercent: 100,
+    duration: 1.2,
+    delay: 0.4,
+    ease: "power4.out",
+  });
+}
+
+textureScrollButton.addEventListener("click", () => {
+  const heroSection = document.querySelector(".hero");
+
+  lenis.scrollTo(heroSection, {
+    duration: 1.6,
+  });
+});

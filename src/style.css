@@ -2473,6 +2473,31 @@ button {
 
   padding-block: 4rem;
 }
+.extraction-heading {
+  min-height: 72vh;
+}
+
+.extraction-layout {
+  grid-template-columns: 1fr;
+}
+
+.extraction-sidebar {
+  position: relative;
+
+  height: auto;
+  min-height: 300px;
+
+  border-right: 0;
+  border-bottom: 1px solid rgba(255, 210, 132, 0.15);
+}
+
+.extraction-stage {
+  min-height: auto;
+
+  grid-template-columns: 70px 1fr 1fr;
+
+  padding-block: 4rem;
+}
 }
 
 /* ========================================
@@ -2805,6 +2830,64 @@ button {
 
 .origin-record-footer span:last-child {
   text-align: right;
+}
+.extraction-heading {
+  min-height: 70vh;
+
+  padding: 6rem 1.2rem 3rem;
+}
+
+.extraction-heading-meta {
+  grid-template-columns: 1fr auto;
+  gap: 1rem;
+}
+
+.extraction-heading-meta span:nth-child(2) {
+  display: none;
+}
+
+.extraction-heading h2 {
+  font-size: clamp(4rem, 19vw, 7rem);
+}
+
+.extraction-heading > p {
+  margin-left: 0;
+
+  font-size: 0.88rem;
+}
+
+.extraction-sidebar {
+  min-height: 340px;
+
+  padding: 1.4rem 1.2rem;
+}
+
+.extraction-stage {
+  padding: 1.3rem 1.2rem 2.4rem;
+
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.extraction-stage-number {
+  padding-top: 0;
+}
+
+.extraction-stage-visual {
+  max-width: none;
+}
+
+.extraction-stage-content h3 {
+  font-size: clamp(3rem, 15vw, 5rem);
+}
+
+.extraction-stage-data {
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.process-vessel {
+  min-height: 230px;
 }
 }
 

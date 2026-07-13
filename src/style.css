@@ -132,12 +132,22 @@ button {
   color: #a9b3ba;
 
   background:
-    radial-gradient(
-      circle at 50% 45%,
-      rgba(216, 148, 32, 0.075),
-      transparent 31%
-    ),
-    #030303;
+  radial-gradient(
+    circle at 50% 43%,
+    rgba(255, 184, 61, 0.16),
+    transparent 31%
+  ),
+  radial-gradient(
+    circle at 15% 80%,
+    rgba(112, 52, 8, 0.18),
+    transparent 32%
+  ),
+  linear-gradient(
+    145deg,
+    #050301 0%,
+    #160b05 52%,
+    #291307 100%
+  );
 }
 
 .access-gate::before {
@@ -724,14 +734,14 @@ button {
   background:
   radial-gradient(
     circle at 50% 50%,
-    rgba(215, 154, 43, 0.18),
+    rgba(255, 190, 76, 0.2),
     transparent 34%
   ),
   linear-gradient(
     145deg,
-    #0b0806 0%,
-    #21150d 52%,
-    #0c0806 100%
+    #090401 0%,
+    #261207 52%,
+    #4a2309 100%
   );
 
   color: var(--cream);
@@ -1399,22 +1409,22 @@ button {
   overflow: hidden;
 
   background:
-    radial-gradient(
-      circle at 78% 42%,
-      rgba(215, 154, 43, 0.22),
-      transparent 29%
-    ),
-    radial-gradient(
-      circle at 25% 90%,
-      rgba(111, 53, 13, 0.2),
-      transparent 35%
-    ),
-    linear-gradient(
-      135deg,
-      #110d0a 0%,
-      #21150d 52%,
-      #130d09 100%
-    );
+  radial-gradient(
+    circle at 78% 43%,
+    rgba(255, 192, 78, 0.28),
+    transparent 28%
+  ),
+  radial-gradient(
+    circle at 28% 88%,
+    rgba(112, 52, 8, 0.22),
+    transparent 38%
+  ),
+  linear-gradient(
+    135deg,
+    #100905 0%,
+    #241108 48%,
+    #4a2309 100%
+  );
 }
 
 .hero::before {
@@ -1865,15 +1875,20 @@ button {
 
   background:
   radial-gradient(
-    circle at 82% 34%,
-    rgba(215, 154, 43, 0.15),
-    transparent 30%
+    circle at 84% 35%,
+    rgba(255, 190, 75, 0.18),
+    transparent 31%
+  ),
+  radial-gradient(
+    circle at 15% 85%,
+    rgba(107, 47, 7, 0.18),
+    transparent 32%
   ),
   linear-gradient(
     145deg,
-    #17100c 0%,
-    #271910 55%,
-    #110d0a 100%
+    #160b05 0%,
+    #321708 55%,
+    #100905 100%
   );
 
   border-top: 1px solid rgba(255, 255, 255, 0.08);
@@ -2313,65 +2328,42 @@ button {
     text-align: left;
   }
   .texture-grid {
+  height: auto;
+  min-height: 0;
+
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: none;
   grid-auto-rows: 185px;
 }
 
-.texture-cell {
-  padding: 2.4rem 0.6rem 1.35rem;
-}
-
-.texture-frame {
-  width: 82px;
-}
-
-.texture-cell:hover .texture-frame {
-  width: min(86%, 175px);
-}
-
-.texture-code {
-  bottom: 0.35rem;
-
-  font-size: 0.5rem;
-}
-
-.texture-statement {
-  min-height: 185px;
-}
-
-.texture-statement p {
-  font-size: 1rem;
-}
-
 .texture-intro-footer {
-  min-height: 125px;
+  min-height: 135px;
 
-  align-items: center;
+  padding:
+    1.4rem
+    0.6rem
+    0;
 }
 
 .texture-wordmark {
-  max-width: 90%;
+  max-width: 88%;
 
-  margin-left: 0.4rem;
-
-  overflow: hidden;
-
-  font-size: clamp(3.2rem, 18vw, 6rem);
+  font-size: clamp(3.4rem, 18vw, 6rem);
+  line-height: 0.78;
 }
 
 .texture-language {
-  top: 0.8rem;
-  right: 0.8rem;
+  top: 0.7rem;
+  right: 0.7rem;
 
-  font-size: 0.45rem;
+  font-size: 0.42rem;
 }
 
 .texture-scroll-button {
-  right: 1rem;
-  bottom: 0.6rem;
+  right: 0.8rem;
+  bottom: 0.5rem;
 
-  font-size: 0.55rem;
+  font-size: 0.5rem;
 }
 
   .navbar {

@@ -828,22 +828,35 @@ button {
   z-index: 5;
 
   min-height: 100vh;
-
-  color: #222b31;
-  background: #dce4e9;
-
   overflow: hidden;
+
+  color: var(--ink);
+
+  background:
+    radial-gradient(
+      circle at 18% 10%,
+      rgba(215, 154, 43, 0.14),
+      transparent 27%
+    ),
+    linear-gradient(
+      135deg,
+      var(--archive-cream) 0%,
+      var(--archive-paper) 55%,
+      #c8b89f 100%
+    );
 }
 
 .texture-grid {
+  position: relative;
+
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  grid-auto-rows: minmax(175px, 1fr);
+  grid-template-rows: repeat(3, minmax(185px, 1fr));
 
   min-height: calc(100vh - 190px);
 
-  border-top: 1px solid rgba(34, 43, 49, 0.14);
-  border-left: 1px solid rgba(34, 43, 49, 0.14);
+  border-top: 1px solid var(--archive-line);
+  border-left: 1px solid var(--archive-line);
 }
 
 .texture-cell,
@@ -852,9 +865,10 @@ button {
   position: relative;
 
   min-width: 0;
+  overflow: visible;
 
-  border-right: 1px solid rgba(34, 43, 49, 0.14);
-  border-bottom: 1px solid rgba(34, 43, 49, 0.14);
+  border-right: 1px solid var(--archive-line);
+  border-bottom: 1px solid var(--archive-line);
 }
 
 .texture-cell {
@@ -862,37 +876,45 @@ button {
   align-items: center;
   justify-content: center;
 
-  padding: 2.7rem 1rem 1rem;
+  padding: 2.7rem 1rem 1.5rem;
+
+  transition:
+    background 0.35s ease,
+    z-index 0s;
 }
 
+/* Small cross marks on grid intersections */
+
 .texture-cell::before,
-.texture-cell::after,
 .texture-statement::before,
 .texture-spacer::before {
   content: "";
 
   position: absolute;
-  z-index: 2;
+  z-index: 3;
 
-  background: #273138;
-}
-
-.texture-cell::before,
-.texture-statement::before,
-.texture-spacer::before {
   width: 9px;
   height: 1px;
 
   left: -5px;
   top: 16px;
+
+  background: rgba(31, 22, 16, 0.85);
 }
 
 .texture-cell::after {
+  content: "";
+
+  position: absolute;
+  z-index: 3;
+
   width: 1px;
   height: 9px;
 
   left: -1px;
   top: 12px;
+
+  background: rgba(31, 22, 16, 0.85);
 }
 
 .texture-index {
@@ -905,16 +927,28 @@ button {
   font-size: 0.65rem;
   letter-spacing: 0.08em;
 
-  color: #273138;
+  color: rgba(23, 18, 14, 0.9);
 }
 
+/* Default image: small square */
+
 .texture-frame {
-  width: min(52%, 120px);
+  position: relative;
+
+  width: clamp(84px, 6vw, 112px);
   aspect-ratio: 1;
 
   overflow: hidden;
 
-  background: #bec8ce;
+  background: #b9a991;
+
+  transform: translateZ(0);
+
+  transition:
+    width 0.55s cubic-bezier(0.2, 0.75, 0.2, 1),
+    aspect-ratio 0.55s cubic-bezier(0.2, 0.75, 0.2, 1),
+    transform 0.55s cubic-bezier(0.2, 0.75, 0.2, 1),
+    box-shadow 0.45s ease;
 }
 
 .texture-frame img {
@@ -927,59 +961,162 @@ button {
 
   filter:
     grayscale(1)
-    contrast(1.2)
-    brightness(0.86);
+    sepia(0.18)
+    contrast(1.18)
+    brightness(0.72);
 
-  transform: scale(1.04);
+  transform: scale(1.05);
 
   transition:
     filter 0.5s ease,
-    transform 0.6s ease;
+    transform 0.7s cubic-bezier(0.2, 0.75, 0.2, 1);
+}
+
+/* Corner inspection brackets */
+
+.texture-frame::before,
+.texture-frame::after {
+  content: "";
+
+  position: absolute;
+  z-index: 5;
+
+  width: 8px;
+  height: 8px;
+
+  opacity: 0;
+
+  transition: opacity 0.3s ease;
+}
+
+.texture-frame::before {
+  top: -4px;
+  left: -4px;
+
+  border-top: 1px solid var(--ink);
+  border-left: 1px solid var(--ink);
+}
+
+.texture-frame::after {
+  right: -4px;
+  bottom: -4px;
+
+  border-right: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+}
+
+/* Hovered cell rises above others */
+
+.texture-cell:hover {
+  z-index: 20;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(215, 154, 43, 0.11),
+      transparent 72%
+    );
+}
+
+/* Image expands like the reference */
+
+.texture-cell:hover .texture-frame {
+  width: min(78%, 245px);
+  aspect-ratio: 1.72 / 1;
+
+  transform: translateY(3px);
+
+  overflow: visible;
+
+  box-shadow:
+    0 18px 34px rgba(58, 36, 18, 0.2),
+    0 0 0 1px rgba(23, 18, 14, 0.7);
+}
+
+.texture-cell:hover .texture-frame::before,
+.texture-cell:hover .texture-frame::after {
+  opacity: 1;
 }
 
 .texture-cell:hover .texture-frame img {
   filter:
     grayscale(0)
-    saturate(1.1)
-    contrast(1.08);
+    sepia(0)
+    saturate(1.12)
+    contrast(1.08)
+    brightness(0.95);
 
-  transform: scale(1.12);
+  transform: scale(1.1);
 }
 
+/* First specimen stays active by default */
+
 .texture-cell-featured {
-  align-items: flex-start;
+  z-index: 4;
 }
 
 .texture-cell-featured .texture-frame {
-  width: min(82%, 220px);
-  aspect-ratio: 1.65 / 1;
+  width: min(78%, 245px);
+  aspect-ratio: 1.72 / 1;
 
-  margin-top: 0.3rem;
+  overflow: visible;
 
-  outline: 1px solid #273138;
-  outline-offset: 3px;
+  box-shadow:
+    0 15px 30px rgba(58, 36, 18, 0.17),
+    0 0 0 1px rgba(23, 18, 14, 0.65);
 }
 
 .texture-cell-featured .texture-frame img {
   filter:
     grayscale(0)
+    sepia(0)
     saturate(1.15)
-    contrast(1.1);
+    contrast(1.07)
+    brightness(0.95);
 }
+
+.texture-cell-featured .texture-frame::before,
+.texture-cell-featured .texture-frame::after {
+  opacity: 1;
+}
+
+/* Lot code */
 
 .texture-code {
   position: absolute;
 
-  left: 1rem;
+  left: 50%;
   bottom: 0.55rem;
 
+  width: min(78%, 245px);
+
+  transform: translateX(-50%) translateY(5px);
+
+  opacity: 0;
+
   font-family: "DM Mono", monospace;
-  font-size: 0.65rem;
+  font-size: 0.62rem;
   letter-spacing: 0.04em;
+
+  color: var(--ink);
+
+  transition:
+    opacity 0.3s ease,
+    transform 0.35s ease;
 }
+
+.texture-cell:hover .texture-code,
+.texture-cell-featured .texture-code {
+  opacity: 1;
+
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Side statements */
 
 .texture-statement {
   display: flex;
+  align-items: flex-start;
 
   padding: 1.1rem 0.8rem;
 }
@@ -988,48 +1125,114 @@ button {
   max-width: 220px;
 
   font-family: "Manrope", sans-serif;
-  font-size: clamp(1rem, 1.25vw, 1.45rem);
-  line-height: 0.93;
-  letter-spacing: -0.06em;
+  font-size: clamp(1rem, 1.2vw, 1.4rem);
+  line-height: 0.94;
+  letter-spacing: -0.055em;
   font-weight: 700;
   text-transform: uppercase;
 
-  color: #8999a3;
+  color: #897965;
 }
 
-.texture-statement-top {
-  align-items: flex-start;
-}
+.texture-statement-top::after {
+  content: "";
 
-.texture-statement-bottom {
-  align-items: flex-start;
+  position: absolute;
+
+  top: 1.25rem;
+  right: 1.25rem;
+
+  width: 9px;
+  height: 9px;
+
+  background: var(--honey-gold);
+
+  box-shadow:
+    0 14px 0 transparent,
+    0 14px 0 1px rgba(51, 37, 26, 0.5),
+    0 28px 0 transparent,
+    0 28px 0 1px rgba(51, 37, 26, 0.5),
+    0 42px 0 transparent,
+    0 42px 0 1px rgba(51, 37, 26, 0.5),
+    0 56px 0 transparent,
+    0 56px 0 1px rgba(51, 37, 26, 0.5);
 }
 
 .texture-spacer {
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.07);
 }
+
+/* ========================================
+   TEXTURE INTRO FOOTER
+======================================== */
 
 .texture-intro-footer {
   position: relative;
 
   min-height: 190px;
+  overflow: hidden;
 
   display: flex;
   align-items: flex-end;
 
-  border-bottom: 1px solid rgba(34, 43, 49, 0.15);
+  border-bottom: 1px solid var(--archive-line);
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.12),
+      transparent 55%
+    );
 }
 
 .texture-wordmark {
-  margin-left: 0.5rem;
+  position: relative;
+
+  margin-left: 0.45rem;
 
   font-family: "Arial Narrow", "Manrope", sans-serif;
   font-size: clamp(6rem, 13.7vw, 15rem);
   line-height: 0.72;
   letter-spacing: -0.095em;
   font-weight: 700;
+  white-space: nowrap;
 
-  color: #91a1ab;
+  color: #907e67;
+
+  cursor: crosshair;
+  user-select: none;
+
+  transition:
+    color 0.35s ease,
+    text-shadow 0.35s ease,
+    transform 0.35s ease;
+}
+
+.texture-wordmark:hover {
+  color: var(--amber);
+
+  text-shadow:
+    0 5px 22px rgba(169, 95, 22, 0.18);
+
+  transform: translateX(5px);
+}
+
+.texture-wordmark.is-changing {
+  animation: wordmarkGlitch 0.18s steps(2, end);
+}
+
+.texture-language {
+  position: absolute;
+
+  top: 1.4rem;
+  right: 1.3rem;
+
+  font-family: "DM Mono", monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+
+  color: rgba(23, 18, 14, 0.6);
 }
 
 .texture-scroll-button {
@@ -1045,7 +1248,7 @@ button {
   font-size: 0.75rem;
   letter-spacing: 0.08em;
 
-  color: #273138;
+  color: var(--ink);
   background: transparent;
 }
 
@@ -1060,13 +1263,35 @@ button {
   width: 0;
   height: 1px;
 
-  background: #273138;
+  background: var(--ink);
 
   transition: width 0.3s ease;
 }
 
 .texture-scroll-button:hover::after {
   width: 100%;
+}
+
+@keyframes wordmarkGlitch {
+  0% {
+    transform: translateX(5px);
+    opacity: 1;
+  }
+
+  35% {
+    transform: translateX(10px) skewX(-4deg);
+    opacity: 0.55;
+  }
+
+  70% {
+    transform: translateX(1px) skewX(3deg);
+    opacity: 0.75;
+  }
+
+  100% {
+    transform: translateX(5px);
+    opacity: 1;
+  }
 }
 
 /* ========================================

@@ -1863,95 +1863,52 @@ button {
    INTRO SECTION
 ======================================== */
 
-.intro-section {
+/* ========================================
+   ORIGIN ARCHIVE
+======================================== */
+
+.origin-archive {
   position: relative;
 
-  min-height: 100vh;
-  padding: 9rem 7vw;
-
-  display: grid;
-  grid-template-columns: 0.25fr 1fr 0.8fr;
-  align-items: center;
-  gap: 5vw;
+  color: var(--cream);
 
   background:
-  radial-gradient(
-    circle at 84% 35%,
-    rgba(255, 190, 75, 0.18),
-    transparent 31%
-  ),
-  radial-gradient(
-    circle at 15% 85%,
-    rgba(107, 47, 7, 0.18),
-    transparent 32%
-  ),
-  linear-gradient(
-    145deg,
-    #160b05 0%,
-    #321708 55%,
-    #100905 100%
-  );
-
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.section-number {
-  align-self: start;
-
-  font-family: "DM Mono", monospace;
-  font-size: 0.75rem;
-
-  color: var(--bright-gold);
-}
-
-.intro-content {
-  max-width: 700px;
-}
-
-.intro-content h2 {
-  font-size: clamp(2.7rem, 5vw, 5.7rem);
-  line-height: 1;
-  letter-spacing: -0.065em;
-  font-weight: 400;
-}
-
-.intro-content > p:last-child {
-  max-width: 600px;
-  margin-top: 2rem;
-
-  font-size: 1.05rem;
-  line-height: 1.8;
-
-  color: var(--muted);
-}
-
-.archive-card {
-  width: 100%;
-  max-width: 460px;
-
-  justify-self: end;
-
-  border: 1px solid rgba(255, 255, 255, 0.13);
-
-  background:
+    radial-gradient(
+      circle at 78% 12%,
+      rgba(255, 191, 75, 0.2),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 12% 75%,
+      rgba(112, 52, 8, 0.18),
+      transparent 34%
+    ),
     linear-gradient(
-      145deg,
-      rgba(255, 255, 255, 0.055),
-      rgba(255, 255, 255, 0.012)
+      140deg,
+      #100905 0%,
+      #251207 48%,
+      #4b2409 100%
     );
 
-  backdrop-filter: blur(18px);
+  border-top: 1px solid rgba(255, 210, 132, 0.14);
 }
 
-.archive-card-header {
-  min-height: 54px;
-  padding: 0 1.2rem;
+.origin-header {
+  min-height: 88vh;
+  padding: 8rem 4vw 5rem;
 
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: flex-end;
 
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 210, 132, 0.15);
+}
+
+.origin-header-meta {
+  margin-bottom: auto;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 
   font-family: "DM Mono", monospace;
   font-size: 0.65rem;
@@ -1961,58 +1918,360 @@ button {
   color: var(--muted);
 }
 
-.archive-visual {
-  min-height: 310px;
+.origin-header-meta span:nth-child(2) {
+  text-align: center;
+}
+
+.origin-header-meta span:last-child {
+  text-align: right;
+}
+
+.origin-header h2 {
+  max-width: 1250px;
+
+  font-size: clamp(4.8rem, 10vw, 11.5rem);
+  line-height: 0.82;
+  letter-spacing: -0.09em;
+  font-weight: 400;
+}
+
+.origin-header h2 span {
+  display: block;
+
+  color: var(--bright-gold);
+  font-style: italic;
+}
+
+.origin-header > p {
+  max-width: 500px;
+
+  margin-top: 2.5rem;
+  margin-left: auto;
+
+  font-size: 1rem;
+  line-height: 1.7;
+
+  color: var(--muted);
+}
+
+.origin-workspace {
+  position: relative;
+
+  display: grid;
+  grid-template-columns: minmax(290px, 25vw) 1fr;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.origin-sidebar {
+  position: sticky;
+  top: 0;
+
+  height: 100vh;
+
+  padding: 2rem;
 
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;
+
+  border-right: 1px solid rgba(255, 210, 132, 0.15);
 
   background:
     linear-gradient(
-      rgba(255, 255, 255, 0.025) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      90deg,
-      rgba(255, 255, 255, 0.025) 1px,
-      transparent 1px
+      180deg,
+      rgba(255, 196, 87, 0.05),
+      rgba(15, 8, 4, 0.25)
     );
 
-  background-size: 35px 35px;
+  backdrop-filter: blur(12px);
 }
 
-.mini-orb {
-  width: 150px;
-  aspect-ratio: 1;
-
-  border-radius: 50%;
-
-  background:
-    radial-gradient(
-      circle at 35% 30%,
-      #fff8da,
-      transparent 8%
-    ),
-    radial-gradient(
-      circle at 45% 38%,
-      #f6bd43,
-      #aa5c0c 55%,
-      #351802
-    );
-
-  box-shadow:
-    inset -25px -30px 45px rgba(31, 10, 0, 0.65),
-    0 0 65px rgba(216, 148, 32, 0.22);
-
-  animation: float 5s ease-in-out infinite;
+.origin-sidebar-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
 }
 
-.archive-data {
+.origin-chapter-number {
+  font-family: "DM Mono", monospace;
+  font-size: 0.72rem;
+
+  color: var(--bright-gold);
+}
+
+.origin-sidebar-label {
+  max-width: 150px;
+
+  text-align: right;
+  text-transform: uppercase;
+
+  font-family: "DM Mono", monospace;
+  font-size: 0.61rem;
+  line-height: 1.4;
+  letter-spacing: 0.08em;
+
+  color: var(--muted);
+}
+
+.origin-sidebar-content {
+  margin-block: auto;
+}
+
+.origin-sidebar-description {
+  max-width: 320px;
+
+  font-size: clamp(1.2rem, 1.7vw, 1.75rem);
+  line-height: 1.22;
+  letter-spacing: -0.035em;
+
+  color: #eadbc3;
+}
+
+.origin-progress {
+  margin-top: 3rem;
+
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0.8rem;
+
+  font-family: "DM Mono", monospace;
+  font-size: 0.62rem;
+
+  color: var(--muted);
+}
+
+.origin-progress-track {
+  height: 1px;
+
+  overflow: hidden;
+
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.origin-progress-fill {
+  width: 20%;
+  height: 100%;
+
+  background: var(--bright-gold);
+  box-shadow: 0 0 15px rgba(255, 199, 90, 0.6);
+}
+
+.origin-sidebar-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+
+  font-family: "DM Mono", monospace;
+  font-size: 0.52rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+
+  color: #7f6c59;
+}
+
+.origin-records {
+  position: relative;
+}
+
+.origin-record {
+  position: relative;
+
+  min-height: 100vh;
+  padding: 2rem 3vw 3rem;
+
+  display: grid;
+  grid-template-columns: minmax(240px, 0.9fr) 1.1fr;
+  grid-template-rows: auto 1fr auto;
+  column-gap: 4vw;
+
+  border-bottom: 1px solid rgba(255, 210, 132, 0.15);
+
+  background:
+    radial-gradient(
+      circle at 30% 45%,
+      rgba(255, 184, 57, 0.08),
+      transparent 32%
+    );
+}
+
+.origin-record-top {
+  grid-column: 1 / -1;
+
+  display: flex;
+  justify-content: space-between;
+
+  padding-bottom: 1.2rem;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+  font-family: "DM Mono", monospace;
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+
+  color: var(--muted);
+}
+
+.origin-record-image {
+  position: relative;
+
+  align-self: center;
+
+  width: 100%;
+  max-width: 470px;
+  aspect-ratio: 0.9 / 1;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(255, 209, 127, 0.18);
+
+  background: #1b0e07;
+}
+
+.origin-record-image::before,
+.origin-record-image::after {
+  content: "";
+
+  position: absolute;
+  z-index: 4;
+
+  width: 18px;
+  height: 18px;
+
+  pointer-events: none;
+}
+
+.origin-record-image::before {
+  top: 9px;
+  left: 9px;
+
+  border-top: 1px solid var(--bright-gold);
+  border-left: 1px solid var(--bright-gold);
+}
+
+.origin-record-image::after {
+  right: 9px;
+  bottom: 9px;
+
+  border-right: 1px solid var(--bright-gold);
+  border-bottom: 1px solid var(--bright-gold);
+}
+
+.origin-record-image img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+  object-fit: cover;
+
+  filter:
+    grayscale(0.75)
+    sepia(0.35)
+    contrast(1.15)
+    brightness(0.72);
+
+  transform: scale(1.05);
+
+  transition:
+    filter 0.7s ease,
+    transform 1s cubic-bezier(0.2, 0.75, 0.2, 1);
+}
+
+.origin-record:hover .origin-record-image img {
+  filter:
+    grayscale(0)
+    sepia(0.08)
+    saturate(1.2)
+    contrast(1.05)
+    brightness(0.9);
+
+  transform: scale(1.12);
+}
+
+.origin-image-code {
+  position: absolute;
+  z-index: 5;
+
+  left: 1rem;
+  bottom: 1rem;
+
+  padding: 0.4rem 0.55rem;
+
+  font-family: "DM Mono", monospace;
+  font-size: 0.53rem;
+  letter-spacing: 0.08em;
+
+  color: #1b0d04;
+  background: var(--bright-gold);
+}
+
+.origin-record-content {
+  align-self: center;
+
+  max-width: 650px;
+}
+
+.origin-record-era {
+  margin-bottom: 1.2rem;
+
+  font-family: "DM Mono", monospace;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+
+  color: var(--bright-gold);
+}
+
+.origin-record-content h3 {
+  font-size: clamp(3rem, 5vw, 6.5rem);
+  line-height: 0.92;
+  letter-spacing: -0.07em;
+  font-weight: 400;
+}
+
+.origin-record-content > p:last-child {
+  max-width: 520px;
+
+  margin-top: 2rem;
+
+  font-size: 1rem;
+  line-height: 1.75;
+
+  color: var(--muted);
+}
+
+.origin-record-footer {
+  grid-column: 1 / -1;
+
+  display: flex;
+  justify-content: space-between;
+
+  padding-top: 1.2rem;
 
   border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+  font-family: "DM Mono", monospace;
+  font-size: 0.58rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+
+  color: #826e5c;
+}
+
+.origin-record-final {
+  background:
+    radial-gradient(
+      circle at 38% 42%,
+      rgba(255, 191, 76, 0.2),
+      transparent 32%
+    ),
+    linear-gradient(
+      135deg,
+      rgba(74, 35, 9, 0.2),
+      rgba(16, 9, 5, 0.25)
+    );
 }
 
 .archive-data div {

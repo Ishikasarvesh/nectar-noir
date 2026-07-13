@@ -546,66 +546,319 @@ document.querySelector("#app").innerHTML = `
 
     </section>
 
-    <section class="intro-section" id="origin">
+    <section class="origin-archive" id="origin">
 
-      <div class="section-number">
-        01
-      </div>
+  <div class="origin-header">
 
-      <div class="intro-content">
+    <div class="origin-header-meta">
+      <span>Chapter 01</span>
+      <span>Origin Archive</span>
+      <span>Records H-001 — H-005</span>
+    </div>
 
-        <p class="section-label">
-          Origin Archive
+    <h2>
+      Before it became
+      <span>liquid gold.</span>
+    </h2>
+
+    <p>
+      Five records tracing honey from ancient preservation
+      to modern classified harvests.
+    </p>
+
+  </div>
+
+  <div class="origin-workspace">
+
+    <aside class="origin-sidebar">
+
+      <div class="origin-sidebar-top">
+
+        <span class="origin-chapter-number">
+          01
+        </span>
+
+        <p class="origin-sidebar-label">
+          Historical specimen records
         </p>
 
-        <h2>
-          Every harvest carries the memory of its landscape.
-        </h2>
+      </div>
 
-        <p>
-          Climate, flowers, altitude and season create a signature inside
-          every vessel. Nectar Noir catalogues these differences and
-          preserves each batch as a rare natural specimen.
+      <div class="origin-sidebar-content">
+
+        <p class="origin-sidebar-description">
+          Honey has travelled through temples, medicine,
+          trade routes and laboratories. Every era altered
+          the way humanity collected, valued and protected it.
         </p>
 
-      </div>
+        <div class="origin-progress">
 
-      <div class="archive-card">
+          <span class="origin-current-record">
+            01
+          </span>
 
-        <div class="archive-card-header">
-          <span>Classified specimen</span>
-          <span>H-01</span>
-        </div>
-
-        <div class="archive-visual">
-          <div class="mini-orb"></div>
-        </div>
-
-        <div class="archive-data">
-          <div>
-            <span>Origin</span>
-            <strong>Western Ghats</strong>
+          <div class="origin-progress-track">
+            <div class="origin-progress-fill"></div>
           </div>
 
-          <div>
-            <span>Source</span>
-            <strong>Wildflower</strong>
-          </div>
+          <span>05</span>
 
-          <div>
-            <span>Harvest</span>
-            <strong>Spring 2026</strong>
-          </div>
-
-          <div>
-            <span>Status</span>
-            <strong>Restricted</strong>
-          </div>
         </div>
 
       </div>
 
-    </section>
+      <div class="origin-sidebar-footer">
+
+        <span>
+          Scroll to inspect
+        </span>
+
+        <span>
+          Archive access granted
+        </span>
+
+      </div>
+
+    </aside>
+
+    <div class="origin-records">
+
+      <article
+        class="origin-record"
+        data-record="01"
+      >
+
+        <div class="origin-record-top">
+          <span>Record H-001</span>
+          <span>Circa 2400 BCE</span>
+        </div>
+
+        <div class="origin-record-image">
+          <img
+            src="/textures/honey-03.jpg"
+            alt="Ancient honey preservation record"
+          />
+
+          <span class="origin-image-code">
+            ARCHIVE / EGY-2400
+          </span>
+        </div>
+
+        <div class="origin-record-content">
+
+          <p class="origin-record-era">
+            Ancient preservation
+          </p>
+
+          <h3>
+            Sealed for the afterlife.
+          </h3>
+
+          <p>
+            Early civilisations treated honey as food,
+            medicine and ceremonial material. Its ability
+            to endure made it a symbol of permanence.
+          </p>
+
+        </div>
+
+        <div class="origin-record-footer">
+          <span>Region: Lower Nile</span>
+          <span>Status: Historical</span>
+        </div>
+
+      </article>
+
+      <article
+        class="origin-record"
+        data-record="02"
+      >
+
+        <div class="origin-record-top">
+          <span>Record H-002</span>
+          <span>Circa 600 BCE</span>
+        </div>
+
+        <div class="origin-record-image">
+          <img
+            src="/textures/honey-11.jpg"
+            alt="Ancient medicinal honey archive"
+          />
+
+          <span class="origin-image-code">
+            ARCHIVE / MED-0600
+          </span>
+        </div>
+
+        <div class="origin-record-content">
+
+          <p class="origin-record-era">
+            Medicinal classification
+          </p>
+
+          <h3>
+            Prescribed before it was branded.
+          </h3>
+
+          <p>
+            Honey entered early medical practice as a
+            carefully measured substance used in healing,
+            preservation and natural formulations.
+          </p>
+
+        </div>
+
+        <div class="origin-record-footer">
+          <span>Region: Mediterranean</span>
+          <span>Status: Documented</span>
+        </div>
+
+      </article>
+
+      <article
+        class="origin-record"
+        data-record="03"
+      >
+
+        <div class="origin-record-top">
+          <span>Record H-003</span>
+          <span>Circa 1100 CE</span>
+        </div>
+
+        <div class="origin-record-image">
+          <img
+            src="/textures/honey-05.jpg"
+            alt="Traditional honey trade record"
+          />
+
+          <span class="origin-image-code">
+            ARCHIVE / TRD-1100
+          </span>
+        </div>
+
+        <div class="origin-record-content">
+
+          <p class="origin-record-era">
+            Regional trade
+          </p>
+
+          <h3>
+            Carried across guarded routes.
+          </h3>
+
+          <p>
+            Rare harvests moved between regions as valuable
+            goods. Origin, floral source and purity began
+            defining the worth of each vessel.
+          </p>
+
+        </div>
+
+        <div class="origin-record-footer">
+          <span>Region: Silk Routes</span>
+          <span>Status: Traded</span>
+        </div>
+
+      </article>
+
+      <article
+        class="origin-record"
+        data-record="04"
+      >
+
+        <div class="origin-record-top">
+          <span>Record H-004</span>
+          <span>Circa 1850 CE</span>
+        </div>
+
+        <div class="origin-record-image">
+          <img
+            src="/textures/honey-10.jpg"
+            alt="Modern beekeeping archive"
+          />
+
+          <span class="origin-image-code">
+            ARCHIVE / API-1850
+          </span>
+        </div>
+
+        <div class="origin-record-content">
+
+          <p class="origin-record-era">
+            Controlled cultivation
+          </p>
+
+          <h3>
+            The hive became a system.
+          </h3>
+
+          <p>
+            New hive structures made harvesting more
+            controlled and repeatable while preserving the
+            colony and separating individual honey records.
+          </p>
+
+        </div>
+
+        <div class="origin-record-footer">
+          <span>Region: Global</span>
+          <span>Status: Standardised</span>
+        </div>
+
+      </article>
+
+      <article
+        class="origin-record origin-record-final"
+        data-record="05"
+      >
+
+        <div class="origin-record-top">
+          <span>Record H-005</span>
+          <span>2026 CE</span>
+        </div>
+
+        <div class="origin-record-image">
+          <img
+            src="/textures/honey-01.jpg"
+            alt="Nectar Noir classified honey"
+          />
+
+          <span class="origin-image-code">
+            ARCHIVE / NN-2026
+          </span>
+        </div>
+
+        <div class="origin-record-content">
+
+          <p class="origin-record-era">
+            Nectar Noir classification
+          </p>
+
+          <h3>
+            Harvested by nature. Controlled by few.
+          </h3>
+
+          <p>
+            Nectar Noir records every batch by landscape,
+            flower, season, density and rarity before sealing
+            it inside the Golden Archive.
+          </p>
+
+        </div>
+
+        <div class="origin-record-footer">
+          <span>Region: Western Ghats</span>
+          <span>Status: Restricted</span>
+        </div>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
     <div class="texture-intro-footer">
 
   <div class="texture-wordmark-wrapper">

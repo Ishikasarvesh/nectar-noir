@@ -1523,3 +1523,95 @@ textureWordmark.addEventListener("mouseleave", () => {
 
   textureWordmark.classList.remove("is-changing");
 });
+/* ========================================
+   ORIGIN ARCHIVE ANIMATIONS
+======================================== */
+
+const originRecords = gsap.utils.toArray(".origin-record");
+
+gsap.from(".origin-header-meta span", {
+  scrollTrigger: {
+    trigger: ".origin-header",
+    start: "top 75%",
+  },
+  y: 20,
+  opacity: 0,
+  stagger: 0.12,
+  duration: 0.7,
+  ease: "power3.out",
+});
+
+gsap.from(".origin-header h2", {
+  scrollTrigger: {
+    trigger: ".origin-header",
+    start: "top 65%",
+  },
+  y: 120,
+  opacity: 0,
+  duration: 1.2,
+  ease: "power4.out",
+});
+
+gsap.from(".origin-header > p", {
+  scrollTrigger: {
+    trigger: ".origin-header",
+    start: "top 55%",
+  },
+  y: 30,
+  opacity: 0,
+  duration: 0.8,
+  ease: "power3.out",
+});
+
+originRecords.forEach((record, index) => {
+  const recordNumber = String(index + 1).padStart(2, "0");
+
+  gsap.from(record.querySelector(".origin-record-image"), {
+    scrollTrigger: {
+      trigger: record,
+      start: "top 70%",
+    },
+    clipPath: "inset(0 100% 0 0)",
+    duration: 1.1,
+    ease: "power4.inOut",
+  });
+
+  gsap.from(record.querySelector(".origin-record-content"), {
+    scrollTrigger: {
+      trigger: record,
+      start: "top 65%",
+    },
+    y: 60,
+    opacity: 0,
+    duration: 0.9,
+    ease: "power3.out",
+  });
+
+  ScrollTrigger.create({
+    trigger: record,
+    start: "top center",
+    end: "bottom center",
+
+    onEnter: () => {
+      updateOriginProgress(index, recordNumber);
+    },
+
+    onEnterBack: () => {
+      updateOriginProgress(index, recordNumber);
+    },
+  });
+});
+
+function updateOriginProgress(index, recordNumber) {
+  const progress = ((index + 1) / originRecords.length) * 100;
+
+  document.querySelector(
+    ".origin-current-record"
+  ).textContent = recordNumber;
+
+  gsap.to(".origin-progress-fill", {
+    width: `${progress}%`,
+    duration: 0.55,
+    ease: "power3.out",
+  });
+}

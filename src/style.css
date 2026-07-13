@@ -2448,6 +2448,31 @@ button {
 
     margin-top: 2rem;
   }
+  .origin-header {
+  min-height: 75vh;
+}
+
+.origin-workspace {
+  grid-template-columns: 1fr;
+}
+
+.origin-sidebar {
+  position: relative;
+
+  height: auto;
+  min-height: 360px;
+
+  border-right: 0;
+  border-bottom: 1px solid rgba(255, 210, 132, 0.15);
+}
+
+.origin-record {
+  min-height: auto;
+
+  grid-template-columns: 1fr 1fr;
+
+  padding-block: 4rem;
+}
 }
 
 /* ========================================
@@ -2714,6 +2739,73 @@ button {
   .archive-visual {
     min-height: 260px;
   }
+  .origin-header {
+  min-height: 72vh;
+
+  padding: 6rem 1.2rem 3rem;
+}
+
+.origin-header-meta {
+  grid-template-columns: 1fr auto;
+  gap: 1rem;
+}
+
+.origin-header-meta span:nth-child(2) {
+  display: none;
+}
+
+.origin-header h2 {
+  font-size: clamp(4rem, 19vw, 7rem);
+}
+
+.origin-header > p {
+  margin-left: 0;
+
+  font-size: 0.88rem;
+}
+
+.origin-sidebar {
+  min-height: 420px;
+
+  padding: 1.4rem 1.2rem;
+}
+
+.origin-sidebar-description {
+  font-size: 1.4rem;
+}
+
+.origin-record {
+  padding: 1.2rem 1.2rem 2rem;
+
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto auto auto;
+
+  gap: 2rem;
+}
+
+.origin-record-top {
+  grid-column: 1;
+}
+
+.origin-record-image {
+  max-width: none;
+
+  aspect-ratio: 1 / 1.05;
+}
+
+.origin-record-content h3 {
+  font-size: clamp(3.2rem, 15vw, 5rem);
+}
+
+.origin-record-footer {
+  grid-column: 1;
+
+  gap: 1rem;
+}
+
+.origin-record-footer span:last-child {
+  text-align: right;
+}
 }
 
 /* ========================================

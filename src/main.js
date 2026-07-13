@@ -3,7 +3,159 @@ import gsap from "gsap";
 import Lenis from "lenis";
 
 document.querySelector("#app").innerHTML = `
-  <div class="loader">
+  <div class="access-gate">
+
+  <div class="access-cities">
+
+    <div class="access-city access-city-left">
+      <span class="city-marker"></span>
+
+      <p>Mumbai, India</p>
+
+      <strong
+        class="city-time"
+        data-timezone="Asia/Kolkata"
+      >
+        00:00 GMT+5:30
+      </strong>
+    </div>
+
+    <div class="access-city access-city-center">
+      <span class="city-marker"></span>
+
+      <p>Tokyo, Japan</p>
+
+      <strong
+        class="city-time"
+        data-timezone="Asia/Tokyo"
+      >
+        00:00 GMT+9
+      </strong>
+    </div>
+
+    <div class="access-city access-city-right">
+      <span class="city-marker"></span>
+
+      <p>New York, USA</p>
+
+      <strong
+        class="city-time"
+        data-timezone="America/New_York"
+      >
+        00:00 GMT-5
+      </strong>
+    </div>
+
+  </div>
+
+  <div class="access-center">
+
+    <button
+      class="access-card"
+      type="button"
+      aria-label="Open passcode terminal"
+    >
+      <div class="card-noise"></div>
+      <div class="card-shine"></div>
+
+      <div class="card-header">
+        <span>NN-26 / VLT</span>
+        <span>AUTHORISED MATERIAL</span>
+      </div>
+
+      <div class="card-brand">
+        NECTAR
+        <span>NOIR</span>
+      </div>
+
+      <div class="card-divider"></div>
+
+      <div class="card-information">
+
+        <div>
+          <strong>CONTROLLED</strong>
+          <span>GOLDEN RESERVE</span>
+        </div>
+
+        <div>
+          <strong>SUBSTANCE H-01</strong>
+          <span>WILDFLOWER SPECIMEN</span>
+        </div>
+
+        <div>
+          <strong>NECTAR NOIR</strong>
+          <span>NON-TRANSFERABLE</span>
+        </div>
+
+      </div>
+
+      <div class="card-honeycomb">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </button>
+
+    <div class="access-command">
+      <button
+        class="open-terminal-button"
+        type="button"
+      >
+        Access the archive
+      </button>
+
+      <form class="passcode-form" autocomplete="off">
+
+        <label for="access-passcode">
+          Enter passcode
+        </label>
+
+        <div class="passcode-row">
+
+          <input
+            id="access-passcode"
+            class="passcode-input"
+            type="text"
+            maxlength="4"
+            placeholder="••••"
+            aria-label="Archive passcode"
+          />
+
+          <button
+            class="passcode-submit"
+            type="submit"
+          >
+            Enter
+          </button>
+
+        </div>
+
+        <p class="passcode-feedback">
+          Awaiting authorisation
+        </p>
+
+      </form>
+    </div>
+
+  </div>
+
+  <div class="access-footer">
+
+    <p class="visible-passcode">
+      Passcode: <strong>NN26</strong>
+    </p>
+
+    <p>
+      © 2026 Nectar Noir. All rights reserved.
+      Distributed under strict control. Unauthorised access,
+      reproduction or modification is prohibited.
+      NN26-VLT.
+    </p>
+
+  </div>
+
+</div>
+<div class="loader">
     <div class="loader-top">
       <span>Nectar Noir</span>
       <span>Archive System</span>

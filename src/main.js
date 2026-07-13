@@ -184,6 +184,216 @@ document.querySelector("#app").innerHTML = `
 
   <main class="website">
 
+  <section class="texture-intro" id="texture-intro">
+
+  <div class="texture-grid">
+
+    <article class="texture-cell texture-cell-featured">
+      <span class="texture-index">(01)</span>
+
+      <div class="texture-frame">
+        <img
+          src="/textures/honey-01.jpg"
+          alt="Golden honey texture"
+        />
+      </div>
+
+      <span class="texture-code">
+        LOT-H01-IN
+      </span>
+    </article>
+
+    <article class="texture-cell">
+      <span class="texture-index">(02)</span>
+
+      <div class="texture-frame">
+        <img
+          src="/textures/honey-02.jpg"
+          alt="Honeycomb texture"
+        />
+      </div>
+    </article>
+
+    <article class="texture-cell">
+      <span class="texture-index">(03)</span>
+
+      <div class="texture-frame">
+        <img
+          src="/textures/honey-03.jpg"
+          alt="Crystallized honey texture"
+        />
+      </div>
+    </article>
+
+    <article class="texture-cell">
+      <span class="texture-index">(04)</span>
+
+      <div class="texture-frame">
+        <img
+          src="/textures/honey-04.jpg"
+          alt="Dark honey texture"
+        />
+      </div>
+    </article>
+
+    <article class="texture-cell">
+      <span class="texture-index">(05)</span>
+
+      <div class="texture-frame">
+        <img
+          src="/textures/honey-05.jpg"
+          alt="Beeswax texture"
+        />
+      </div>
+    </article>
+
+    <aside class="texture-statement texture-statement-top">
+      <p>
+        The world’s most
+        desired golden liquid.
+      </p>
+    </aside>
+
+    <article class="texture-cell">
+      <span class="texture-index">(06)</span>
+
+      <div class="texture-frame">
+        <img
+          src="/textures/honey-06.jpg"
+          alt="Raw honey texture"
+        />
+      </div>
+    </article>
+
+    <article class="texture-cell">
+      <span class="texture-index">(07)</span>
+
+      <div class="texture-frame">
+        <img
+          src="/textures/honey-07.jpg"
+          alt="Honey bubbles texture"
+        />
+      </div>
+    </article>
+
+    <article class="texture-cell">
+      <span class="texture-index">(08)</span>
+
+      <div class="texture-frame">
+        <img
+          src="/textures/honey-08.jpg"
+          alt="Honey flowing texture"
+        />
+      </div>
+    </article>
+
+    <article class="texture-cell">
+      <span class="texture-index">(09)</span>
+
+      <div class="texture-frame">
+        <img
+          src="/textures/honey-09.jpg"
+          alt="Honey on glass texture"
+        />
+      </div>
+    </article>
+
+    <article class="texture-cell">
+      <span class="texture-index">(10)</span>
+
+      <div class="texture-frame">
+        <img
+          src="/textures/honey-10.jpg"
+          alt="Wildflower honey texture"
+        />
+      </div>
+    </article>
+
+    <div class="texture-spacer"></div>
+
+    <article class="texture-cell">
+      <span class="texture-index">(11)</span>
+
+      <div class="texture-frame">
+        <img
+          src="/textures/honey-11.jpg"
+          alt="Amber honey texture"
+        />
+      </div>
+    </article>
+
+    <article class="texture-cell">
+      <span class="texture-index">(12)</span>
+
+      <div class="texture-frame">
+        <img
+          src="/textures/honey-12.jpg"
+          alt="Wax honey texture"
+        />
+      </div>
+    </article>
+
+    <article class="texture-cell">
+      <span class="texture-index">(13)</span>
+
+      <div class="texture-frame">
+        <img
+          src="/textures/honey-13.jpg"
+          alt="Honey crystal texture"
+        />
+      </div>
+    </article>
+
+    <article class="texture-cell">
+      <span class="texture-index">(14)</span>
+
+      <div class="texture-frame">
+        <img
+          src="/textures/honey-14.jpg"
+          alt="Dark forest honey texture"
+        />
+      </div>
+    </article>
+
+    <article class="texture-cell">
+      <span class="texture-index">(15)</span>
+
+      <div class="texture-frame">
+        <img
+          src="/textures/honey-15.jpg"
+          alt="Golden wax texture"
+        />
+      </div>
+    </article>
+
+    <aside class="texture-statement texture-statement-bottom">
+      <p>
+        Tracked. Graded. Preserved.
+        What looks like honey
+        moves like a commodity.
+      </p>
+    </aside>
+
+  </div>
+
+  <div class="texture-intro-footer">
+
+    <h1 class="texture-wordmark">
+      NectarNoir
+    </h1>
+
+    <button
+      class="texture-scroll-button"
+      type="button"
+      aria-label="Scroll to the main website"
+    >
+      (scroll down)
+    </button>
+
+  </div>
+
+</section>
+
     <header class="navbar">
       <a href="#" class="brand">
         NECTAR NOIR

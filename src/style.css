@@ -33,6 +33,531 @@ body {
   overflow-x: hidden;
   background: var(--black);
 }
+body.is-gate-locked,
+body.is-loading {
+  overflow: hidden;
+}
+
+.loader-hidden {
+  display: none;
+}
+
+/* ========================================
+   ACCESS GATE
+======================================== */
+
+.access-gate {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+
+  min-height: 100svh;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  padding: 1.5rem 1.2rem 1rem;
+
+  color: #a9b3ba;
+  background:
+    radial-gradient(
+      circle at 50% 45%,
+      rgba(216, 148, 32, 0.075),
+      transparent 31%
+    ),
+    #030303;
+}
+
+.access-gate::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+
+  pointer-events: none;
+
+  opacity: 0.22;
+
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent 0,
+      transparent 3px,
+      rgba(255, 255, 255, 0.025) 4px
+    );
+}
+
+.access-gate::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.35),
+      transparent 20%,
+      transparent 80%,
+      rgba(0, 0, 0, 0.35)
+    );
+}
+
+/* City clocks */
+
+.access-cities {
+  position: relative;
+  z-index: 2;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: start;
+}
+
+.access-city {
+  position: relative;
+
+  font-family: "DM Mono", monospace;
+  text-transform: uppercase;
+}
+
+.access-city-center {
+  text-align: center;
+}
+
+.access-city-right {
+  text-align: right;
+}
+
+.city-marker {
+  display: block;
+
+  width: 10px;
+  height: 10px;
+
+  margin-bottom: 0.65rem;
+
+  background: #9ca9b0;
+}
+
+.access-city-center .city-marker {
+  margin-inline: auto;
+}
+
+.access-city-right .city-marker {
+  margin-left: auto;
+}
+
+.access-city p {
+  font-size: clamp(0.62rem, 1vw, 0.85rem);
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  font-weight: 500;
+}
+
+.access-city strong {
+  display: block;
+
+  margin-top: 0.15rem;
+
+  font-size: clamp(0.62rem, 1vw, 0.85rem);
+  letter-spacing: 0.03em;
+  color: #7892a3;
+}
+
+/* Central access area */
+
+.access-center {
+  position: relative;
+  z-index: 3;
+
+  width: min(92vw, 780px);
+  margin: auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.access-card {
+  position: relative;
+
+  width: min(70vw, 720px);
+  aspect-ratio: 2.15 / 1;
+
+  padding: 1rem 1.3rem;
+
+  overflow: hidden;
+  cursor: pointer;
+
+  text-align: left;
+  color: #171717;
+
+  border: 1px solid #7e7e7e;
+
+  background:
+    linear-gradient(
+      120deg,
+      #575757 0%,
+      #bbbbbb 20%,
+      #686868 42%,
+      #d1d1d1 56%,
+      #606060 78%,
+      #a6a6a6 100%
+    );
+
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.17),
+    0 22px 70px rgba(0, 0, 0, 0.75),
+    inset 0 0 35px rgba(0, 0, 0, 0.45);
+
+  transform: perspective(1000px) rotateX(2deg);
+  transform-style: preserve-3d;
+
+  transition:
+    transform 0.45s ease,
+    filter 0.45s ease;
+}
+
+.access-card:hover {
+  transform:
+    perspective(1000px)
+    rotateX(0deg)
+    scale(1.025);
+
+  filter: brightness(1.12);
+}
+
+.card-noise {
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+
+  opacity: 0.32;
+  mix-blend-mode: overlay;
+
+  background-image:
+    repeating-radial-gradient(
+      circle at 30% 30%,
+      rgba(255, 255, 255, 0.8) 0,
+      rgba(255, 255, 255, 0.8) 1px,
+      transparent 1px,
+      transparent 4px
+    );
+}
+
+.card-shine {
+  position: absolute;
+  inset: -70%;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      115deg,
+      transparent 38%,
+      rgba(255, 255, 255, 0.48) 49%,
+      transparent 60%
+    );
+
+  transform: translateX(-45%);
+  transition: transform 1s ease;
+}
+
+.access-card:hover .card-shine {
+  transform: translateX(45%);
+}
+
+.card-header {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  justify-content: space-between;
+
+  font-family: "DM Mono", monospace;
+  font-size: clamp(0.4rem, 0.7vw, 0.62rem);
+  letter-spacing: 0.05em;
+}
+
+.card-brand {
+  position: relative;
+  z-index: 2;
+
+  margin-top: 0.6rem;
+
+  font-family: "Arial Narrow", "Manrope", sans-serif;
+  font-size: clamp(2.8rem, 7vw, 6.5rem);
+  line-height: 0.82;
+  letter-spacing: -0.09em;
+  font-weight: 700;
+  white-space: nowrap;
+
+  color: #151515;
+
+  text-shadow:
+    1px 1px 0 rgba(255, 255, 255, 0.55),
+    -1px -1px 0 rgba(0, 0, 0, 0.35);
+}
+
+.card-brand span {
+  color: #6f3b08;
+}
+
+.card-divider {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  height: 8px;
+
+  margin-top: 0.7rem;
+
+  border-block: 2px solid rgba(20, 20, 20, 0.75);
+
+  background: rgba(20, 20, 20, 0.18);
+}
+
+.card-information {
+  position: relative;
+  z-index: 2;
+
+  margin-top: 0.7rem;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+
+  font-family: "DM Mono", monospace;
+  text-transform: uppercase;
+}
+
+.card-information div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.card-information strong {
+  font-size: clamp(0.42rem, 0.8vw, 0.68rem);
+}
+
+.card-information span {
+  font-size: clamp(0.35rem, 0.65vw, 0.55rem);
+}
+
+.card-honeycomb {
+  position: absolute;
+  right: 1.1rem;
+  bottom: 1rem;
+
+  display: flex;
+  gap: 0.3rem;
+
+  opacity: 0.5;
+}
+
+.card-honeycomb span {
+  width: 17px;
+  height: 19px;
+
+  border: 2px solid #2c1a07;
+
+  clip-path: polygon(
+    25% 0,
+    75% 0,
+    100% 50%,
+    75% 100%,
+    25% 100%,
+    0 50%
+  );
+}
+
+/* Passcode controls */
+
+.access-command {
+  min-height: 122px;
+  margin-top: 1.6rem;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.open-terminal-button {
+  border: 0;
+  cursor: pointer;
+
+  font-family: "Manrope", sans-serif;
+  font-size: clamp(1.35rem, 3vw, 2.6rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.06em;
+
+  color: #f1eee7;
+  background: transparent;
+
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.open-terminal-button:hover {
+  color: var(--bright-gold);
+  transform: scale(1.03);
+}
+
+.passcode-form {
+  display: none;
+
+  width: min(90vw, 430px);
+
+  text-align: center;
+}
+
+.passcode-form.is-visible {
+  display: block;
+}
+
+.passcode-form label {
+  display: block;
+
+  margin-bottom: 0.8rem;
+
+  font-size: clamp(1.35rem, 3vw, 2.6rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.06em;
+
+  color: #687078;
+}
+
+.passcode-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.38);
+}
+
+.passcode-input {
+  width: 100%;
+  height: 48px;
+
+  border: 0;
+  outline: 0;
+
+  text-align: center;
+  text-transform: uppercase;
+
+  font-family: "DM Mono", monospace;
+  font-size: 1.15rem;
+  letter-spacing: 0.45em;
+
+  color: var(--cream);
+  background: transparent;
+}
+
+.passcode-input::placeholder {
+  color: #40454a;
+}
+
+.passcode-submit {
+  padding: 0 1rem;
+
+  border: 0;
+  cursor: pointer;
+
+  font-family: "DM Mono", monospace;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+
+  color: #090909;
+  background: var(--bright-gold);
+}
+
+.passcode-feedback {
+  min-height: 20px;
+  margin-top: 0.75rem;
+
+  font-family: "DM Mono", monospace;
+  font-size: 0.58rem;
+  text-transform: uppercase;
+  letter-spacing: 0.11em;
+
+  color: #676d72;
+}
+
+.passcode-feedback.is-error {
+  color: #d36e5d;
+}
+
+.passcode-feedback.is-success {
+  color: var(--bright-gold);
+}
+
+/* Footer */
+
+.access-footer {
+  position: relative;
+  z-index: 2;
+
+  max-width: 720px;
+  margin-inline: auto;
+
+  text-align: center;
+
+  font-family: "DM Mono", monospace;
+  font-size: clamp(0.48rem, 0.8vw, 0.67rem);
+  line-height: 1.15;
+  text-transform: uppercase;
+
+  color: #76828a;
+}
+
+.visible-passcode {
+  margin-bottom: 0.25rem;
+
+  color: #d6d9db;
+}
+
+.visible-passcode strong {
+  color: var(--bright-gold);
+}
+
+.access-card.is-denied {
+  animation: deniedShake 0.42s ease;
+}
+
+@keyframes deniedShake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  20% {
+    transform: translateX(-18px) rotate(-1deg);
+  }
+
+  40% {
+    transform: translateX(15px) rotate(1deg);
+  }
+
+  60% {
+    transform: translateX(-10px);
+  }
+
+  80% {
+    transform: translateX(6px);
+  }
+}
 body.is-loading {
   overflow: hidden;
 }

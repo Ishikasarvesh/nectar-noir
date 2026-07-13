@@ -155,7 +155,7 @@ document.querySelector("#app").innerHTML = `
   </div>
 
 </div>
-<div class="loader">
+<div class="loader loader-hidden">
     <div class="loader-top">
       <span>Nectar Noir</span>
       <span>Archive System</span>

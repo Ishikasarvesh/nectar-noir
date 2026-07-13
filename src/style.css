@@ -1564,6 +1564,49 @@ button {
     min-height: 260px;
   }
 }
+.access-gate {
+  padding: 1rem 0.85rem;
+}
+
+.access-city-center {
+  display: none;
+}
+
+.access-cities {
+  grid-template-columns: 1fr 1fr;
+}
+
+.access-card {
+  width: 94vw;
+  padding: 0.7rem 0.8rem;
+}
+
+.card-information {
+  gap: 0.4rem;
+}
+
+.card-information div:nth-child(3) {
+  display: none;
+}
+
+.card-information {
+  grid-template-columns: 1fr 1fr;
+}
+
+.card-divider {
+  height: 5px;
+  margin-top: 0.5rem;
+}
+
+.access-command {
+  min-height: 105px;
+  margin-top: 1.2rem;
+}
+
+.access-footer {
+  max-width: 95%;
+  line-height: 1.25;
+}
 .loader {
   padding: 1.5rem 1.2rem;
 }

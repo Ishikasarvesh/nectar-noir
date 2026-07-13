@@ -2338,18 +2338,19 @@ button {
 }
 
 .texture-intro-footer {
-  min-height: 135px;
+  height: 145px;
+  min-height: 145px;
 
-  padding:
-    1.4rem
-    0.6rem
-    0;
+  padding: 0 0.5rem;
+}
+
+.texture-wordmark-wrapper {
+  left: 0.35rem;
+  bottom: 0;
 }
 
 .texture-wordmark {
-  max-width: 88%;
-
-  font-size: clamp(3.4rem, 18vw, 6rem);
+  font-size: clamp(3.8rem, 19vw, 6.4rem);
   line-height: 0.78;
 }
 
@@ -2362,7 +2363,7 @@ button {
 
 .texture-scroll-button {
   right: 0.8rem;
-  bottom: 0.5rem;
+  bottom: 0.45rem;
 
   font-size: 0.5rem;
 }

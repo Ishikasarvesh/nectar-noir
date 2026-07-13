@@ -212,6 +212,9 @@ document.querySelector("#app").innerHTML = `
           alt="Honeycomb texture"
         />
       </div>
+      <span class="texture-code">
+  LOT-H02-WAX
+</span>
     </article>
 
     <article class="texture-cell">
@@ -223,6 +226,9 @@ document.querySelector("#app").innerHTML = `
           alt="Crystallized honey texture"
         />
       </div>
+      <span class="texture-code">
+  LOT-H03-CRY
+</span>
     </article>
 
     <article class="texture-cell">
@@ -234,6 +240,9 @@ document.querySelector("#app").innerHTML = `
           alt="Dark honey texture"
         />
       </div>
+      <span class="texture-code">
+  LOT-H04-DAR
+</span>
     </article>
 
     <article class="texture-cell">
@@ -245,6 +254,10 @@ document.querySelector("#app").innerHTML = `
           alt="Beeswax texture"
         />
       </div>
+      <span class="texture-code">
+  LOT-H05-BEE
+</span>
+    </article>
     </article>
 
     <aside class="texture-statement texture-statement-top">
@@ -263,6 +276,9 @@ document.querySelector("#app").innerHTML = `
           alt="Raw honey texture"
         />
       </div>
+      <span class="texture-code">
+  LOT-H06-RAW
+</span>
     </article>
 
     <article class="texture-cell">
@@ -274,6 +290,9 @@ document.querySelector("#app").innerHTML = `
           alt="Honey bubbles texture"
         />
       </div>
+      <span class="texture-code">
+  LOT-H07-BUB
+</span>
     </article>
 
     <article class="texture-cell">
@@ -285,6 +304,9 @@ document.querySelector("#app").innerHTML = `
           alt="Honey flowing texture"
         />
       </div>
+      <span class="texture-code">
+  LOT-H08-FLO
+</span>
     </article>
 
     <article class="texture-cell">
@@ -296,6 +318,10 @@ document.querySelector("#app").innerHTML = `
           alt="Honey on glass texture"
         />
       </div>
+      <span class="texture-code">
+  LOT-H09-GLA
+</span>
+    </article>
     </article>
 
     <article class="texture-cell">
@@ -307,6 +333,9 @@ document.querySelector("#app").innerHTML = `
           alt="Wildflower honey texture"
         />
       </div>
+      <span class="texture-code">
+  LOT-H10-WIL
+</span>
     </article>
 
     <div class="texture-spacer"></div>
@@ -320,6 +349,9 @@ document.querySelector("#app").innerHTML = `
           alt="Amber honey texture"
         />
       </div>
+      <span class="texture-code">
+  LOT-H11-AMB
+</span>
     </article>
 
     <article class="texture-cell">
@@ -331,6 +363,10 @@ document.querySelector("#app").innerHTML = `
           alt="Wax honey texture"
         />
       </div>
+      <span class="texture-code">
+  LOT-H12-WAX
+</span>
+    </article>
     </article>
 
     <article class="texture-cell">
@@ -342,6 +378,9 @@ document.querySelector("#app").innerHTML = `
           alt="Honey crystal texture"
         />
       </div>
+      <span class="texture-code">
+  LOT-H13-CRY
+</span>
     </article>
 
     <article class="texture-cell">
@@ -353,6 +392,9 @@ document.querySelector("#app").innerHTML = `
           alt="Dark forest honey texture"
         />
       </div>
+      <span class="texture-code">
+  LOT-H14-DFO
+</span>
     </article>
 
     <article class="texture-cell">
@@ -364,6 +406,9 @@ document.querySelector("#app").innerHTML = `
           alt="Golden wax texture"
         />
       </div>
+      <span class="texture-code">
+  LOT-H15-GWA
+</span>
     </article>
 
     <aside class="texture-statement texture-statement-bottom">

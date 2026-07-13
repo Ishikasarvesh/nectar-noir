@@ -1056,35 +1056,6 @@ button {
 
 /* First specimen stays active by default */
 
-.texture-cell-featured {
-  z-index: 4;
-}
-
-.texture-cell-featured .texture-frame {
-  width: min(78%, 245px);
-  aspect-ratio: 1.72 / 1;
-
-  overflow: visible;
-
-  box-shadow:
-    0 15px 30px rgba(58, 36, 18, 0.17),
-    0 0 0 1px rgba(23, 18, 14, 0.65);
-}
-
-.texture-cell-featured .texture-frame img {
-  filter:
-    grayscale(0)
-    sepia(0)
-    saturate(1.15)
-    contrast(1.07)
-    brightness(0.95);
-}
-
-.texture-cell-featured .texture-frame::before,
-.texture-cell-featured .texture-frame::after {
-  opacity: 1;
-}
-
 /* Lot code */
 
 .texture-code {
@@ -1110,10 +1081,8 @@ button {
     transform 0.35s ease;
 }
 
-.texture-cell:hover .texture-code,
-.texture-cell-featured .texture-code {
+.texture-cell:hover .texture-code {
   opacity: 1;
-
   transform: translateX(-50%) translateY(0);
 }
 

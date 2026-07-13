@@ -1840,12 +1840,17 @@ button {
   gap: 5vw;
 
   background:
-    radial-gradient(
-      circle at 85% 35%,
-      rgba(216, 148, 32, 0.1),
-      transparent 30%
-    ),
-    #111111;
+  radial-gradient(
+    circle at 82% 34%,
+    rgba(215, 154, 43, 0.15),
+    transparent 30%
+  ),
+  linear-gradient(
+    145deg,
+    #17100c 0%,
+    #271910 55%,
+    #110d0a 100%
+  );
 
   border-top: 1px solid rgba(255, 255, 255, 0.08);
 }

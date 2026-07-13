@@ -804,6 +804,9 @@ function grantArchiveAccess() {
     .set(".access-gate", {
       display: "none",
     })
+    .set(window, {
+     scrollTo: 0,
+    }) 
     .call(startArchiveLoader);
 }
 

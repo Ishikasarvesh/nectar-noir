@@ -1143,38 +1143,54 @@ button {
 .texture-intro-footer {
   position: relative;
 
-  min-height: 190px;
-  overflow: hidden;
+  width: 100%;
+  min-height: clamp(170px, 22vh, 260px);
 
   display: flex;
   align-items: flex-end;
 
+  overflow: hidden;
+
+  padding: 1.5rem 1rem 0;
+
   border-bottom: 1px solid var(--archive-line);
 
   background:
+    radial-gradient(
+      circle at 15% 50%,
+      rgba(226, 151, 34, 0.16),
+      transparent 34%
+    ),
     linear-gradient(
-      90deg,
-      rgba(255, 255, 255, 0.12),
-      transparent 55%
+      110deg,
+      #ead9bd 0%,
+      #d7b984 48%,
+      #bf8432 100%
     );
 }
 
 .texture-wordmark {
   position: relative;
+  z-index: 3;
 
-  margin-left: 0.45rem;
+  display: block;
+
+  max-width: 82%;
+  margin: 0;
 
   font-family: "Arial Narrow", "Manrope", sans-serif;
-  font-size: clamp(6rem, 13.7vw, 15rem);
-  line-height: 0.72;
-  letter-spacing: -0.095em;
+  font-size: clamp(5.2rem, 13.5vw, 14rem);
+  line-height: 0.74;
+  letter-spacing: -0.1em;
   font-weight: 700;
   white-space: nowrap;
 
-  color: #907e67;
+  color: #6d3b12;
 
   cursor: crosshair;
   user-select: none;
+
+  transform-origin: left bottom;
 
   transition:
     color 0.35s ease,
@@ -1183,20 +1199,17 @@ button {
 }
 
 .texture-wordmark:hover {
-  color: var(--amber);
+  color: #a95f16;
 
   text-shadow:
-    0 5px 22px rgba(169, 95, 22, 0.18);
+    0 7px 30px rgba(91, 45, 10, 0.2);
 
   transform: translateX(5px);
 }
 
-.texture-wordmark.is-changing {
-  animation: wordmarkGlitch 0.18s steps(2, end);
-}
-
 .texture-language {
   position: absolute;
+  z-index: 4;
 
   top: 1.4rem;
   right: 1.3rem;
@@ -1206,14 +1219,15 @@ button {
   letter-spacing: 0.1em;
   text-transform: uppercase;
 
-  color: rgba(23, 18, 14, 0.6);
+  color: rgba(61, 35, 17, 0.7);
 }
 
 .texture-scroll-button {
   position: absolute;
+  z-index: 5;
 
-  right: 35%;
-  bottom: 0.7rem;
+  right: 33%;
+  bottom: 1rem;
 
   border: 0;
   cursor: pointer;
@@ -1222,7 +1236,7 @@ button {
   font-size: 0.75rem;
   letter-spacing: 0.08em;
 
-  color: var(--ink);
+  color: #3d2311;
   background: transparent;
 }
 
@@ -1230,14 +1244,13 @@ button {
   content: "";
 
   position: absolute;
-
   left: 0;
-  bottom: -3px;
+  bottom: -4px;
 
   width: 0;
   height: 1px;
 
-  background: var(--ink);
+  background: #3d2311;
 
   transition: width 0.3s ease;
 }
@@ -2062,8 +2075,7 @@ button {
   width: 96px;
 }
 
-.texture-cell:hover .texture-frame,
-.texture-cell-featured .texture-frame {
+.texture-cell:hover .texture-frame {
   width: min(78%, 220px);
 }
 
@@ -2279,14 +2291,6 @@ button {
 
 .texture-cell:hover .texture-frame {
   width: min(86%, 175px);
-}
-
-.texture-cell-featured {
-  grid-column: span 2;
-}
-
-.texture-cell-featured .texture-frame {
-  width: min(70%, 250px);
 }
 
 .texture-code {

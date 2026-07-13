@@ -2,19 +2,37 @@
 
 :root {
   font-family: "Manrope", sans-serif;
-  color: #f3eee4;
-  background: #090909;
+  color: #f4ead9;
+  background: #110d0a;
+
   font-synthesis: none;
   text-rendering: optimizeLegibility;
 
-  --black: #090909;
-  --charcoal: #141414;
-  --soft-black: #1b1b1b;
-  --cream: #f3eee4;
-  --muted: #9d968d;
-  --gold: #d89420;
-  --bright-gold: #f4bd4f;
-  --dark-gold: #7a430d;
+  /* Core brand colours */
+  --black: #110d0a;
+  --charcoal: #1a120d;
+  --soft-black: #241811;
+
+  --cream: #f4ead9;
+  --muted: #a99b8d;
+
+  --gold: #d79a2b;
+  --bright-gold: #f2c66d;
+  --dark-gold: #6f350d;
+
+  /* Nectar Noir archive palette */
+  --archive-cream: #e8dfcf;
+  --archive-paper: #d8cbb7;
+  --archive-line: rgba(55, 38, 26, 0.2);
+
+  --honey-gold: #d79a2b;
+  --honey-light: #f2c66d;
+  --amber: #a95f16;
+  --burnt-honey: #6f350d;
+
+  --espresso: #21150d;
+  --charcoal-brown: #110d0a;
+  --ink: #17120e;
 }
 
 * {

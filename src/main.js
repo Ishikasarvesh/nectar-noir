@@ -1146,12 +1146,27 @@ function revealTextureGrid() {
     ease: "power3.out",
   });
 
-  gsap.from(".texture-wordmark", {
-    yPercent: 100,
+  gsap.fromTo(
+  ".texture-wordmark",
+  {
+    y: 130,
+    opacity: 0,
+  },
+  {
+    y: 0,
+    opacity: 1,
     duration: 1.2,
-    delay: 0.4,
+    delay: 0.3,
     ease: "power4.out",
+    clearProps: "transform",
+  }
+);
+setTimeout(() => {
+  gsap.set(".texture-wordmark", {
+    opacity: 1,
+    visibility: "visible",
   });
+}, 1600);
 }
 
 textureScrollButton.addEventListener("click", () => {

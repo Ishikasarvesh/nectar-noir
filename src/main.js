@@ -188,7 +188,7 @@ document.querySelector("#app").innerHTML = `
 
   <div class="texture-grid">
 
-    <article class="texture-cell texture-cell-featured">
+    <article class="texture-cell">
       <span class="texture-index">(01)</span>
 
       <div class="texture-frame">

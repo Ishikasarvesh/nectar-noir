@@ -686,12 +686,17 @@ button {
   padding: 2rem 3vw;
 
   background:
-    radial-gradient(
-      circle at 50% 50%,
-      rgba(216, 148, 32, 0.13),
-      transparent 35%
-    ),
-    #080808;
+  radial-gradient(
+    circle at 50% 50%,
+    rgba(215, 154, 43, 0.18),
+    transparent 34%
+  ),
+  linear-gradient(
+    145deg,
+    #0b0806 0%,
+    #21150d 52%,
+    #0c0806 100%
+  );
 
   color: var(--cream);
 }

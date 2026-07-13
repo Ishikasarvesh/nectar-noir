@@ -859,6 +859,364 @@ document.querySelector("#app").innerHTML = `
   </div>
 
 </section>
+<section class="extraction-chain" id="process">
+
+  <div class="extraction-heading">
+
+    <div class="extraction-heading-meta">
+      <span>Chapter 02</span>
+      <span>Extraction Chain</span>
+      <span>Protocol H-100</span>
+    </div>
+
+    <h2>
+      From hive
+      <span>to vessel.</span>
+    </h2>
+
+    <p>
+      Six controlled stages transform a natural harvest
+      into a classified Nectar Noir batch.
+    </p>
+
+  </div>
+
+  <div class="extraction-layout">
+
+    <aside class="extraction-sidebar">
+
+      <div class="extraction-sidebar-top">
+        <span class="extraction-chapter-number">
+          02
+        </span>
+
+        <p>
+          Controlled production protocol
+        </p>
+      </div>
+
+      <div class="extraction-sidebar-center">
+
+        <span class="extraction-current-stage">
+          01
+        </span>
+
+        <div class="extraction-progress-track">
+          <div class="extraction-progress-fill"></div>
+        </div>
+
+        <span class="extraction-total-stages">
+          06
+        </span>
+
+      </div>
+
+      <div class="extraction-sidebar-bottom">
+        <span>Scroll to process</span>
+        <span>System online</span>
+      </div>
+
+    </aside>
+
+    <div class="extraction-stages">
+
+      <article
+        class="extraction-stage"
+        data-stage="01"
+      >
+
+        <div class="extraction-stage-number">
+          01
+        </div>
+
+        <div class="extraction-stage-visual">
+
+          <div class="pipeline pipeline-entry">
+            <span></span>
+          </div>
+
+          <div class="process-orb process-orb-pollen">
+            <div class="process-orb-core"></div>
+          </div>
+
+        </div>
+
+        <div class="extraction-stage-content">
+
+          <p class="extraction-stage-label">
+            Pollination
+          </p>
+
+          <h3>
+            The first signature begins in bloom.
+          </h3>
+
+          <p>
+            Bees collect nectar from regional flowers.
+            Climate, altitude and botanical source begin
+            shaping the final colour, aroma and density.
+          </p>
+
+          <div class="extraction-stage-data">
+            <span>Input: Floral nectar</span>
+            <span>Status: Organic</span>
+          </div>
+
+        </div>
+
+      </article>
+
+      <article
+        class="extraction-stage"
+        data-stage="02"
+      >
+
+        <div class="extraction-stage-number">
+          02
+        </div>
+
+        <div class="extraction-stage-visual">
+
+          <div class="pipeline">
+            <span></span>
+          </div>
+
+          <div class="process-hive">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+
+        </div>
+
+        <div class="extraction-stage-content">
+
+          <p class="extraction-stage-label">
+            Hive formation
+          </p>
+
+          <h3>
+            Nature converts nectar into reserve.
+          </h3>
+
+          <p>
+            Inside the hive, enzymes and evaporation
+            gradually transform raw nectar into honey
+            stored within sealed wax cells.
+          </p>
+
+          <div class="extraction-stage-data">
+            <span>Density: Increasing</span>
+            <span>Seal: Natural wax</span>
+          </div>
+
+        </div>
+
+      </article>
+
+      <article
+        class="extraction-stage"
+        data-stage="03"
+      >
+
+        <div class="extraction-stage-number">
+          03
+        </div>
+
+        <div class="extraction-stage-visual">
+
+          <div class="pipeline">
+            <span></span>
+          </div>
+
+          <div class="process-frame">
+            <div class="process-frame-grid"></div>
+          </div>
+
+        </div>
+
+        <div class="extraction-stage-content">
+
+          <p class="extraction-stage-label">
+            Collection
+          </p>
+
+          <h3>
+            Only sealed frames are cleared.
+          </h3>
+
+          <p>
+            Mature frames are inspected before extraction.
+            Moisture, structure and purity determine whether
+            the material enters the controlled chain.
+          </p>
+
+          <div class="extraction-stage-data">
+            <span>Inspection: Passed</span>
+            <span>Batch: H-100</span>
+          </div>
+
+        </div>
+
+      </article>
+
+      <article
+        class="extraction-stage"
+        data-stage="04"
+      >
+
+        <div class="extraction-stage-number">
+          04
+        </div>
+
+        <div class="extraction-stage-visual">
+
+          <div class="pipeline">
+            <span></span>
+          </div>
+
+          <div class="process-extractor">
+            <div class="extractor-ring extractor-ring-one"></div>
+            <div class="extractor-ring extractor-ring-two"></div>
+            <div class="extractor-core"></div>
+          </div>
+
+        </div>
+
+        <div class="extraction-stage-content">
+
+          <p class="extraction-stage-label">
+            Extraction
+          </p>
+
+          <h3>
+            Rotation releases the liquid reserve.
+          </h3>
+
+          <p>
+            Controlled centrifugal force removes honey from
+            the comb while preserving the frame for the next
+            production cycle.
+          </p>
+
+          <div class="extraction-stage-data">
+            <span>Method: Centrifugal</span>
+            <span>Temperature: Controlled</span>
+          </div>
+
+        </div>
+
+      </article>
+
+      <article
+        class="extraction-stage"
+        data-stage="05"
+      >
+
+        <div class="extraction-stage-number">
+          05
+        </div>
+
+        <div class="extraction-stage-visual">
+
+          <div class="pipeline">
+            <span></span>
+          </div>
+
+          <div class="process-filter">
+            <div class="filter-layer"></div>
+            <div class="filter-layer"></div>
+            <div class="filter-layer"></div>
+            <div class="filter-drop"></div>
+          </div>
+
+        </div>
+
+        <div class="extraction-stage-content">
+
+          <p class="extraction-stage-label">
+            Filtration
+          </p>
+
+          <h3>
+            Purified without removing identity.
+          </h3>
+
+          <p>
+            Fine wax particles are removed while the natural
+            aroma, floral signature and texture remain intact.
+          </p>
+
+          <div class="extraction-stage-data">
+            <span>Purity: 98.7%</span>
+            <span>Heat: Minimal</span>
+          </div>
+
+        </div>
+
+      </article>
+
+      <article
+        class="extraction-stage extraction-stage-final"
+        data-stage="06"
+      >
+
+        <div class="extraction-stage-number">
+          06
+        </div>
+
+        <div class="extraction-stage-visual">
+
+          <div class="pipeline pipeline-final">
+            <span></span>
+          </div>
+
+          <div class="process-vessel">
+
+            <div class="vessel-neck"></div>
+
+            <div class="vessel-body">
+              <div class="vessel-honey"></div>
+              <span>NN</span>
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="extraction-stage-content">
+
+          <p class="extraction-stage-label">
+            Classification and sealing
+          </p>
+
+          <h3>
+            Every vessel becomes a record.
+          </h3>
+
+          <p>
+            The final batch is catalogued by source, season,
+            density, rarity and origin before entering the
+            Nectar Noir Golden Vault.
+          </p>
+
+          <div class="extraction-stage-data">
+            <span>Output: Vessel NN-26</span>
+            <span>Status: Restricted</span>
+          </div>
+
+        </div>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
     <div class="texture-intro-footer">
 
   <div class="texture-wordmark-wrapper">

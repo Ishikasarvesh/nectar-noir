@@ -1825,6 +1825,26 @@ button {
   .access-card {
     width: min(82vw, 760px);
   }
+  .texture-grid {
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 210px;
+}
+
+.texture-spacer {
+  display: none;
+}
+
+.texture-intro-footer {
+  min-height: 150px;
+}
+
+.texture-wordmark {
+  font-size: clamp(5rem, 18vw, 10rem);
+}
+
+.texture-scroll-button {
+  right: 2rem;
+}
 
   .desktop-nav {
     display: none;

@@ -856,9 +856,10 @@ button {
 
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: repeat(3, minmax(185px, 1fr));
+  grid-template-rows: repeat(3, minmax(170px, 1fr));
 
-  min-height: calc(100vh - 190px);
+  height: min(72vh, 650px);
+  min-height: 540px;
 
   border-top: 1px solid var(--archive-line);
   border-left: 1px solid var(--archive-line);

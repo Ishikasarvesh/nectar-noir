@@ -423,9 +423,16 @@ document.querySelector("#app").innerHTML = `
 
   <div class="texture-intro-footer">
 
-    <h1 class="texture-wordmark">
-      NectarNoir
-    </h1>
+    <h1
+  class="texture-wordmark"
+  aria-label="Nectar Noir"
+>
+  NectarNoir
+</h1>
+
+<span class="texture-language">
+  English / 01
+</span> 
 
     <button
       class="texture-scroll-button"
@@ -1129,4 +1136,95 @@ textureScrollButton.addEventListener("click", () => {
   lenis.scrollTo(heroSection, {
     duration: 1.6,
   });
+});
+/* ========================================
+   MULTILINGUAL NECTAR NOIR WORDMARK
+======================================== */
+
+const textureWordmark = document.querySelector(
+  ".texture-wordmark"
+);
+
+const textureLanguage = document.querySelector(
+  ".texture-language"
+);
+
+const nectarLanguages = [
+  {
+    text: "NectarNoir",
+    language: "English",
+  },
+  {
+    text: "नेक्टर नॉयर",
+    language: "Marathi",
+  },
+  {
+    text: "नेक्टर नॉयर",
+    language: "Hindi",
+  },
+  {
+    text: "ネクター・ノワール",
+    language: "Japanese",
+  },
+  {
+    text: "NektarNoir",
+    language: "German",
+  },
+  {
+    text: "NectarNoir",
+    language: "French",
+  },
+  {
+    text: "넥타르 누아르",
+    language: "Korean",
+  },
+ {
+    text: "花蜜诺瓦",
+    language: "Chinese",
+  },
+];
+
+let languageIndex = 0;
+let languageInterval = null;
+
+function changeWordmarkLanguage() {
+  languageIndex =
+    (languageIndex + 1) % nectarLanguages.length;
+
+  const currentLanguage =
+    nectarLanguages[languageIndex];
+
+  textureWordmark.classList.remove("is-changing");
+
+  void textureWordmark.offsetWidth;
+
+  textureWordmark.classList.add("is-changing");
+
+  textureWordmark.textContent =
+    currentLanguage.text;
+
+  textureLanguage.textContent =
+    `${currentLanguage.language} / ${String(
+      languageIndex + 1
+    ).padStart(2, "0")}`;
+}
+
+textureWordmark.addEventListener("mouseenter", () => {
+  changeWordmarkLanguage();
+
+  languageInterval = setInterval(() => {
+    changeWordmarkLanguage();
+  }, 650);
+});
+
+textureWordmark.addEventListener("mouseleave", () => {
+  clearInterval(languageInterval);
+
+  languageInterval = null;
+  languageIndex = 0;
+
+  textureWordmark.textContent = "NectarNoir";
+  textureLanguage.textContent = "English / 01";
+
+  textureWordmark.classList.remove("is-changing");
 });

@@ -815,6 +815,10 @@ function grantArchiveAccess() {
 ======================================== */
 
 function startArchiveLoader() {
+  window.scrollTo(0, 0);
+lenis.scrollTo(0, {
+  immediate: true,
+});
   loader.classList.remove("loader-hidden");
 
   document.body.classList.remove("is-gate-locked");
@@ -853,6 +857,7 @@ function startArchiveLoader() {
       }, 450);
     }
   }, 95);
+  
 }
 
 function playEntranceAnimation() {

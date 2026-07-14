@@ -3207,29 +3207,28 @@ const preparationSteps = [
 let activePreparationStep = 0;
 
 function updatePreparationStep(index) {
+  const step = preparationSteps[index];
+  const nextImage = preparationImages[index];
+
   if (
-    index === activePreparationStep ||
-    !preparationSteps[index]
+    !step ||
+    !nextImage ||
+    index === activePreparationStep
   ) {
     return;
   }
 
+  const previousIndex = activePreparationStep;
+
   const previousImage =
-    preparationImages[activePreparationStep];
+    previousIndex >= 0
+      ? preparationImages[previousIndex]
+      : null;
 
-  const nextImage =
-    preparationImages[index];
-
-  const step = preparationSteps[index];
+  const isScrollingForward =
+    previousIndex < 0 || index > previousIndex;
 
   activePreparationStep = index;
-
-  preparationImages.forEach((image, imageIndex) => {
-    image.classList.toggle(
-      "is-active",
-      imageIndex === index
-    );
-  });
 
   preparationIndicators.forEach(
     (indicator, indicatorIndex) => {
@@ -3240,91 +3239,79 @@ function updatePreparationStep(index) {
     }
   );
 
-  if (previousImage && previousImage !== nextImage) {
-  previousImage.classList.remove("is-active");
+  /*
+    Reset the incoming image completely.
+    This removes old blur, opacity and visibility
+    left behind by GSAP.
+  */
 
-  gsap.to(previousImage, {
+  gsap.killTweensOf(nextImage);
+
+  gsap.set(nextImage, {
+    visibility: "visible",
     opacity: 0,
     scale: 0.72,
-    rotation: index > previousIndex ? 110 : -110,
-    filter: "blur(14px) brightness(0.45)",
-    duration: 0.55,
-    ease: "power3.in",
-
-    onComplete: () => {
-      previousImage.style.visibility = "hidden";
-    },
+    rotation: isScrollingForward ? -100 : 100,
+    filter: "blur(8px) brightness(0.72)",
+    zIndex: 3,
   });
-}
 
   nextImage.classList.add("is-active");
-nextImage.style.visibility = "visible";
 
-gsap.fromTo(
-  nextImage,
-  {
-    opacity: 0,
-    scale: 0.7,
-    rotation: index > previousIndex ? -110 : 110,
-    filter: "blur(14px) brightness(0.5)",
-  },
-  {
+  /*
+    Animate the previous image out.
+  */
+
+  if (previousImage && previousImage !== nextImage) {
+    gsap.killTweensOf(previousImage);
+
+    gsap.to(previousImage, {
+      opacity: 0,
+      scale: 0.72,
+      rotation: isScrollingForward ? 100 : -100,
+      filter: "blur(8px) brightness(0.55)",
+      duration: 0.5,
+      ease: "power2.in",
+
+      onComplete: () => {
+        previousImage.classList.remove("is-active");
+
+        gsap.set(previousImage, {
+          visibility: "hidden",
+          zIndex: 1,
+        });
+      },
+    });
+  }
+
+  /*
+    Animate the new image into the centre.
+  */
+
+  gsap.to(nextImage, {
     opacity: 1,
     scale: 1,
     rotation: 0,
     filter: "blur(0px) brightness(1)",
-    duration: 0.8,
-    ease: "power4.out",
-  }
-);
-
-  const recordElements = [
-    ".preparation-record-step",
-    ".preparation-record-title",
-    ".preparation-record-description",
-    ".preparation-record-action",
-    ".preparation-record-status",
-  ];
-
-  gsap.to(recordElements, {
-    opacity: 0,
-    y: 8,
-    duration: 0.2,
+    duration: 0.7,
+    ease: "power3.out",
 
     onComplete: () => {
-      document.querySelector(
-        ".preparation-record-step"
-      ).textContent = `Step ${step.number}`;
+      /*
+        Clear GSAP transform and filter values
+        so they do not affect the image later.
+      */
 
-      document.querySelector(
-        ".preparation-record-title"
-      ).textContent = step.title;
-
-      document.querySelector(
-        ".preparation-record-description"
-      ).textContent = step.description;
-
-      document.querySelector(
-        ".preparation-record-action"
-      ).textContent = step.action;
-
-      document.querySelector(
-        ".preparation-record-status"
-      ).textContent = step.status;
-
-      document.querySelector(
-        ".preparation-current"
-      ).textContent =
-        `Step ${step.number} / 04`;
-
-      gsap.to(recordElements, {
+      gsap.set(nextImage, {
+        clearProps: "transform,filter",
         opacity: 1,
-        y: 0,
-        stagger: 0.04,
-        duration: 0.35,
+        visibility: "visible",
+        zIndex: 3,
       });
     },
   });
+
+  updatePreparationText(step);
 }
 
 /* Scroll forward and backward between steps */

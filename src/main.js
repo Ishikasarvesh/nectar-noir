@@ -1456,7 +1456,57 @@ document.querySelector("#app").innerHTML = `
 
       </div>
 
-      
+      <div class="vertical-video-copy">
+
+  <div class="vertical-terminal-top">
+
+    <span class="vertical-record-counter">
+      (01/03)
+    </span>
+
+    <div class="vertical-terminal-status">
+      <span class="terminal-status-active"></span>
+      <span></span>
+      <span></span>
+    </div>
+
+  </div>
+
+  <p class="vertical-coordinates">
+    18°31'13.4"N, 73°51'24.1"E
+  </p>
+
+  <div class="vertical-record-terminal">
+
+    <h2 class="vertical-record-title">
+      WILDFLOWER POUR
+    </h2>
+
+    <p class="vertical-record-field vertical-record-location">
+      LOCATION : WESTERN GHATS, INDIA
+    </p>
+
+    <p class="vertical-record-field vertical-record-source">
+      SOURCE : PRIVATE HONEY ARCHIVE
+    </p>
+
+    <p class="vertical-record-field vertical-record-status">
+      STATUS : VERIFIED LIQUID RECORD
+    </p>
+
+    <p class="vertical-record-description">
+      A controlled pour documenting viscosity, colour,
+      movement and the repeated ritual surrounding liquid gold.
+    </p>
+
+    <span
+      class="terminal-cursor"
+      aria-hidden="true"
+    ></span>
+
+  </div>
+
+</div>
 
       <div class="vertical-archive-progress">
 

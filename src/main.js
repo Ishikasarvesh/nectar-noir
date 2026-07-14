@@ -1179,6 +1179,185 @@ document.querySelector("#app").innerHTML = `
 
 </section>
 
+<section class="honey-effects" id="effects">
+
+  <div class="honey-video-scroll">
+
+    <div class="honey-video-sticky">
+
+      <video
+        class="honey-pour-video"
+        src="/hyperfixation/videos/honey-pour.mp4"
+        muted
+        playsinline
+        preload="auto"
+      ></video>
+
+      <div class="honey-video-overlay"></div>
+
+      <div class="honey-effects-content">
+
+        <div class="effects-meta">
+          <span>Chapter 03</span>
+          <span>Effects of the substance</span>
+          <span>Record H-E01</span>
+        </div>
+
+        <div class="effects-grid">
+
+          <article class="effect-item">
+            <span>01</span>
+
+            <h3>
+              Sustained energy
+            </h3>
+
+            <p>
+              Natural sugars provide a gradual source of energy
+              without the visual noise of an artificial stimulant.
+            </p>
+          </article>
+
+          <article class="effect-item">
+            <span>02</span>
+
+            <h3>
+              Liquid clarity
+            </h3>
+
+            <p>
+              Colour, texture and viscosity make each harvest
+              visually distinct from the one before it.
+            </p>
+          </article>
+
+          <article class="effect-item">
+            <span>03</span>
+
+            <h3>
+              Ritualised consumption
+            </h3>
+
+            <p>
+              Pouring, measuring and pairing turn the substance
+              into a controlled sensory ritual.
+            </p>
+          </article>
+
+        </div>
+
+        <div class="effects-scroll-hint">
+          <span>Scroll to control liquid flow</span>
+          <span>Forward / Reverse</span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section class="honey-obsession" id="obsession">
+
+  <div class="obsession-header">
+
+    <div>
+      <span>Chapter 04</span>
+      <span>Visual Hyperfixation</span>
+    </div>
+
+    <p>
+      A collection of disproportionate, unconventional and
+      excessive encounters with liquid gold.
+    </p>
+
+  </div>
+
+  <div class="obsession-space">
+
+    <div class="obsession-stage">
+
+      <div class="obsession-title">
+        <span>Honey</span>
+        <strong>Hyperfixation</strong>
+      </div>
+
+      <figure class="obsession-image obsession-image-one">
+        <img
+          src="/hyperfixation/images/honey-obsession-01.jpg"
+          alt="Honey obsession archive image one"
+        />
+
+        <figcaption>
+          Oversized reserve / Record 01
+        </figcaption>
+      </figure>
+
+      <figure class="obsession-image obsession-image-two">
+        <img
+          src="/hyperfixation/images/honey-obsession-02.jpg"
+          alt="Honey obsession archive image two"
+        />
+
+        <figcaption>
+          Accidental spill / Record 02
+        </figcaption>
+      </figure>
+
+      <figure class="obsession-image obsession-image-three">
+        <img
+          src="/hyperfixation/images/honey-obsession-03.jpg"
+          alt="Honey obsession archive image three"
+        />
+
+        <figcaption>
+          Contact exposure / Record 03
+        </figcaption>
+      </figure>
+
+      <figure class="obsession-image obsession-image-four">
+        <img
+          src="/hyperfixation/images/honey-obsession-04.jpg"
+          alt="Honey obsession archive image four"
+        />
+
+        <figcaption>
+          Excessive acquisition / Record 04
+        </figcaption>
+      </figure>
+
+      <figure class="obsession-image obsession-image-five">
+        <img
+          src="/hyperfixation/images/honey-obsession-05.jpg"
+          alt="Honey obsession archive image five"
+        />
+
+        <figcaption>
+          Daily dependence / Record 05
+        </figcaption>
+      </figure>
+
+      <div class="obsession-center-copy">
+        <span>Archive H-OB05</span>
+
+        <p>
+          Images sourced from unconventional encounters,
+          private collections and excessive devotion.
+        </p>
+      </div>
+
+      <div class="obsession-scroll">
+        (scroll down)
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
     <div class="texture-intro-footer">
 
   <div class="texture-wordmark-wrapper">

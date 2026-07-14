@@ -3241,15 +3241,21 @@ function updatePreparationStep(index) {
   );
 
   if (previousImage && previousImage !== nextImage) {
-    gsap.to(previousImage, {
-      opacity: 0,
-      scale: 0.86,
-      rotation: 2,
-      filter: "blur(14px) brightness(0.55)",
-      duration: 0.45,
-      ease: "power2.in",
-    });
-  }
+  previousImage.classList.remove("is-active");
+
+  gsap.to(previousImage, {
+    opacity: 0,
+    scale: 0.72,
+    rotation: index > previousIndex ? 110 : -110,
+    filter: "blur(14px) brightness(0.45)",
+    duration: 0.55,
+    ease: "power3.in",
+
+    onComplete: () => {
+      previousImage.style.visibility = "hidden";
+    },
+  });
+}
 
   gsap.fromTo(
     nextImage,

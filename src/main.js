@@ -1253,9 +1253,9 @@ document.querySelector("#app").innerHTML = `
         </div>
 
         <div class="effects-scroll-hint">
-          <span>Scroll to control liquid flow</span>
-          <span>Forward / Reverse</span>
-        </div>
+  <span>Liquid Record / H-E01</span>
+  <span>Continuous Playback</span>
+</div>
 
       </div>
 

@@ -1935,3 +1935,215 @@ function updateOriginProgress(index, recordNumber) {
     ease: "power3.out",
   });
 }
+/* ========================================
+   HONEY ARCHIVE FILES ANIMATION
+======================================== */
+
+const honeyFilesSection = document.querySelector(
+  ".files-scroll-space"
+);
+
+const archiveFiles = [
+  {
+    element: ".file-background",
+    startX: -900,
+    startY: 40,
+    rotation: -12,
+  },
+  {
+    element: ".file-formalization",
+    startX: -750,
+    startY: -80,
+    rotation: -10,
+  },
+  {
+    element: ".file-method",
+    startX: -1050,
+    startY: 120,
+    rotation: -16,
+  },
+  {
+    element: ".file-first-contact",
+    startX: -900,
+    startY: 30,
+    rotation: 10,
+  },
+  {
+    element: ".file-preserved-use",
+    startX: -1150,
+    startY: 180,
+    rotation: -8,
+  },
+  {
+    element: ".file-controlled",
+    startX: -1250,
+    startY: -100,
+    rotation: 15,
+  },
+];
+
+archiveFiles.forEach((file) => {
+  gsap.from(file.element, {
+    x: file.startX,
+    y: file.startY,
+    rotation: file.rotation,
+    opacity: 0,
+    scale: 0.82,
+
+    scrollTrigger: {
+      trigger: honeyFilesSection,
+      start: "top top",
+      end: "bottom bottom",
+      scrub: 1.2,
+    },
+
+    ease: "none",
+  });
+});
+
+/* Add separate timing so files enter one after another */
+
+const filesTimeline = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".files-scroll-space",
+    start: "top top",
+    end: "bottom bottom",
+    scrub: 1,
+  },
+});
+
+filesTimeline
+  .fromTo(
+    ".file-background",
+    {
+      xPercent: -150,
+      opacity: 0,
+      scale: 0.88,
+    },
+    {
+      xPercent: 0,
+      opacity: 1,
+      scale: 1,
+      duration: 1,
+    }
+  )
+  .fromTo(
+    ".file-formalization",
+    {
+      xPercent: -180,
+      opacity: 0,
+      rotation: -13,
+    },
+    {
+      xPercent: 0,
+      opacity: 1,
+      rotation: -2,
+      duration: 1,
+    },
+    "-=0.55"
+  )
+  .fromTo(
+    ".file-method",
+    {
+      xPercent: -190,
+      opacity: 0,
+      rotation: -14,
+    },
+    {
+      xPercent: 0,
+      opacity: 1,
+      rotation: 1.3,
+      duration: 1,
+    },
+    "-=0.45"
+  )
+  .fromTo(
+    ".file-first-contact",
+    {
+      xPercent: -190,
+      opacity: 0,
+      rotation: 9,
+    },
+    {
+      xPercent: 0,
+      opacity: 1,
+      rotation: -1.5,
+      duration: 1,
+    },
+    "-=0.4"
+  )
+  .fromTo(
+    ".file-preserved-use",
+    {
+      xPercent: -190,
+      opacity: 0,
+      rotation: -8,
+    },
+    {
+      xPercent: 0,
+      opacity: 1,
+      rotation: 1.1,
+      duration: 1,
+    },
+    "-=0.35"
+  )
+  .fromTo(
+    ".file-controlled",
+    {
+      xPercent: -220,
+      opacity: 0,
+      rotation: 14,
+    },
+    {
+      xPercent: 0,
+      opacity: 1,
+      rotation: 1.7,
+      duration: 1,
+    },
+    "-=0.3"
+  )
+  .from(
+    ".files-documentation",
+    {
+      xPercent: 100,
+      opacity: 0,
+      duration: 0.8,
+    },
+    "-=0.6"
+  )
+  .from(
+    ".files-stage-footer span",
+    {
+      y: 15,
+      opacity: 0,
+      stagger: 0.08,
+      duration: 0.5,
+    },
+    "-=0.4"
+  );
+
+/* Documentation indicator changes during scroll */
+
+const documentationDots = gsap.utils.toArray(
+  ".documentation-index span"
+);
+
+ScrollTrigger.create({
+  trigger: ".files-scroll-space",
+  start: "top top",
+  end: "bottom bottom",
+
+  onUpdate: (self) => {
+    const dotIndex = Math.min(
+      Math.floor(self.progress * documentationDots.length),
+      documentationDots.length - 1
+    );
+
+    documentationDots.forEach((dot, index) => {
+      dot.classList.toggle(
+        "documentation-index-active",
+        index === dotIndex
+      );
+    });
+  },
+});

@@ -3676,3 +3676,62 @@ gsap.fromTo(
     ease: "steps(2)",
   }
 );
+let lastFingerprintTime = 0;
+let lastFingerprintX = 0;
+let lastFingerprintY = 0;
+
+function createDealerFingerprint(x, y) {
+  const fingerprint =
+    document.createElement("span");
+
+  fingerprint.className =
+    "dealer-fingerprint";
+
+  fingerprint.style.left = `${x}px`;
+  fingerprint.style.top = `${y}px`;
+
+  fingerprint.style.setProperty(
+    "--fingerprint-rotation",
+    `${gsap.utils.random(-28, 28)}deg`
+  );
+
+  fingerprint.style.setProperty(
+    "--fingerprint-scale",
+    gsap.utils.random(0.65, 1.1)
+  );
+
+  fingerprintLayer.appendChild(fingerprint);
+
+  setTimeout(() => {
+    fingerprint.remove();
+  }, 1250);
+}
+
+dealerSection.addEventListener(
+  "pointermove",
+  (event) => {
+    const bounds =
+      dealerSection.getBoundingClientRect();
+
+    const x = event.clientX - bounds.left;
+    const y = event.clientY - bounds.top;
+
+    const now = performance.now();
+
+    const distance = Math.hypot(
+      x - lastFingerprintX,
+      y - lastFingerprintY
+    );
+
+    if (
+      now - lastFingerprintTime > 135 &&
+      distance > 42
+    ) {
+      createDealerFingerprint(x, y);
+
+      lastFingerprintTime = now;
+      lastFingerprintX = x;
+      lastFingerprintY = y;
+    }
+  }
+);

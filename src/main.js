@@ -2272,3 +2272,44 @@ ScrollTrigger.create({
     });
   },
 });
+/* ========================================
+   SCROLL-CONTROLLED HONEY VIDEO
+======================================== */
+
+const honeyPourVideo = document.querySelector(
+  ".honey-pour-video"
+);
+
+let honeyVideoDuration = 0;
+let honeyVideoReady = false;
+
+honeyPourVideo.addEventListener("loadedmetadata", () => {
+  honeyVideoDuration = honeyPourVideo.duration;
+  honeyVideoReady = true;
+
+  honeyPourVideo.pause();
+  honeyPourVideo.currentTime = 0.01;
+
+  ScrollTrigger.refresh();
+});
+
+ScrollTrigger.create({
+  trigger: ".honey-video-scroll",
+  start: "top top",
+  end: "bottom bottom",
+  scrub: true,
+
+  onUpdate: (self) => {
+    if (!honeyVideoReady || !honeyVideoDuration) {
+      return;
+    }
+
+    const targetTime =
+      self.progress * honeyVideoDuration;
+
+    honeyPourVideo.currentTime = Math.min(
+      targetTime,
+      honeyVideoDuration - 0.05
+    );
+  },
+});

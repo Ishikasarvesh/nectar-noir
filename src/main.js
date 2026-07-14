@@ -1186,12 +1186,18 @@ document.querySelector("#app").innerHTML = `
     <div class="honey-video-sticky">
 
       <video
-        class="honey-pour-video"
-        src="/hyperfixation/videos/honey-pour.mp4"
-        muted
-        playsinline
-        preload="auto"
-      ></video>
+  class="honey-pour-video"
+  muted
+  playsinline
+  autoplay
+  loop
+  preload="auto"
+>
+  <source
+    src="/hyperfixation/videos/honey-pour.mp4"
+    type="video/mp4"
+  />
+</video>
 
       <div class="honey-video-overlay"></div>
 
@@ -2734,65 +2740,7 @@ ScrollTrigger.create({
     });
   },
 });
-/* ========================================
-   SCROLL-CONTROLLED HONEY VIDEO
-======================================== */
 
-const honeyPourVideo = document.querySelector(
-  ".honey-pour-video"
-);
-
-let honeyVideoDuration = 0;
-let honeyVideoReady = false;
-
-honeyPourVideo.addEventListener("loadedmetadata", () => {
-  honeyVideoDuration = honeyPourVideo.duration;
-  honeyVideoReady = true;
-
-  honeyPourVideo.pause();
-  honeyPourVideo.currentTime = 0.01;
-
-  ScrollTrigger.refresh();
-});
-
-let requestedVideoTime = 0;
-let displayedVideoTime = 0;
-
-function updateHoneyVideoFrame() {
-  if (honeyVideoReady) {
-    displayedVideoTime +=
-      (requestedVideoTime - displayedVideoTime) * 0.22;
-
-    if (
-      Math.abs(
-        honeyPourVideo.currentTime - displayedVideoTime
-      ) > 0.025
-    ) {
-      honeyPourVideo.currentTime = displayedVideoTime;
-    }
-  }
-
-  requestAnimationFrame(updateHoneyVideoFrame);
-}
-
-updateHoneyVideoFrame();
-
-ScrollTrigger.create({
-  trigger: ".honey-video-scroll",
-  start: "top top",
-  end: "bottom bottom",
-
-  onUpdate: (self) => {
-    if (!honeyVideoReady || !honeyVideoDuration) {
-      return;
-    }
-
-    requestedVideoTime = Math.min(
-      self.progress * honeyVideoDuration,
-      honeyVideoDuration - 0.05
-    );
-  },
-});
 /* ========================================
    HONEY HYPERFIXATION FLY-THROUGH
 ======================================== */
@@ -3735,3 +3683,23 @@ dealerSection.addEventListener(
     }
   }
 );
+/* ========================================
+   NORMAL HONEY VIDEO PLAYBACK
+======================================== */
+
+const honeyPourVideo = document.querySelector(
+  ".honey-pour-video"
+);
+
+if (honeyPourVideo) {
+  honeyPourVideo.muted = true;
+  honeyPourVideo.loop = true;
+
+  honeyPourVideo
+    .play()
+    .catch(() => {
+      console.warn(
+        "The browser delayed automatic video playback."
+      );
+    });
+}

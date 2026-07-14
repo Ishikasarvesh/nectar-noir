@@ -1528,6 +1528,141 @@ document.querySelector("#app").innerHTML = `
 
 </section>
 
+<section class="preparation-procedure" id="preparation">
+
+  <div class="preparation-scroll-space">
+
+    <div class="preparation-stage">
+
+      <div class="preparation-flashlight"></div>
+
+      <div class="preparation-topbar">
+
+        <span>
+          Chapter 05
+        </span>
+
+        <span>
+          Preparation Procedure
+        </span>
+
+        <span>
+          Record NN-P04
+        </span>
+
+      </div>
+
+      <div class="preparation-media">
+
+        <figure
+          class="preparation-step-image is-active"
+          data-step-image="0"
+        >
+          <img
+            src="/preparation/step-1.jpeg"
+            alt="Opening a premium honey jar"
+          />
+        </figure>
+
+        <figure
+          class="preparation-step-image"
+          data-step-image="1"
+        >
+          <img
+            src="/preparation/step-2.jpeg"
+            alt="Honey slowly pouring from a dipper"
+          />
+        </figure>
+
+        <figure
+          class="preparation-step-image"
+          data-step-image="2"
+        >
+          <img
+            src="/preparation/step-3.jpeg"
+            alt="Honey being blended into a warm drink"
+          />
+        </figure>
+
+        <figure
+          class="preparation-step-image"
+          data-step-image="3"
+        >
+          <img
+            src="/preparation/step-4.jpeg"
+            alt="Final honey serving"
+          />
+        </figure>
+
+        <div class="preparation-crosshair">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+      </div>
+
+      <div class="preparation-record">
+
+        <span class="preparation-record-step">
+          Step 01
+        </span>
+
+        <h2 class="preparation-record-title">
+          Unseal
+        </h2>
+
+        <p class="preparation-record-description">
+          Release the lid and inspect the colour,
+          aroma and natural crystallisation.
+        </p>
+
+        <div class="preparation-record-data">
+
+          <span class="preparation-record-action">
+            Action / Open
+          </span>
+
+          <span class="preparation-record-status">
+            Status / Ready
+          </span>
+
+        </div>
+
+      </div>
+
+      <div class="preparation-indicators">
+
+        <span class="preparation-indicator is-active"></span>
+        <span class="preparation-indicator"></span>
+        <span class="preparation-indicator"></span>
+        <span class="preparation-indicator"></span>
+
+      </div>
+
+      <div class="preparation-footer">
+
+        <span class="preparation-current">
+          Step 01 / 04
+        </span>
+
+        <span>
+          Move cursor to inspect
+        </span>
+
+        <span>
+          Scroll to change procedure
+        </span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
     <div class="texture-intro-footer">
 
   <div class="texture-wordmark-wrapper">

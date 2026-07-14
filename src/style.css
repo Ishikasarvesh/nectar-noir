@@ -2498,6 +2498,34 @@ button {
 
   padding-block: 4rem;
 }
+.honey-files-heading {
+  min-height: 70vh;
+}
+
+.files-stage {
+  grid-template-columns: 1fr 220px;
+}
+
+.file-background {
+  width: 48%;
+}
+
+.file-first-contact {
+  width: 35%;
+  left: 31%;
+}
+
+.file-method {
+  width: 33%;
+}
+
+.file-controlled {
+  width: 35%;
+}
+
+.documentation-content > p:last-child {
+  font-size: 0.62rem;
+}
 }
 
 /* ========================================

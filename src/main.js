@@ -2687,3 +2687,155 @@ obsessionTimeline
     },
     "-=0.65"
   );
+  /* ========================================
+   VERTICAL VIDEO ARCHIVE
+======================================== */
+
+const verticalMainVideo = document.querySelector(
+  ".vertical-main-video"
+);
+
+const verticalThumbs = gsap.utils.toArray(
+  ".vertical-video-thumb"
+);
+
+const verticalVideos = [
+  {
+    src: "/hyperfixation/videos/archive-video-01.mp4",
+    number: "01",
+    title:
+      "Liquid devotion, documented vertically.",
+    description:
+      "Oversized vessels, unconventional rituals and excessive encounters with honey.",
+  },
+  {
+    src: "/hyperfixation/videos/archive-video-02.mp4",
+    number: "02",
+    title:
+      "The pour becomes a repeated ritual.",
+    description:
+      "Measured streams and slow movement transform consumption into performance.",
+  },
+  {
+    src: "/hyperfixation/videos/archive-video-03.mp4",
+    number: "03",
+    title:
+      "The comb remains the original evidence.",
+    description:
+      "Raw cells, exposed honey and direct contact reveal the substance before classification.",
+  },
+];
+
+let activeVerticalIndex = 0;
+
+function changeVerticalRecord(index) {
+  if (
+    index === activeVerticalIndex ||
+    !verticalVideos[index]
+  ) {
+    return;
+  }
+
+  activeVerticalIndex = index;
+
+  const record = verticalVideos[index];
+
+  verticalThumbs.forEach((thumb, thumbIndex) => {
+    thumb.classList.toggle(
+      "is-active",
+      thumbIndex === index
+    );
+  });
+
+  gsap.to(".vertical-main-video", {
+    opacity: 0,
+    scale: 0.94,
+    duration: 0.3,
+
+    onComplete: () => {
+      verticalMainVideo.src = record.src;
+      verticalMainVideo.load();
+
+      verticalMainVideo
+        .play()
+        .catch(() => {});
+
+      gsap.to(".vertical-main-video", {
+        opacity: 1,
+        scale: 1,
+        duration: 0.45,
+      });
+    },
+  });
+
+  document.querySelector(
+    ".vertical-record-number"
+  ).textContent = `Record ${record.number}`;
+
+  document.querySelector(
+    ".vertical-video-copy h2"
+  ).textContent = record.title;
+
+  document.querySelector(
+    ".vertical-record-description"
+  ).textContent = record.description;
+
+  document.querySelector(
+    ".vertical-progress-current"
+  ).textContent = record.number;
+
+  gsap.to(".vertical-progress-fill", {
+    width:
+      `${((index + 1) / verticalVideos.length) * 100}%`,
+    duration: 0.4,
+  });
+}
+
+verticalThumbs.forEach((thumb, index) => {
+  thumb.addEventListener("click", () => {
+    changeVerticalRecord(index);
+  });
+});
+
+ScrollTrigger.create({
+  trigger: ".vertical-archive-space",
+  start: "top top",
+  end: "bottom bottom",
+
+  onUpdate: (self) => {
+    const index = Math.min(
+      Math.floor(
+        self.progress * verticalVideos.length
+      ),
+      verticalVideos.length - 1
+    );
+
+    changeVerticalRecord(index);
+  },
+});
+
+ScrollTrigger.create({
+  trigger: ".vertical-archive-space",
+  start: "top 70%",
+  end: "bottom top",
+
+  onEnter: () => {
+    verticalMainVideo
+      .play()
+      .catch(() => {});
+  },
+
+  onEnterBack: () => {
+    verticalMainVideo
+      .play()
+      .catch(() => {});
+  },
+
+  onLeave: () => {
+    verticalMainVideo.pause();
+  },
+
+  onLeaveBack: () => {
+    verticalMainVideo.pause();
+  },
+});

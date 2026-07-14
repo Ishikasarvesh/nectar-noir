@@ -1559,7 +1559,7 @@ document.querySelector("#app").innerHTML = `
           data-step-image="0"
         >
           <img
-            src="/preparation/step-1.jpeg"
+            src="/preparation/step-1.png"
             alt="Opening a premium honey jar"
           />
         </figure>
@@ -1569,7 +1569,7 @@ document.querySelector("#app").innerHTML = `
           data-step-image="1"
         >
           <img
-            src="/preparation/step-2.jpeg"
+            src="/preparation/step-2.png"
             alt="Honey slowly pouring from a dipper"
           />
         </figure>
@@ -1579,7 +1579,7 @@ document.querySelector("#app").innerHTML = `
           data-step-image="2"
         >
           <img
-            src="/preparation/step-3.jpeg"
+            src="/preparation/step-3.png"
             alt="Honey being blended into a warm drink"
           />
         </figure>
@@ -1589,7 +1589,7 @@ document.querySelector("#app").innerHTML = `
           data-step-image="3"
         >
           <img
-            src="/preparation/step-4.jpeg"
+            src="/preparation/step-4.png"
             alt="Final honey serving"
           />
         </figure>

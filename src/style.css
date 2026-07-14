@@ -3084,6 +3084,109 @@ button {
 
   font-size: 0.32rem;
 }
+.honey-video-scroll {
+  height: 260vh;
+}
+
+.honey-effects-content {
+  padding: 1rem 0.8rem;
+}
+
+.effects-meta {
+  grid-template-columns: 1fr auto;
+}
+
+.effects-meta span:nth-child(2) {
+  display: none;
+}
+
+.effects-grid {
+  grid-template-columns: 1fr;
+  gap: 1.2rem;
+}
+
+.effect-item {
+  min-height: auto;
+}
+
+.effect-item p {
+  max-width: 92%;
+
+  margin-top: 0.45rem;
+
+  font-size: 0.53rem;
+}
+
+.obsession-header {
+  min-height: 48vh;
+
+  padding: 1.2rem 0.8rem 2rem;
+
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.obsession-header p {
+  justify-self: start;
+}
+
+.obsession-space {
+  height: 310vh;
+}
+
+.obsession-title {
+  left: 9%;
+  top: 44%;
+
+  font-size: clamp(3.2rem, 17vw, 6rem);
+}
+
+.obsession-image-one {
+  width: 48vw;
+  height: 30vh;
+
+  left: 4%;
+}
+
+.obsession-image-two {
+  width: 34vw;
+  height: 25vh;
+
+  left: 62%;
+}
+
+.obsession-image-three {
+  width: 30vw;
+  height: 22vh;
+
+  left: 12%;
+}
+
+.obsession-image-four {
+  width: 50vw;
+  height: 43vh;
+
+  right: -12%;
+}
+
+.obsession-image-five {
+  width: 23vw;
+  height: 16vh;
+
+  left: 51%;
+  bottom: 25%;
+}
+
+.obsession-center-copy {
+  left: 43%;
+  top: 62%;
+
+  width: 150px;
+}
+
+.obsession-scroll {
+  left: 44%;
+}
 }
 
 /* ========================================

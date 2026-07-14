@@ -3758,5 +3758,190 @@ preparationStage.addEventListener(
     );
   }
 );
+/* ========================================
+   DEALER PAGE ANIMATIONS
+======================================== */
 
-/* Animate the initial image */
+const dealerSection = document.querySelector(
+  ".dealer-section"
+);
+
+const fingerprintLayer = document.querySelector(
+  ".dealer-fingerprint-layer"
+);
+
+let lastFingerprintTime = 0;
+let lastFingerprintX = 0;
+let lastFingerprintY = 0;
+
+function createFingerprint(x, y) {
+  const fingerprint = document.createElement("span");
+
+  fingerprint.className = "dealer-fingerprint";
+
+  fingerprint.style.left = `${x}px`;
+  fingerprint.style.top = `${y}px`;
+
+  fingerprint.style.setProperty(
+    "--fingerprint-rotation",
+    `${gsap.utils.random(-24, 24)}deg`
+  );
+
+  fingerprint.style.setProperty(
+    "--fingerprint-scale",
+    gsap.utils.random(0.65, 1.1)
+  );
+
+  fingerprintLayer.appendChild(fingerprint);
+
+  setTimeout(() => {
+    fingerprint.remove();
+  }, 1400);
+}
+
+dealerSection.addEventListener(
+  "pointermove",
+  (event) => {
+    const bounds =
+      dealerSection.getBoundingClientRect();
+
+    const x = event.clientX - bounds.left;
+    const y = event.clientY - bounds.top;
+
+    const currentTime = performance.now();
+
+    const distance = Math.hypot(
+      x - lastFingerprintX,
+      y - lastFingerprintY
+    );
+
+    if (
+      currentTime - lastFingerprintTime > 120 &&
+      distance > 38
+    ) {
+      createFingerprint(x, y);
+
+      lastFingerprintTime = currentTime;
+      lastFingerprintX = x;
+      lastFingerprintY = y;
+    }
+  }
+);
+
+/* Dealer files enter like old physical records */
+
+const dealerTimeline = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".dealer-section",
+    start: "top 70%",
+  },
+});
+
+dealerTimeline
+  .from(".dealer-file-back", {
+    x: -500,
+    y: 80,
+    rotation: -18,
+    opacity: 0,
+    duration: 0.9,
+    ease: "power4.out",
+  })
+  .from(
+    ".dealer-file-middle",
+    {
+      x: 500,
+      y: -80,
+      rotation: 16,
+      opacity: 0,
+      duration: 0.9,
+      ease: "power4.out",
+    },
+    "-=0.62"
+  )
+  .from(
+    ".dealer-main-file",
+    {
+      y: 180,
+      scale: 0.92,
+      rotation: -2,
+      opacity: 0,
+      duration: 1.1,
+      ease: "power4.out",
+    },
+    "-=0.55"
+  )
+  .from(
+    ".dealer-photo-frame",
+    {
+      clipPath: "inset(0 100% 0 0)",
+      duration: 0.9,
+      ease: "power4.inOut",
+    },
+    "-=0.45"
+  )
+  .from(
+    ".dealer-information > *",
+    {
+      y: 28,
+      opacity: 0,
+      stagger: 0.08,
+      duration: 0.55,
+      ease: "power3.out",
+    },
+    "-=0.45"
+  );
+
+/* Slight old-file parallax */
+
+gsap.to(".dealer-file-back", {
+  y: -60,
+  rotation: -7,
+
+  scrollTrigger: {
+    trigger: ".dealer-layout",
+    start: "top bottom",
+    end: "bottom top",
+    scrub: 1,
+  },
+});
+
+gsap.to(".dealer-file-middle", {
+  y: 45,
+  rotation: 6,
+
+  scrollTrigger: {
+    trigger: ".dealer-layout",
+    start: "top bottom",
+    end: "bottom top",
+    scrub: 1,
+  },
+});
+
+/* Final footer wordmark reveal */
+
+gsap.from(".archive-closing-wordmark", {
+  yPercent: 120,
+  opacity: 0,
+
+  scrollTrigger: {
+    trigger: ".archive-closing",
+    start: "top 65%",
+  },
+
+  duration: 1.2,
+  ease: "power4.out",
+});
+
+gsap.from(".archive-closing-grid div", {
+  y: 20,
+  opacity: 0,
+  stagger: 0.08,
+
+  scrollTrigger: {
+    trigger: ".archive-closing",
+    start: "top 75%",
+  },
+
+  duration: 0.6,
+  ease: "power3.out",
+});

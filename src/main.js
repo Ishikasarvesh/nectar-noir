@@ -3720,3 +3720,140 @@ if (honeyPourVideo) {
       );
     });
 }
+/* ========================================
+   GLOBAL BEE CURSOR
+======================================== */
+
+const beeCursor = document.querySelector(
+  ".bee-cursor"
+);
+
+const supportsFinePointer = window.matchMedia(
+  "(pointer: fine)"
+).matches;
+
+if (beeCursor && supportsFinePointer) {
+  let currentX = window.innerWidth / 2;
+  let currentY = window.innerHeight / 2;
+
+  let targetX = currentX;
+  let targetY = currentY;
+
+  let previousX = currentX;
+  let previousY = currentY;
+
+  let beeRotation = 0;
+  let beeScale = 1;
+
+  function animateBeeCursor() {
+    currentX +=
+      (targetX - currentX) * 0.19;
+
+    currentY +=
+      (targetY - currentY) * 0.19;
+
+    const movementX =
+      currentX - previousX;
+
+    const movementY =
+      currentY - previousY;
+
+    if (
+      Math.abs(movementX) > 0.08 ||
+      Math.abs(movementY) > 0.08
+    ) {
+      beeRotation =
+        Math.atan2(
+          movementY,
+          movementX
+        ) *
+        (180 / Math.PI);
+    }
+
+    const hoverScale =
+      beeCursor.classList.contains(
+        "is-hovering"
+      )
+        ? 0.82
+        : 1;
+
+    beeScale +=
+      (hoverScale - beeScale) * 0.15;
+
+    beeCursor.style.transform = `
+      translate3d(
+        ${currentX}px,
+        ${currentY}px,
+        0
+      )
+      translate(-50%, -50%)
+      rotate(${beeRotation}deg)
+      scale(${beeScale})
+    `;
+
+    previousX = currentX;
+    previousY = currentY;
+
+    requestAnimationFrame(
+      animateBeeCursor
+    );
+  }
+
+  window.addEventListener(
+    "pointermove",
+    (event) => {
+      targetX = event.clientX;
+      targetY = event.clientY;
+
+      beeCursor.classList.add(
+        "is-visible"
+      );
+    }
+  );
+
+  document.addEventListener(
+    "pointerover",
+    (event) => {
+      const interactiveElement =
+        event.target.closest(
+          `
+            a,
+            button,
+            input,
+            textarea,
+            select,
+            video,
+            .texture-cell,
+            .archive-file,
+            .vertical-video-thumb,
+            .dealer-photo-glitch
+          `
+        );
+
+      beeCursor.classList.toggle(
+        "is-hovering",
+        Boolean(interactiveElement)
+      );
+    }
+  );
+
+  document.addEventListener(
+    "mouseleave",
+    () => {
+      beeCursor.classList.remove(
+        "is-visible"
+      );
+    }
+  );
+
+  document.addEventListener(
+    "mouseenter",
+    () => {
+      beeCursor.classList.add(
+        "is-visible"
+      );
+    }
+  );
+
+  animateBeeCursor();
+}

@@ -3257,23 +3257,26 @@ function updatePreparationStep(index) {
   });
 }
 
-  gsap.fromTo(
-    nextImage,
-    {
-      opacity: 0,
-      scale: 1.16,
-      rotation: -1.5,
-      filter: "blur(12px) brightness(0.62)",
-    },
-    {
-      opacity: 1,
-      scale: 1,
-      rotation: 0,
-      filter: "blur(0px) brightness(1)",
-      duration: 0.7,
-      ease: "power3.out",
-    }
-  );
+  nextImage.classList.add("is-active");
+nextImage.style.visibility = "visible";
+
+gsap.fromTo(
+  nextImage,
+  {
+    opacity: 0,
+    scale: 0.7,
+    rotation: index > previousIndex ? -110 : 110,
+    filter: "blur(14px) brightness(0.5)",
+  },
+  {
+    opacity: 1,
+    scale: 1,
+    rotation: 0,
+    filter: "blur(0px) brightness(1)",
+    duration: 0.8,
+    ease: "power4.out",
+  }
+);
 
   const recordElements = [
     ".preparation-record-step",

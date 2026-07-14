@@ -1939,67 +1939,6 @@ function updateOriginProgress(index, recordNumber) {
    HONEY ARCHIVE FILES ANIMATION
 ======================================== */
 
-const honeyFilesSection = document.querySelector(
-  ".files-scroll-space"
-);
-
-const archiveFiles = [
-  {
-    element: ".file-background",
-    startX: -900,
-    startY: 40,
-    rotation: -12,
-  },
-  {
-    element: ".file-formalization",
-    startX: -750,
-    startY: -80,
-    rotation: -10,
-  },
-  {
-    element: ".file-method",
-    startX: -1050,
-    startY: 120,
-    rotation: -16,
-  },
-  {
-    element: ".file-first-contact",
-    startX: -900,
-    startY: 30,
-    rotation: 10,
-  },
-  {
-    element: ".file-preserved-use",
-    startX: -1150,
-    startY: 180,
-    rotation: -8,
-  },
-  {
-    element: ".file-controlled",
-    startX: -1250,
-    startY: -100,
-    rotation: 15,
-  },
-];
-
-archiveFiles.forEach((file) => {
-  gsap.from(file.element, {
-    x: file.startX,
-    y: file.startY,
-    rotation: file.rotation,
-    opacity: 0,
-    scale: 0.82,
-
-    scrollTrigger: {
-      trigger: honeyFilesSection,
-      start: "top top",
-      end: "bottom bottom",
-      scrub: 1.2,
-    },
-
-    ease: "none",
-  });
-});
 
 /* Add separate timing so files enter one after another */
 
@@ -2008,7 +1947,7 @@ const filesTimeline = gsap.timeline({
     trigger: ".files-scroll-space",
     start: "top top",
     end: "bottom bottom",
-    scrub: 1,
+    scrub: 0.6,
   },
 });
 
@@ -2018,19 +1957,20 @@ filesTimeline
     {
       xPercent: -150,
       opacity: 0,
-      scale: 0.88,
+      scale: 0.9,
     },
     {
       xPercent: 0,
       opacity: 1,
       scale: 1,
-      duration: 1,
+      duration: 0.55,
+      ease: "power2.out",
     }
   )
   .fromTo(
     ".file-formalization",
     {
-      xPercent: -180,
+      xPercent: -170,
       opacity: 0,
       rotation: -13,
     },
@@ -2038,14 +1978,15 @@ filesTimeline
       xPercent: 0,
       opacity: 1,
       rotation: -2,
-      duration: 1,
+      duration: 0.55,
+      ease: "power2.out",
     },
-    "-=0.55"
+    "-=0.3"
   )
   .fromTo(
     ".file-method",
     {
-      xPercent: -190,
+      xPercent: -180,
       opacity: 0,
       rotation: -14,
     },
@@ -2053,14 +1994,15 @@ filesTimeline
       xPercent: 0,
       opacity: 1,
       rotation: 1.3,
-      duration: 1,
+      duration: 0.55,
+      ease: "power2.out",
     },
-    "-=0.45"
+    "-=0.28"
   )
   .fromTo(
     ".file-first-contact",
     {
-      xPercent: -190,
+      xPercent: -180,
       opacity: 0,
       rotation: 9,
     },
@@ -2068,9 +2010,10 @@ filesTimeline
       xPercent: 0,
       opacity: 1,
       rotation: -1.5,
-      duration: 1,
+      duration: 0.55,
+      ease: "power2.out",
     },
-    "-=0.4"
+    "-=0.26"
   )
   .fromTo(
     ".file-preserved-use",
@@ -2083,14 +2026,15 @@ filesTimeline
       xPercent: 0,
       opacity: 1,
       rotation: 1.1,
-      duration: 1,
+      duration: 0.55,
+      ease: "power2.out",
     },
-    "-=0.35"
+    "-=0.24"
   )
   .fromTo(
     ".file-controlled",
     {
-      xPercent: -220,
+      xPercent: -200,
       opacity: 0,
       rotation: 14,
     },
@@ -2098,28 +2042,30 @@ filesTimeline
       xPercent: 0,
       opacity: 1,
       rotation: 1.7,
-      duration: 1,
+      duration: 0.55,
+      ease: "power2.out",
     },
-    "-=0.3"
+    "-=0.22"
   )
   .from(
     ".files-documentation",
     {
       xPercent: 100,
       opacity: 0,
-      duration: 0.8,
+      duration: 0.5,
+      ease: "power2.out",
     },
-    "-=0.6"
+    "-=0.35"
   )
   .from(
     ".files-stage-footer span",
     {
-      y: 15,
+      y: 12,
       opacity: 0,
-      stagger: 0.08,
-      duration: 0.5,
+      stagger: 0.04,
+      duration: 0.35,
     },
-    "-=0.4"
+    "-=0.25"
   );
 
 /* Documentation indicator changes during scroll */

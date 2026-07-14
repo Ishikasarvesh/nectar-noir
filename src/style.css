@@ -3218,8 +3218,7 @@ button {
 
 .files-scroll-space {
   position: relative;
-
-  height: 450vh;
+  height: 260vh;
 }
 
 .files-stage {

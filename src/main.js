@@ -3255,7 +3255,16 @@ function updatePreparationText(step) {
     },
   });
 }
-let activePreparationStep = 0;
+let activePreparationStep = -1;
+ScrollTrigger.create({
+  trigger: ".preparation-scroll-space",
+  start: "top 70%",
+  once: true,
+
+  onEnter: () => {
+    updatePreparationStep(0);
+  },
+});
 
 function updatePreparationStep(index) {
   const step = preparationSteps[index];
@@ -3429,22 +3438,3 @@ preparationStage.addEventListener(
 );
 
 /* Animate the initial image */
-
-gsap.fromTo(
-  preparationImages[0],
-  {
-    opacity: 0,
-    scale: 1.15,
-    filter: "blur(12px) brightness(0.6)",
-  },
-  {
-    opacity: 1,
-    scale: 1,
-    filter: "blur(0px) brightness(1)",
-    duration: 0.8,
-    scrollTrigger: {
-      trigger: ".preparation-scroll-space",
-      start: "top 70%",
-    },
-  }
-);

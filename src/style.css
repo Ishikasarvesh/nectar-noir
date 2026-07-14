@@ -4864,3 +4864,368 @@ button {
   box-shadow:
     0 0 16px rgba(255, 199, 90, 0.55);
 }
+/* ========================================
+   PREPARATION PROCEDURE
+======================================== */
+
+.preparation-procedure {
+  position: relative;
+
+  color: var(--cream);
+  background: #020100;
+}
+
+.preparation-scroll-space {
+  position: relative;
+
+  height: 420vh;
+}
+
+.preparation-stage {
+  position: sticky;
+  top: 0;
+
+  width: 100%;
+  height: 100vh;
+
+  overflow: hidden;
+
+  cursor: none;
+
+  background:
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(101, 48, 9, 0.08),
+      transparent 35%
+    ),
+    #020100;
+
+  --flashlight-x: 50%;
+  --flashlight-y: 50%;
+}
+
+/* Dark layer with a transparent flashlight opening */
+
+.preparation-flashlight {
+  position: absolute;
+  inset: 0;
+  z-index: 12;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle 190px at
+      var(--flashlight-x)
+      var(--flashlight-y),
+      transparent 0%,
+      rgba(0, 0, 0, 0.08) 48%,
+      rgba(0, 0, 0, 0.82) 76%,
+      rgba(0, 0, 0, 0.98) 100%
+    );
+
+  transition: opacity 0.35s ease;
+}
+
+.preparation-stage:not(.is-inspecting)
+.preparation-flashlight {
+  opacity: 0.94;
+}
+
+/* Top metadata */
+
+.preparation-topbar {
+  position: absolute;
+  z-index: 20;
+
+  top: 0;
+  left: 0;
+  right: 0;
+
+  height: 58px;
+  padding: 0 1.2rem;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+
+  border-bottom:
+    1px solid rgba(255, 199, 90, 0.14);
+
+  font-family: "DM Mono", monospace;
+  font-size: 0.56rem;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+
+  color: rgba(255, 199, 90, 0.72);
+}
+
+.preparation-topbar span:nth-child(2) {
+  text-align: center;
+}
+
+.preparation-topbar span:last-child {
+  text-align: right;
+}
+
+/* Main images */
+
+.preparation-media {
+  position: absolute;
+  inset: 58px 0 54px;
+
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  perspective: 1200px;
+}
+
+.preparation-step-image {
+  position: absolute;
+
+  width: min(56vw, 900px);
+  height: min(68vh, 720px);
+
+  margin: 0;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transform:
+    scale(1.12)
+    rotate(-1.5deg);
+
+  filter:
+    blur(10px)
+    brightness(0.75);
+
+  will-change:
+    transform,
+    opacity,
+    filter;
+}
+
+.preparation-step-image.is-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.preparation-step-image img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+
+  filter:
+    saturate(1.05)
+    contrast(1.08)
+    brightness(0.9);
+}
+
+/* Inspection corners */
+
+.preparation-crosshair {
+  position: absolute;
+  z-index: 5;
+
+  width: min(60vw, 960px);
+  height: min(72vh, 760px);
+
+  pointer-events: none;
+}
+
+.preparation-crosshair span {
+  position: absolute;
+
+  width: 25px;
+  height: 25px;
+}
+
+.preparation-crosshair span:nth-child(1) {
+  top: 0;
+  left: 0;
+
+  border-top: 1px solid var(--bright-gold);
+  border-left: 1px solid var(--bright-gold);
+}
+
+.preparation-crosshair span:nth-child(2) {
+  top: 0;
+  right: 0;
+
+  border-top: 1px solid var(--bright-gold);
+  border-right: 1px solid var(--bright-gold);
+}
+
+.preparation-crosshair span:nth-child(3) {
+  left: 0;
+  bottom: 0;
+
+  border-left: 1px solid var(--bright-gold);
+  border-bottom: 1px solid var(--bright-gold);
+}
+
+.preparation-crosshair span:nth-child(4) {
+  right: 0;
+  bottom: 0;
+
+  border-right: 1px solid var(--bright-gold);
+  border-bottom: 1px solid var(--bright-gold);
+}
+
+/* Procedure record */
+
+.preparation-record {
+  position: absolute;
+  z-index: 20;
+
+  left: 1.3rem;
+  bottom: 90px;
+
+  width: min(310px, 28vw);
+
+  padding: 1rem;
+
+  border:
+    1px solid rgba(255, 199, 90, 0.22);
+
+  font-family: "DM Mono", monospace;
+
+  color: var(--bright-gold);
+  background: rgba(5, 2, 0, 0.62);
+
+  backdrop-filter: blur(9px);
+}
+
+.preparation-record-step {
+  display: block;
+
+  margin-bottom: 0.75rem;
+
+  font-size: 0.54rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.preparation-record-title {
+  min-height: 27px;
+
+  font-family: "DM Mono", monospace;
+  font-size: clamp(1rem, 1.25vw, 1.35rem);
+  line-height: 1;
+  letter-spacing: 0.05em;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.preparation-record-description {
+  min-height: 70px;
+
+  margin-top: 1rem;
+
+  font-size: 0.58rem;
+  line-height: 1.65;
+
+  color: rgba(255, 218, 153, 0.76);
+}
+
+.preparation-record-data {
+  margin-top: 1rem;
+  padding-top: 0.7rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+
+  border-top:
+    1px solid rgba(255, 199, 90, 0.18);
+
+  font-size: 0.46rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+
+  color: rgba(255, 199, 90, 0.62);
+}
+
+/* Step indicators */
+
+.preparation-indicators {
+  position: absolute;
+  z-index: 20;
+
+  top: 50%;
+  right: 1.3rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+
+  transform: translateY(-50%);
+}
+
+.preparation-indicator {
+  width: 9px;
+  height: 9px;
+
+  border:
+    1px solid rgba(255, 199, 90, 0.48);
+
+  background: transparent;
+
+  transition:
+    background 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.preparation-indicator.is-active {
+  border-color: var(--bright-gold);
+  background: var(--bright-gold);
+
+  box-shadow:
+    0 0 12px rgba(255, 199, 90, 0.55);
+}
+
+/* Bottom information */
+
+.preparation-footer {
+  position: absolute;
+  z-index: 20;
+
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  height: 54px;
+  padding: 0 1.2rem;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+
+  border-top:
+    1px solid rgba(255, 199, 90, 0.14);
+
+  font-family: "DM Mono", monospace;
+  font-size: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+
+  color: rgba(255, 199, 90, 0.62);
+}
+
+.preparation-footer span:nth-child(2) {
+  text-align: center;
+}
+
+.preparation-footer span:last-child {
+  text-align: right;
+}
+
+.preparation-current {
+  color: var(--bright-gold);
+}

@@ -2332,7 +2332,7 @@ ScrollTrigger.create({
   },
 });
 /* ========================================
-   HONEY HYPERFIXATION DEPTH ANIMATION
+   HONEY HYPERFIXATION FLY-THROUGH
 ======================================== */
 
 const obsessionTimeline = gsap.timeline({
@@ -2340,130 +2340,202 @@ const obsessionTimeline = gsap.timeline({
     trigger: ".obsession-space",
     start: "top top",
     end: "bottom bottom",
-    scrub: 0.8,
+    scrub: 0.7,
   },
 });
+
+/* Title enters and later leaves */
 
 obsessionTimeline
   .fromTo(
     ".obsession-title",
     {
-      scale: 0.15,
-      z: -1200,
-      opacity: 0,
-      filter: "blur(16px)",
-    },
-    {
-      scale: 1,
-      z: 0,
-      opacity: 1,
-      filter: "blur(0px)",
-      duration: 1,
-      ease: "none",
-    }
-  )
-  .fromTo(
-    ".obsession-image-one",
-    {
-      scale: 0.08,
-      x: -250,
-      y: -100,
+      scale: 0.12,
       opacity: 0,
       filter: "blur(18px)",
     },
     {
       scale: 1,
-      x: 0,
-      y: 0,
       opacity: 1,
       filter: "blur(0px)",
-      duration: 1,
+      duration: 0.7,
       ease: "none",
-    },
-    "-=0.72"
+    }
   )
+
+  /* Image 01 */
+
   .fromTo(
-    ".obsession-image-two",
+    ".obsession-image-one",
     {
-      scale: 0.06,
-      x: 220,
-      y: -170,
-      opacity: 0,
-      filter: "blur(20px)",
-    },
-    {
-      scale: 1,
-      x: 0,
-      y: 0,
-      opacity: 1,
-      filter: "blur(0px)",
-      duration: 1,
-      ease: "none",
-    },
-    "-=0.68"
-  )
-  .fromTo(
-    ".obsession-image-three",
-    {
-      scale: 0.05,
-      x: -180,
-      y: 250,
-      opacity: 0,
-      filter: "blur(20px)",
-    },
-    {
-      scale: 1,
-      x: 0,
-      y: 0,
-      opacity: 1,
-      filter: "blur(0px)",
-      duration: 1,
-      ease: "none",
-    },
-    "-=0.62"
-  )
-  .fromTo(
-    ".obsession-image-four",
-    {
-      scale: 0.07,
-      x: 400,
-      y: 220,
+      scale: 0.04,
+      xPercent: -80,
+      yPercent: -30,
       opacity: 0,
       filter: "blur(22px)",
     },
     {
       scale: 1,
-      x: 0,
-      y: 0,
+      xPercent: 0,
+      yPercent: 0,
       opacity: 1,
       filter: "blur(0px)",
-      duration: 1,
+      duration: 0.75,
       ease: "none",
     },
-    "-=0.58"
+    "-=0.45"
   )
+  .to(".obsession-image-one", {
+    scale: 3.5,
+    xPercent: -95,
+    yPercent: -75,
+    opacity: 0,
+    filter: "blur(10px)",
+    duration: 0.85,
+    ease: "power2.in",
+  })
+
+  /* Image 02 */
+
+  .fromTo(
+    ".obsession-image-two",
+    {
+      scale: 0.04,
+      xPercent: 90,
+      yPercent: -50,
+      opacity: 0,
+      filter: "blur(22px)",
+    },
+    {
+      scale: 1,
+      xPercent: 0,
+      yPercent: 0,
+      opacity: 1,
+      filter: "blur(0px)",
+      duration: 0.75,
+      ease: "none",
+    },
+    "-=0.5"
+  )
+  .to(".obsession-image-two", {
+    scale: 3.8,
+    xPercent: 90,
+    yPercent: -80,
+    opacity: 0,
+    filter: "blur(11px)",
+    duration: 0.85,
+    ease: "power2.in",
+  })
+
+  /* Image 03 */
+
+  .fromTo(
+    ".obsession-image-three",
+    {
+      scale: 0.03,
+      xPercent: -100,
+      yPercent: 100,
+      opacity: 0,
+      filter: "blur(24px)",
+    },
+    {
+      scale: 1,
+      xPercent: 0,
+      yPercent: 0,
+      opacity: 1,
+      filter: "blur(0px)",
+      duration: 0.75,
+      ease: "none",
+    },
+    "-=0.5"
+  )
+  .to(".obsession-image-three", {
+    scale: 4,
+    xPercent: -85,
+    yPercent: 95,
+    opacity: 0,
+    filter: "blur(12px)",
+    duration: 0.85,
+    ease: "power2.in",
+  })
+
+  /* Image 04 */
+
+  .fromTo(
+    ".obsession-image-four",
+    {
+      scale: 0.04,
+      xPercent: 100,
+      yPercent: 90,
+      opacity: 0,
+      filter: "blur(24px)",
+    },
+    {
+      scale: 1,
+      xPercent: 0,
+      yPercent: 0,
+      opacity: 1,
+      filter: "blur(0px)",
+      duration: 0.75,
+      ease: "none",
+    },
+    "-=0.5"
+  )
+  .to(".obsession-image-four", {
+    scale: 3.5,
+    xPercent: 100,
+    yPercent: 80,
+    opacity: 0,
+    filter: "blur(12px)",
+    duration: 0.85,
+    ease: "power2.in",
+  })
+
+  /* Image 05 */
+
   .fromTo(
     ".obsession-image-five",
     {
-      scale: 0.04,
+      scale: 0.02,
       opacity: 0,
-      filter: "blur(18px)",
+      filter: "blur(26px)",
     },
     {
       scale: 1,
       opacity: 1,
       filter: "blur(0px)",
-      duration: 0.8,
+      duration: 0.7,
       ease: "none",
     },
-    "-=0.5"
+    "-=0.45"
   )
-  .from(
-    ".obsession-center-copy",
+  .to(".obsession-image-five", {
+    scale: 6,
+    opacity: 0,
+    filter: "blur(14px)",
+    duration: 0.9,
+    ease: "power2.in",
+  })
+
+  /* Remaining title and copy leave */
+
+  .to(
+    ".obsession-title",
+    {
+      scale: 2.4,
+      opacity: 0,
+      filter: "blur(10px)",
+      duration: 0.8,
+      ease: "power2.in",
+    },
+    "-=0.55"
+  )
+  .to(
+    ".obsession-center-copy, .obsession-scroll",
     {
       opacity: 0,
-      y: 30,
-      duration: 0.5,
+      y: 40,
+      duration: 0.45,
     },
-    "-=0.3"
+    "-=0.65"
   );

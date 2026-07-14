@@ -1358,6 +1358,154 @@ document.querySelector("#app").innerHTML = `
 
 </section>
 
+<section class="vertical-archive">
+
+  <div class="vertical-archive-space">
+
+    <div class="vertical-archive-stage">
+
+      <div class="vertical-archive-header">
+
+        <span>Archive H-V</span>
+
+        <strong>
+          Vertical Evidence
+        </strong>
+
+        <span>03 records</span>
+
+      </div>
+
+      <div class="vertical-video-rail">
+
+        <button
+          class="vertical-video-thumb is-active"
+          type="button"
+          data-video-index="0"
+        >
+          <video
+            muted
+            playsinline
+            preload="metadata"
+          >
+            <source
+              src="/hyperfixation/videos/archive-video-01.mp4"
+              type="video/mp4"
+            />
+          </video>
+
+          <span>01</span>
+        </button>
+
+        <button
+          class="vertical-video-thumb"
+          type="button"
+          data-video-index="1"
+        >
+          <video
+            muted
+            playsinline
+            preload="metadata"
+          >
+            <source
+              src="/hyperfixation/videos/archive-video-02.mp4"
+              type="video/mp4"
+            />
+          </video>
+
+          <span>02</span>
+        </button>
+
+        <button
+          class="vertical-video-thumb"
+          type="button"
+          data-video-index="2"
+        >
+          <video
+            muted
+            playsinline
+            preload="metadata"
+          >
+            <source
+              src="/hyperfixation/videos/archive-video-03.mp4"
+              type="video/mp4"
+            />
+          </video>
+
+          <span>03</span>
+        </button>
+
+      </div>
+
+      <div class="vertical-video-main">
+
+        <video
+          class="vertical-main-video"
+          muted
+          playsinline
+          loop
+          preload="auto"
+        >
+          <source
+            src="/hyperfixation/videos/archive-video-01.mp4"
+            type="video/mp4"
+          />
+        </video>
+
+        <div class="vertical-video-frame"></div>
+
+      </div>
+
+      <div class="vertical-video-copy">
+
+        <span class="vertical-record-number">
+          Record 01
+        </span>
+
+        <h2>
+          Liquid devotion,
+          documented vertically.
+        </h2>
+
+        <p class="vertical-record-description">
+          Oversized vessels, unconventional rituals and
+          excessive encounters with honey.
+        </p>
+
+        <div class="vertical-record-data">
+
+          <span>
+            Source / Private archive
+          </span>
+
+          <span>
+            Status / Verified
+          </span>
+
+        </div>
+
+      </div>
+
+      <div class="vertical-archive-progress">
+
+        <span class="vertical-progress-current">
+          01
+        </span>
+
+        <div class="vertical-progress-track">
+          <div class="vertical-progress-fill"></div>
+        </div>
+
+        <span>03</span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
     <div class="texture-intro-footer">
 
   <div class="texture-wordmark-wrapper">

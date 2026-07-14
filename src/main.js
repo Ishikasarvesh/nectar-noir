@@ -2293,22 +2293,40 @@ honeyPourVideo.addEventListener("loadedmetadata", () => {
   ScrollTrigger.refresh();
 });
 
+let requestedVideoTime = 0;
+let displayedVideoTime = 0;
+
+function updateHoneyVideoFrame() {
+  if (honeyVideoReady) {
+    displayedVideoTime +=
+      (requestedVideoTime - displayedVideoTime) * 0.22;
+
+    if (
+      Math.abs(
+        honeyPourVideo.currentTime - displayedVideoTime
+      ) > 0.025
+    ) {
+      honeyPourVideo.currentTime = displayedVideoTime;
+    }
+  }
+
+  requestAnimationFrame(updateHoneyVideoFrame);
+}
+
+updateHoneyVideoFrame();
+
 ScrollTrigger.create({
   trigger: ".honey-video-scroll",
   start: "top top",
   end: "bottom bottom",
-  scrub: true,
 
   onUpdate: (self) => {
     if (!honeyVideoReady || !honeyVideoDuration) {
       return;
     }
 
-    const targetTime =
-      self.progress * honeyVideoDuration;
-
-    honeyPourVideo.currentTime = Math.min(
-      targetTime,
+    requestedVideoTime = Math.min(
+      self.progress * honeyVideoDuration,
       honeyVideoDuration - 0.05
     );
   },

@@ -3434,6 +3434,24 @@ button {
 .dealer-footer span:last-child {
   text-align: left;
 }
+@media (pointer: coarse),
+(max-width: 768px) {
+  .bee-cursor {
+    display: none !important;
+  }
+
+  html,
+  body,
+  a,
+  button,
+  input,
+  textarea,
+  select,
+  label,
+  video {
+    cursor: auto !important;
+  }
+}
 }
 
 /* ========================================

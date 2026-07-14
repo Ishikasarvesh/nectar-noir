@@ -5146,8 +5146,8 @@ button {
   position: absolute;
   z-index: 5;
 
-  width: min(60vw, 960px);
-  height: min(72vh, 760px);
+  width: min(40vw, 620px);
+  height: min(62vh, 650px);
 
   pointer-events: none;
 }

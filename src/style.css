@@ -2917,6 +2917,173 @@ button {
 .process-vessel {
   min-height: 230px;
 }
+.honey-files-heading {
+  min-height: 68vh;
+
+  padding: 6rem 1.2rem 3rem;
+}
+
+.files-heading-meta {
+  grid-template-columns: 1fr auto;
+}
+
+.files-heading-meta span:nth-child(2) {
+  display: none;
+}
+
+.honey-files-heading h2 {
+  font-size: clamp(4rem, 19vw, 7rem);
+}
+
+.honey-files-heading > p {
+  margin-left: 0;
+
+  font-size: 0.88rem;
+}
+
+.files-scroll-space {
+  height: 380vh;
+}
+
+.files-stage {
+  grid-template-columns: 1fr;
+  grid-template-rows: 42px 1fr 100px;
+}
+
+.files-stage-header {
+  grid-column: 1;
+
+  padding-inline: 0.7rem;
+
+  grid-template-columns: 35px 1fr;
+}
+
+.files-stage-header span:last-child {
+  display: none;
+}
+
+.files-board {
+  grid-column: 1;
+}
+
+.files-documentation {
+  grid-column: 1;
+  grid-row: 3;
+
+  padding: 0.7rem;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  align-items: center;
+
+  border-left: 0;
+  border-top: 1px solid var(--archive-line);
+}
+
+.documentation-content {
+  margin: 0;
+}
+
+.documentation-label {
+  margin: 0;
+
+  font-size: 0.8rem;
+}
+
+.documentation-content > p:last-child {
+  display: none;
+}
+
+.documentation-index {
+  flex-direction: row;
+}
+
+.documentation-index span {
+  width: 7px;
+  height: 7px;
+}
+
+.files-stage-footer {
+  display: none;
+}
+
+.archive-file {
+  padding: 0.65rem;
+}
+
+.archive-file-top {
+  font-size: 0.36rem;
+}
+
+.archive-file h3 {
+  font-size: 0.75rem;
+}
+
+.archive-file > p:not(.file-small-label) {
+  font-size: 0.42rem;
+}
+
+.file-background {
+  width: 60%;
+  height: 42%;
+
+  left: 1%;
+  top: 10%;
+}
+
+.file-formalization {
+  width: 42%;
+  height: 32%;
+
+  left: 2%;
+  top: 3%;
+}
+
+.file-method {
+  width: 48%;
+  height: 46%;
+
+  left: 3%;
+  top: 34%;
+}
+
+.file-first-contact {
+  width: 52%;
+  height: 44%;
+
+  left: 28%;
+  top: 20%;
+}
+
+.file-controlled {
+  width: 47%;
+  height: 48%;
+
+  right: 1%;
+  top: 5%;
+}
+
+.file-preserved-use {
+  width: 64%;
+  height: 27%;
+
+  left: 29%;
+  top: 66%;
+}
+
+.file-footer-data {
+  font-size: 0.31rem;
+}
+
+.method-specimens {
+  margin-top: 0.5rem;
+}
+
+.controlled-data div {
+  min-height: 24px;
+
+  font-size: 0.32rem;
+}
 }
 
 /* ========================================

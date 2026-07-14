@@ -62,6 +62,19 @@
       #c8944a 100%
     );
 }
+@media (pointer: fine) {
+  html,
+  body,
+  a,
+  button,
+  input,
+  textarea,
+  select,
+  label,
+  video {
+    cursor: none !important;
+  }
+}
 
 * {
   margin: 0;

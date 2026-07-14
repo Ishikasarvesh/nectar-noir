@@ -3718,7 +3718,7 @@ if (honeyPourVideo) {
     });
 }
 /* ========================================
-   GLOBAL BEE CURSOR
+   GLOBAL LEGO BEE CURSOR
 ======================================== */
 
 const beeCursor = document.querySelector(
@@ -3739,15 +3739,26 @@ if (beeCursor && supportsFinePointer) {
   let previousX = currentX;
   let previousY = currentY;
 
-  let beeRotation = 0;
-  let beeScale = 1;
+  let targetRotation = 0;
+  let currentRotation = 0;
+
+  let targetScale = 1;
+  let currentScale = 1;
+
+  let idleTime = 0;
 
   function animateBeeCursor() {
+    /*
+      Smoothly follow the real pointer.
+      Increase 0.2 for faster movement.
+      Decrease it for a softer floating movement.
+    */
+
     currentX +=
-      (targetX - currentX) * 0.19;
+      (targetX - currentX) * 0.2;
 
     currentY +=
-      (targetY - currentY) * 0.19;
+      (targetY - currentY) * 0.2;
 
     const movementX =
       currentX - previousX;
@@ -3755,27 +3766,46 @@ if (beeCursor && supportsFinePointer) {
     const movementY =
       currentY - previousY;
 
-    if (
-      Math.abs(movementX) > 0.08 ||
-      Math.abs(movementY) > 0.08
-    ) {
-      beeRotation =
+    const movementDistance = Math.hypot(
+      movementX,
+      movementY
+    );
+
+    /*
+      Rotate the bee toward the direction
+      in which the cursor is travelling.
+    */
+
+    if (movementDistance > 0.15) {
+      targetRotation =
         Math.atan2(
           movementY,
           movementX
         ) *
         (180 / Math.PI);
+
+      idleTime = 0;
+    } else {
+      idleTime += 1;
     }
 
-    const hoverScale =
-      beeCursor.classList.contains(
-        "is-hovering"
-      )
-        ? 0.82
-        : 1;
+    /*
+      Use the shortest rotational path so
+      the bee does not spin unnecessarily.
+    */
 
-    beeScale +=
-      (hoverScale - beeScale) * 0.15;
+    let rotationDifference =
+      targetRotation - currentRotation;
+
+    rotationDifference =
+      ((rotationDifference + 180) % 360) -
+      180;
+
+    currentRotation +=
+      rotationDifference * 0.14;
+
+    currentScale +=
+      (targetScale - currentScale) * 0.16;
 
     beeCursor.style.transform = `
       translate3d(
@@ -3784,8 +3814,8 @@ if (beeCursor && supportsFinePointer) {
         0
       )
       translate(-50%, -50%)
-      rotate(${beeRotation}deg)
-      scale(${beeScale})
+      rotate(${currentRotation}deg)
+      scale(${currentScale})
     `;
 
     previousX = currentX;
@@ -3808,6 +3838,11 @@ if (beeCursor && supportsFinePointer) {
     }
   );
 
+  /*
+    Highlight the bee over interactive
+    elements.
+  */
+
   document.addEventListener(
     "pointerover",
     (event) => {
@@ -3823,18 +3858,57 @@ if (beeCursor && supportsFinePointer) {
             .texture-cell,
             .archive-file,
             .vertical-video-thumb,
-            .dealer-photo-glitch
+            .dealer-photo-glitch,
+            .preparation-step-image
           `
         );
 
+      const isInteractive =
+        Boolean(interactiveElement);
+
       beeCursor.classList.toggle(
         "is-hovering",
-        Boolean(interactiveElement)
+        isInteractive
       );
+
+      targetScale =
+        isInteractive ? 1.16 : 1;
+    }
+  );
+
+  /*
+    Clicking makes the bee compress,
+    like it quickly moved closer.
+  */
+
+  document.addEventListener(
+    "pointerdown",
+    () => {
+      beeCursor.classList.add(
+        "is-clicking"
+      );
+
+      targetScale = 0.82;
     }
   );
 
   document.addEventListener(
+    "pointerup",
+    () => {
+      beeCursor.classList.remove(
+        "is-clicking"
+      );
+
+      targetScale =
+        beeCursor.classList.contains(
+          "is-hovering"
+        )
+          ? 1.16
+          : 1;
+    }
+  );
+
+  document.documentElement.addEventListener(
     "mouseleave",
     () => {
       beeCursor.classList.remove(
@@ -3843,7 +3917,7 @@ if (beeCursor && supportsFinePointer) {
     }
   );
 
-  document.addEventListener(
+  document.documentElement.addEventListener(
     "mouseenter",
     () => {
       beeCursor.classList.add(

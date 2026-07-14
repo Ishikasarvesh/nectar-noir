@@ -1456,35 +1456,7 @@ document.querySelector("#app").innerHTML = `
 
       </div>
 
-      <div class="vertical-video-copy">
-
-        <span class="vertical-record-number">
-          Record 01
-        </span>
-
-        <h2>
-          Liquid devotion,
-          documented vertically.
-        </h2>
-
-        <p class="vertical-record-description">
-          Oversized vessels, unconventional rituals and
-          excessive encounters with honey.
-        </p>
-
-        <div class="vertical-record-data">
-
-          <span>
-            Source / Private archive
-          </span>
-
-          <span>
-            Status / Verified
-          </span>
-
-        </div>
-
-      </div>
+      
 
       <div class="vertical-archive-progress">
 
@@ -2703,30 +2675,175 @@ const verticalVideos = [
   {
     src: "/hyperfixation/videos/archive-video-01.mp4",
     number: "01",
-    title:
-      "Liquid devotion, documented vertically.",
+    coordinates: "18°31'13.4\"N, 73°51'24.1\"E",
+    title: "WILDFLOWER POUR",
+    location: "LOCATION : WESTERN GHATS, INDIA",
+    source: "SOURCE : PRIVATE HONEY ARCHIVE",
+    status: "STATUS : VERIFIED LIQUID RECORD",
     description:
-      "Oversized vessels, unconventional rituals and excessive encounters with honey.",
+      "A controlled pour documenting viscosity, colour, movement and the repeated ritual surrounding liquid gold.",
   },
   {
     src: "/hyperfixation/videos/archive-video-02.mp4",
     number: "02",
-    title:
-      "The pour becomes a repeated ritual.",
+    coordinates: "19°04'42.2\"N, 72°52'31.8\"E",
+    title: "GOLDEN RITUAL",
+    location: "LOCATION : MUMBAI, INDIA",
+    source: "SOURCE : DAILY CONSUMPTION LOG",
+    status: "STATUS : DOCUMENTED",
     description:
-      "Measured streams and slow movement transform consumption into performance.",
+      "A repeated serving ritual where measurement, movement and timing become part of the experience.",
   },
   {
     src: "/hyperfixation/videos/archive-video-03.mp4",
     number: "03",
-    title:
-      "The comb remains the original evidence.",
+    coordinates: "30°04'12.6\"N, 79°19'43.7\"E",
+    title: "COMB EXPOSURE",
+    location: "LOCATION : HIMALAYAN REGION",
+    source: "SOURCE : RAW HARVEST RECORD",
+    status: "STATUS : UNFILTERED",
     description:
-      "Raw cells, exposed honey and direct contact reveal the substance before classification.",
+      "Open honeycomb cells reveal the substance in its earliest recorded form before filtration and classification.",
   },
 ];
+let terminalTypingId = 0;
 
-let activeVerticalIndex = 0;
+function typeTerminalText(
+  element,
+  text,
+  speed = 18,
+  startDelay = 0
+) {
+  return new Promise((resolve) => {
+    const typingId = terminalTypingId;
+
+    element.textContent = "";
+
+    let characterIndex = 0;
+
+    setTimeout(() => {
+      function typeNextCharacter() {
+        if (typingId !== terminalTypingId) {
+          resolve();
+          return;
+        }
+
+        if (characterIndex < text.length) {
+          element.textContent +=
+            text.charAt(characterIndex);
+
+          characterIndex += 1;
+
+          setTimeout(
+            typeNextCharacter,
+            speed
+          );
+        } else {
+          resolve();
+        }
+      }
+
+      typeNextCharacter();
+    }, startDelay);
+  });
+}
+
+async function typeVerticalRecord(record) {
+  terminalTypingId += 1;
+
+  const currentTypingId = terminalTypingId;
+
+  const counter = document.querySelector(
+    ".vertical-record-counter"
+  );
+
+  const coordinates = document.querySelector(
+    ".vertical-coordinates"
+  );
+
+  const title = document.querySelector(
+    ".vertical-record-title"
+  );
+
+  const fields = document.querySelectorAll(
+    ".vertical-record-field"
+  );
+
+  const description = document.querySelector(
+    ".vertical-record-description"
+  );
+
+  const cursor = document.querySelector(
+    ".terminal-cursor"
+  );
+
+  counter.textContent =
+    `(${record.number}/${String(
+      verticalVideos.length
+    ).padStart(2, "0")})`;
+
+  coordinates.textContent = "";
+  title.textContent = "";
+
+  fields.forEach((field) => {
+    field.textContent = "";
+  });
+
+  description.textContent = "";
+  cursor.style.opacity = "1";
+
+  await typeTerminalText(
+    coordinates,
+    record.coordinates,
+    18,
+    100
+  );
+
+  if (currentTypingId !== terminalTypingId) {
+    return;
+  }
+
+  await typeTerminalText(
+    title,
+    record.title,
+    28,
+    180
+  );
+
+  if (currentTypingId !== terminalTypingId) {
+    return;
+  }
+
+  await typeTerminalText(
+    fields[0],
+    record.location,
+    14,
+    90
+  );
+
+  await typeTerminalText(
+    fields[1],
+    record.source,
+    14,
+    70
+  );
+
+  await typeTerminalText(
+    fields[2],
+    record.status,
+    14,
+    70
+  );
+
+  await typeTerminalText(
+    description,
+    record.description,
+    11,
+    140
+  );
+}
+
+let activeVerticalIndex = -1;
 
 function changeVerticalRecord(index) {
   if (
@@ -2768,17 +2885,19 @@ function changeVerticalRecord(index) {
     },
   });
 
-  document.querySelector(
-    ".vertical-record-number"
-  ).textContent = `Record ${record.number}`;
+  typeVerticalRecord(record);
+  function updateVerticalStatus(activeIndex) {
+  const statusBoxes = document.querySelectorAll(
+    ".vertical-terminal-status span"
+  );
 
-  document.querySelector(
-    ".vertical-video-copy h2"
-  ).textContent = record.title;
-
-  document.querySelector(
-    ".vertical-record-description"
-  ).textContent = record.description;
+  statusBoxes.forEach((box, index) => {
+    box.classList.toggle(
+      "terminal-status-active",
+      index === activeIndex
+    );
+  });
+}
 
   document.querySelector(
     ".vertical-progress-current"
@@ -2795,6 +2914,16 @@ verticalThumbs.forEach((thumb, index) => {
   thumb.addEventListener("click", () => {
     changeVerticalRecord(index);
   });
+});
+ScrollTrigger.create({
+  trigger: ".vertical-archive-space",
+  start: "top 72%",
+
+  once: true,
+
+  onEnter: () => {
+    changeVerticalRecord(0);
+  },
 });
 
 ScrollTrigger.create({

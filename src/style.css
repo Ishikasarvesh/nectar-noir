@@ -4591,67 +4591,160 @@ button {
     1px solid var(--bright-gold);
 }
 
+/* ========================================
+   VERTICAL ARCHIVE TERMINAL COPY
+======================================== */
+
 .vertical-video-copy {
+  position: relative;
+
   grid-column: 3;
   grid-row: 2;
 
-  align-self: center;
+  align-self: stretch;
 
-  max-width: 680px;
-  padding: 2rem 4vw;
-}
+  min-width: 0;
+  padding: 1.2rem 1.6rem 1.5rem;
 
-.vertical-record-number {
-  display: block;
+  display: flex;
+  flex-direction: column;
 
-  margin-bottom: 1.1rem;
+  border-left:
+    1px solid rgba(255, 199, 90, 0.14);
 
   font-family: "DM Mono", monospace;
-  font-size: 0.62rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
 
   color: var(--bright-gold);
 }
 
-.vertical-video-copy h2 {
-  font-size:
-    clamp(3.2rem, 5.3vw, 6.5rem);
+.vertical-terminal-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
 
-  line-height: 0.9;
-  letter-spacing: -0.075em;
+  min-height: 110px;
+}
+
+.vertical-record-counter {
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+
+  color: var(--bright-gold);
+}
+
+.vertical-terminal-status {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.vertical-terminal-status span {
+  width: 7px;
+  height: 7px;
+
+  border:
+    1px solid rgba(255, 199, 90, 0.5);
+
+  background: transparent;
+}
+
+.vertical-terminal-status .terminal-status-active {
+  border-color: var(--bright-gold);
+  background: var(--bright-gold);
+
+  box-shadow:
+    0 0 10px rgba(255, 199, 90, 0.5);
+}
+
+.vertical-coordinates {
+  min-height: 22px;
+
+  margin-top: 0.2rem;
+
+  font-size: 0.57rem;
+  line-height: 1.5;
+  letter-spacing: 0.06em;
+
+  color: rgba(255, 199, 90, 0.9);
+}
+
+.vertical-record-terminal {
+  position: relative;
+
+  margin-top: auto;
+  margin-bottom: auto;
+
+  max-width: 620px;
+}
+
+.vertical-record-title {
+  min-height: 34px;
+
+  margin: 0 0 1.15rem;
+
+  font-family: "DM Mono", monospace;
+  font-size: clamp(1.05rem, 1.45vw, 1.55rem);
+  line-height: 1.1;
+  letter-spacing: 0.035em;
   font-weight: 400;
+  text-transform: uppercase;
+
+  color: var(--bright-gold);
+}
+
+.vertical-record-field {
+  min-height: 18px;
+
+  margin-top: 0.45rem;
+
+  font-size: clamp(0.48rem, 0.62vw, 0.65rem);
+  line-height: 1.55;
+  letter-spacing: 0.035em;
+  text-transform: uppercase;
+
+  color: rgba(255, 199, 90, 0.82);
 }
 
 .vertical-record-description {
-  max-width: 480px;
+  min-height: 80px;
+  max-width: 520px;
 
-  margin-top: 1.8rem;
+  margin-top: 1.2rem;
 
-  font-size: 1rem;
-  line-height: 1.7;
+  font-size: clamp(0.52rem, 0.68vw, 0.72rem);
+  line-height: 1.65;
+  letter-spacing: 0.025em;
 
-  color: var(--muted);
+  color: rgba(255, 199, 90, 0.78);
 }
 
-.vertical-record-data {
-  margin-top: 2.2rem;
+.terminal-type-target {
+  white-space: pre-wrap;
+}
 
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
+.terminal-cursor {
+  display: inline-block;
 
-  padding-top: 1rem;
+  width: 7px;
+  height: 12px;
 
-  border-top:
-    1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 0.65rem;
 
-  font-family: "DM Mono", monospace;
-  font-size: 0.52rem;
-  text-transform: uppercase;
-  letter-spacing: 0.07em;
+  background: var(--bright-gold);
 
-  color: #8a735f;
+  animation: terminalBlink 0.75s steps(1) infinite;
+}
+
+@keyframes terminalBlink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+
+  50%,
+  100% {
+    opacity: 0;
+  }
 }
 
 .vertical-archive-progress {

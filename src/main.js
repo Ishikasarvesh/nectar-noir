@@ -5,7 +5,24 @@ import Lenis from "lenis";
 
 gsap.registerPlugin(ScrollTrigger);
 document.querySelector("#app").innerHTML = `
-  <div class="access-gate">
+  <div
+  class="bee-cursor"
+  aria-hidden="true"
+>
+  <div class="bee-wing bee-wing-left"></div>
+  <div class="bee-wing bee-wing-right"></div>
+
+  <div class="bee-body">
+    <span class="bee-stripe"></span>
+    <span class="bee-stripe"></span>
+  </div>
+
+  <div class="bee-head">
+    <span class="bee-antenna bee-antenna-left"></span>
+    <span class="bee-antenna bee-antenna-right"></span>
+  </div>
+</div>
+<div class="access-gate">
 
   <div class="access-cities">
 

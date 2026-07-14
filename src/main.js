@@ -1663,6 +1663,328 @@ document.querySelector("#app").innerHTML = `
 
 </section>
 
+<section class="dealer-section" id="dealer">
+
+  <div class="dealer-fingerprint-layer"></div>
+
+  <div class="dealer-topbar">
+
+    <span>
+      Final Record
+    </span>
+
+    <span>
+      Behind the Archive
+    </span>
+
+    <span>
+      Dealer File NN-D01
+    </span>
+
+  </div>
+
+  <div class="dealer-layout">
+
+    <aside class="dealer-index">
+
+      <div class="dealer-index-number">
+        01
+      </div>
+
+      <div class="dealer-index-copy">
+
+        <span>
+          Dealer identity
+        </span>
+
+        <p>
+          Classified creator record
+        </p>
+
+      </div>
+
+      <div class="dealer-index-status">
+
+        <span class="dealer-status-active"></span>
+        <span></span>
+        <span></span>
+        <span></span>
+
+      </div>
+
+    </aside>
+
+    <div class="dealer-file-stack">
+
+      <article class="dealer-file dealer-file-back">
+
+        <div class="dealer-file-header">
+          <span>NN / INTERNAL RECORD</span>
+          <span>CONFIDENTIAL</span>
+        </div>
+
+        <div class="dealer-file-lines">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        <div class="dealer-file-stamp">
+          VERIFIED
+        </div>
+
+      </article>
+
+      <article class="dealer-file dealer-file-middle">
+
+        <div class="dealer-file-header">
+          <span>ARCHIVE OPERATOR</span>
+          <span>2026</span>
+        </div>
+
+        <p class="dealer-file-label">
+          Independent creator record
+        </p>
+
+        <div class="dealer-mini-data">
+
+          <div>
+            <span>Role</span>
+            <strong>Designer</strong>
+          </div>
+
+          <div>
+            <span>Role</span>
+            <strong>Developer</strong>
+          </div>
+
+          <div>
+            <span>Focus</span>
+            <strong>Interaction</strong>
+          </div>
+
+        </div>
+
+      </article>
+
+      <article class="dealer-main-file">
+
+        <div class="dealer-main-file-header">
+
+          <span>
+            Dealer 01
+          </span>
+
+          <span>
+            Identity confirmed
+          </span>
+
+        </div>
+
+        <div class="dealer-record-grid">
+
+          <div class="dealer-photo-column">
+
+            <div class="dealer-photo-frame">
+
+              <div class="dealer-photo-glitch">
+
+                <img
+                  class="dealer-photo dealer-photo-base"
+                  src="/dealer/ishika.jpeg"
+                  alt="Ishika Sawant"
+                />
+
+                <img
+                  class="dealer-photo dealer-photo-red"
+                  src="/dealer/ishika.jpeg"
+                  alt=""
+                  aria-hidden="true"
+                />
+
+                <img
+                  class="dealer-photo dealer-photo-gold"
+                  src="/dealer/ishika.jpeg"
+                  alt=""
+                  aria-hidden="true"
+                />
+
+                <div class="dealer-photo-scanlines"></div>
+
+              </div>
+
+              <div class="dealer-photo-corners">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+
+              <span class="dealer-photo-code">
+                IMG / IS-01
+              </span>
+
+            </div>
+
+            <div class="dealer-photo-meta">
+
+              <span>
+                Portrait record
+              </span>
+
+              <span>
+                Status / Verified
+              </span>
+
+            </div>
+
+          </div>
+
+          <div class="dealer-information">
+
+            <p class="dealer-small-label">
+              Creator of Nectar Noir
+            </p>
+
+            <h2>
+              Ishika Sawant
+            </h2>
+
+            <p class="dealer-role">
+              Designer / Developer / Creative Technologist
+            </p>
+
+            <p class="dealer-description">
+              Ishika Sawant is a designer and developer focused on
+              creating immersive digital experiences through motion,
+              interaction and visual storytelling. Nectar Noir was
+              independently conceptualised, designed and developed as
+              a classified digital archive documenting liquid gold.
+            </p>
+
+            <div class="dealer-data-table">
+
+              <div>
+                <span>Project</span>
+                <strong>Nectar Noir</strong>
+              </div>
+
+              <div>
+                <span>Type</span>
+                <strong>Interactive Experience</strong>
+              </div>
+
+              <div>
+                <span>Built With</span>
+                <strong>JavaScript / GSAP / Lenis</strong>
+              </div>
+
+              <div>
+                <span>Year</span>
+                <strong>2026</strong>
+              </div>
+
+            </div>
+
+            <div class="dealer-links">
+
+              <a
+                href="https://github.com/Ishikasarvesh"
+                target="_blank"
+                rel="noreferrer"
+              >
+                GitHub
+              </a>
+
+              <a
+                href="mailto:ishikasawant09@gmail.com"
+              >
+                Email
+              </a>
+
+              <a
+                href="#texture-intro"
+              >
+                Return to archive
+              </a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="dealer-main-file-footer">
+
+          <span>
+            Dealer signature / IS-2026
+          </span>
+
+          <span>
+            Access level / Full
+          </span>
+
+        </div>
+
+      </article>
+
+    </div>
+
+  </div>
+
+  <footer class="archive-closing">
+
+    <div class="archive-closing-grid">
+
+      <div>
+        <span>Archive</span>
+        <strong>Closed</strong>
+      </div>
+
+      <div>
+        <span>Status</span>
+        <strong>Sealed</strong>
+      </div>
+
+      <div>
+        <span>Version</span>
+        <strong>1.0.0</strong>
+      </div>
+
+      <div>
+        <span>Dealer</span>
+        <strong>Ishika Sawant</strong>
+      </div>
+
+      <div>
+        <span>Year</span>
+        <strong>2026</strong>
+      </div>
+
+    </div>
+
+    <div class="archive-closing-wordmark">
+      NectarNoir
+    </div>
+
+    <div class="archive-closing-bottom">
+
+      <span>
+        Designed and developed by Ishika Sawant
+      </span>
+
+      <span>
+        © 2026 Nectar Noir
+      </span>
+
+    </div>
+
+  </footer>
+
+</section>
+
     <div class="texture-intro-footer">
 
   <div class="texture-wordmark-wrapper">

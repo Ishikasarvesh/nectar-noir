@@ -3824,3 +3824,189 @@ button {
 
   color: rgba(49, 30, 15, 0.7);
 }
+/* ========================================
+   SCROLL-CONTROLLED HONEY VIDEO
+======================================== */
+
+.honey-effects {
+  position: relative;
+
+  color: var(--cream);
+  background: var(--black);
+}
+
+.honey-video-scroll {
+  position: relative;
+
+  height: 320vh;
+}
+
+.honey-video-sticky {
+  position: sticky;
+  top: 0;
+
+  width: 100%;
+  height: 100vh;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      135deg,
+      #100905,
+      #301506 60%,
+      #6b3007
+    );
+}
+
+.honey-pour-video {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  filter:
+    saturate(1.1)
+    contrast(1.08)
+    brightness(0.82);
+
+  transform: scale(1.04);
+}
+
+.honey-video-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(12, 6, 2, 0.2),
+      rgba(12, 6, 2, 0.02) 45%,
+      rgba(12, 6, 2, 0.55)
+    ),
+    linear-gradient(
+      90deg,
+      rgba(10, 5, 2, 0.35),
+      transparent 35%,
+      transparent 70%,
+      rgba(10, 5, 2, 0.18)
+    );
+}
+
+.honey-video-overlay::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  opacity: 0.16;
+
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent 0,
+      transparent 3px,
+      rgba(255, 255, 255, 0.035) 4px
+    );
+}
+
+.honey-effects-content {
+  position: relative;
+  z-index: 4;
+
+  width: 100%;
+  height: 100%;
+
+  padding: 1.5rem 1.2rem 2rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.effects-meta {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  font-family: "DM Mono", monospace;
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+
+  color: rgba(255, 244, 223, 0.75);
+}
+
+.effects-meta span:nth-child(2) {
+  text-align: center;
+}
+
+.effects-meta span:last-child {
+  text-align: right;
+}
+
+.effects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3vw;
+
+  align-items: end;
+}
+
+.effect-item {
+  min-height: 210px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.effect-item > span {
+  margin-bottom: 0.45rem;
+
+  font-family: "DM Mono", monospace;
+  font-size: 0.72rem;
+
+  color: var(--bright-gold);
+}
+
+.effect-item h3 {
+  font-family: "DM Mono", monospace;
+  font-size: clamp(1rem, 1.3vw, 1.4rem);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  font-weight: 400;
+}
+
+.effect-item p {
+  max-width: 440px;
+
+  margin-top: 1.2rem;
+
+  font-family: "DM Mono", monospace;
+  font-size: clamp(0.58rem, 0.7vw, 0.75rem);
+  line-height: 1.65;
+
+  color: rgba(255, 244, 223, 0.82);
+}
+
+.effects-scroll-hint {
+  display: flex;
+  justify-content: space-between;
+
+  padding-top: 1rem;
+
+  border-top: 1px solid rgba(255, 244, 223, 0.2);
+
+  font-family: "DM Mono", monospace;
+  font-size: 0.54rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+
+  color: rgba(255, 244, 223, 0.62);
+}

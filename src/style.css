@@ -3352,6 +3352,15 @@ button {
 .preparation-footer span:nth-child(2) {
   display: none;
 }
+.preparation-step-image {
+  width: min(72vw, 330px);
+  height: min(46vh, 430px);
+}
+
+.preparation-crosshair {
+  width: min(82vw, 370px);
+  height: min(53vh, 470px);
+}
 }
 
 /* ========================================
@@ -5072,6 +5081,10 @@ button {
   justify-content: center;
 
   perspective: 1400px;
+}
+.preparation-step-image {
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
 }
 
 .preparation-step-image {

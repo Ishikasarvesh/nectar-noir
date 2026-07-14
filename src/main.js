@@ -859,364 +859,326 @@ document.querySelector("#app").innerHTML = `
   </div>
 
 </section>
-<section class="extraction-chain" id="process">
 
-  <div class="extraction-heading">
+<section class="honey-files" id="process">
 
-    <div class="extraction-heading-meta">
+  <div class="honey-files-heading">
+
+    <div class="files-heading-meta">
       <span>Chapter 02</span>
-      <span>Extraction Chain</span>
-      <span>Protocol H-100</span>
+      <span>Origin Documentation</span>
+      <span>Archive NN / H-02</span>
     </div>
 
     <h2>
-      From hive
-      <span>to vessel.</span>
+      Documented
+      <span>in layers.</span>
     </h2>
 
     <p>
-      Six controlled stages transform a natural harvest
-      into a classified Nectar Noir batch.
+      A classified collection tracing honey from first contact
+      to controlled cultivation.
     </p>
 
   </div>
 
-  <div class="extraction-layout">
+  <div class="files-scroll-space">
 
-    <aside class="extraction-sidebar">
+    <div class="files-stage">
 
-      <div class="extraction-sidebar-top">
-        <span class="extraction-chapter-number">
-          02
-        </span>
-
-        <p>
-          Controlled production protocol
-        </p>
+      <div class="files-stage-header">
+        <span>03.</span>
+        <strong>Formalization</strong>
+        <span>Archive specimen records</span>
       </div>
 
-      <div class="extraction-sidebar-center">
+      <div class="files-board">
 
-        <span class="extraction-current-stage">
-          01
-        </span>
+        <!-- BACKGROUND FILE -->
 
-        <div class="extraction-progress-track">
-          <div class="extraction-progress-fill"></div>
-        </div>
+        <article class="archive-file file-background">
 
-        <span class="extraction-total-stages">
-          06
-        </span>
-
-      </div>
-
-      <div class="extraction-sidebar-bottom">
-        <span>Scroll to process</span>
-        <span>System online</span>
-      </div>
-
-    </aside>
-
-    <div class="extraction-stages">
-
-      <article
-        class="extraction-stage"
-        data-stage="01"
-      >
-
-        <div class="extraction-stage-number">
-          01
-        </div>
-
-        <div class="extraction-stage-visual">
-
-          <div class="pipeline pipeline-entry">
-            <span></span>
+          <div class="archive-file-top">
+            <span>00.</span>
+            <span>NN / HISTORICAL INDEX</span>
           </div>
 
-          <div class="process-orb process-orb-pollen">
-            <div class="process-orb-core"></div>
-          </div>
-
-        </div>
-
-        <div class="extraction-stage-content">
-
-          <p class="extraction-stage-label">
-            Pollination
+          <p class="file-small-label">
+            Preserved records
           </p>
 
           <h3>
-            The first signature begins in bloom.
+            The substance existed before classification.
           </h3>
 
           <p>
-            Bees collect nectar from regional flowers.
-            Climate, altitude and botanical source begin
-            shaping the final colour, aroma and density.
+            Long before controlled production, honey was gathered
+            from natural colonies and preserved as food, medicine
+            and ceremonial material.
           </p>
 
-          <div class="extraction-stage-data">
-            <span>Input: Floral nectar</span>
-            <span>Status: Organic</span>
-          </div>
-
-        </div>
-
-      </article>
-
-      <article
-        class="extraction-stage"
-        data-stage="02"
-      >
-
-        <div class="extraction-stage-number">
-          02
-        </div>
-
-        <div class="extraction-stage-visual">
-
-          <div class="pipeline">
-            <span></span>
-          </div>
-
-          <div class="process-hive">
-            <span></span>
-            <span></span>
+          <div class="file-lines">
             <span></span>
             <span></span>
             <span></span>
             <span></span>
           </div>
 
-        </div>
+        </article>
 
-        <div class="extraction-stage-content">
+        <!-- FILE 01 -->
 
-          <p class="extraction-stage-label">
-            Hive formation
+        <article class="archive-file archive-file-green file-first-contact">
+
+          <div class="archive-file-top">
+            <span>01.</span>
+            <span>FIRST CONTACT</span>
+          </div>
+
+          <p class="file-small-label">
+            Earliest human collection
+          </p>
+
+          <div class="file-image file-image-organic">
+            <img
+              src="/textures/honey-13.jpg"
+              alt="Raw natural honey formation"
+            />
+          </div>
+
+          <h3>
+            Collected before it was cultivated.
+          </h3>
+
+          <p>
+            Wild colonies created the first reserves. Early
+            collectors approached the hive without standard tools,
+            measurements or permanent systems.
+          </p>
+
+          <div class="file-footer-data">
+            <span>FIG. 01</span>
+            <span>RAW FORM</span>
+          </div>
+
+        </article>
+
+        <!-- FILE 02 -->
+
+        <article class="archive-file archive-file-bright file-method">
+
+          <div class="archive-file-top">
+            <span>02.</span>
+            <span>METHOD TRANSFER</span>
+          </div>
+
+          <p class="file-small-label">
+            Knowledge transmission
           </p>
 
           <h3>
-            Nature converts nectar into reserve.
+            Techniques moved between generations.
           </h3>
 
           <p>
-            Inside the hive, enzymes and evaporation
-            gradually transform raw nectar into honey
-            stored within sealed wax cells.
+            Smoke, woven containers and protective methods allowed
+            honey gathering to become repeatable rather than
+            accidental.
           </p>
 
-          <div class="extraction-stage-data">
-            <span>Density: Increasing</span>
-            <span>Seal: Natural wax</span>
-          </div>
+          <div class="method-specimens">
 
-        </div>
+            <div class="method-specimen">
+              <img
+                src="/textures/honey-06.jpg"
+                alt="Honey collection specimen"
+              />
+            </div>
 
-      </article>
+            <div class="method-specimen">
+              <img
+                src="/textures/honey-08.jpg"
+                alt="Honey liquid specimen"
+              />
+            </div>
 
-      <article
-        class="extraction-stage"
-        data-stage="03"
-      >
-
-        <div class="extraction-stage-number">
-          03
-        </div>
-
-        <div class="extraction-stage-visual">
-
-          <div class="pipeline">
-            <span></span>
-          </div>
-
-          <div class="process-frame">
-            <div class="process-frame-grid"></div>
-          </div>
-
-        </div>
-
-        <div class="extraction-stage-content">
-
-          <p class="extraction-stage-label">
-            Collection
-          </p>
-
-          <h3>
-            Only sealed frames are cleared.
-          </h3>
-
-          <p>
-            Mature frames are inspected before extraction.
-            Moisture, structure and purity determine whether
-            the material enters the controlled chain.
-          </p>
-
-          <div class="extraction-stage-data">
-            <span>Inspection: Passed</span>
-            <span>Batch: H-100</span>
-          </div>
-
-        </div>
-
-      </article>
-
-      <article
-        class="extraction-stage"
-        data-stage="04"
-      >
-
-        <div class="extraction-stage-number">
-          04
-        </div>
-
-        <div class="extraction-stage-visual">
-
-          <div class="pipeline">
-            <span></span>
-          </div>
-
-          <div class="process-extractor">
-            <div class="extractor-ring extractor-ring-one"></div>
-            <div class="extractor-ring extractor-ring-two"></div>
-            <div class="extractor-core"></div>
-          </div>
-
-        </div>
-
-        <div class="extraction-stage-content">
-
-          <p class="extraction-stage-label">
-            Extraction
-          </p>
-
-          <h3>
-            Rotation releases the liquid reserve.
-          </h3>
-
-          <p>
-            Controlled centrifugal force removes honey from
-            the comb while preserving the frame for the next
-            production cycle.
-          </p>
-
-          <div class="extraction-stage-data">
-            <span>Method: Centrifugal</span>
-            <span>Temperature: Controlled</span>
-          </div>
-
-        </div>
-
-      </article>
-
-      <article
-        class="extraction-stage"
-        data-stage="05"
-      >
-
-        <div class="extraction-stage-number">
-          05
-        </div>
-
-        <div class="extraction-stage-visual">
-
-          <div class="pipeline">
-            <span></span>
-          </div>
-
-          <div class="process-filter">
-            <div class="filter-layer"></div>
-            <div class="filter-layer"></div>
-            <div class="filter-layer"></div>
-            <div class="filter-drop"></div>
-          </div>
-
-        </div>
-
-        <div class="extraction-stage-content">
-
-          <p class="extraction-stage-label">
-            Filtration
-          </p>
-
-          <h3>
-            Purified without removing identity.
-          </h3>
-
-          <p>
-            Fine wax particles are removed while the natural
-            aroma, floral signature and texture remain intact.
-          </p>
-
-          <div class="extraction-stage-data">
-            <span>Purity: 98.7%</span>
-            <span>Heat: Minimal</span>
-          </div>
-
-        </div>
-
-      </article>
-
-      <article
-        class="extraction-stage extraction-stage-final"
-        data-stage="06"
-      >
-
-        <div class="extraction-stage-number">
-          06
-        </div>
-
-        <div class="extraction-stage-visual">
-
-          <div class="pipeline pipeline-final">
-            <span></span>
-          </div>
-
-          <div class="process-vessel">
-
-            <div class="vessel-neck"></div>
-
-            <div class="vessel-body">
-              <div class="vessel-honey"></div>
-              <span>NN</span>
+            <div class="method-specimen">
+              <img
+                src="/textures/honey-11.jpg"
+                alt="Honeycomb specimen"
+              />
             </div>
 
           </div>
 
-        </div>
+          <div class="file-footer-data">
+            <span>1200 BCE</span>
+            <span>METHOD RECORDED</span>
+          </div>
 
-        <div class="extraction-stage-content">
+        </article>
 
-          <p class="extraction-stage-label">
-            Classification and sealing
+        <!-- FILE 03 -->
+
+        <article class="archive-file file-formalization">
+
+          <div class="archive-file-top">
+            <span>03.</span>
+            <span>FORMALIZATION</span>
+          </div>
+
+          <p class="file-small-label">
+            Archive H-03
           </p>
 
+          <div class="formalization-image">
+            <img
+              src="/textures/honey-10.jpg"
+              alt="Honeycomb structure"
+            />
+          </div>
+
           <h3>
-            Every vessel becomes a record.
+            The hive became a structured system.
           </h3>
 
           <p>
-            The final batch is catalogued by source, season,
-            density, rarity and origin before entering the
-            Nectar Noir Golden Vault.
+            Dedicated frames and managed colonies allowed the
+            harvest to be inspected, preserved and catalogued.
           </p>
 
-          <div class="extraction-stage-data">
-            <span>Output: Vessel NN-26</span>
-            <span>Status: Restricted</span>
+          <div class="file-stamp">
+            VERIFIED
           </div>
+
+        </article>
+
+        <!-- FILE 04 -->
+
+        <article class="archive-file file-preserved-use">
+
+          <div class="archive-file-top">
+            <span>04.</span>
+            <span>PRESERVED USE</span>
+          </div>
+
+          <div class="wide-file-image">
+            <img
+              src="/textures/honey-14.jpg"
+              alt="Flowing preserved honey"
+            />
+          </div>
+
+          <p>
+            Honey moved through medicine, trade, preservation and
+            ceremony while retaining its value across regions.
+          </p>
+
+          <div class="file-footer-data">
+            <span>USE / MULTIPLE</span>
+            <span>STATUS / ACTIVE</span>
+          </div>
+
+        </article>
+
+        <!-- FILE 05 -->
+
+        <article class="archive-file archive-file-green file-controlled">
+
+          <div class="archive-file-top">
+            <span>05.</span>
+            <span>CONTROLLED CULTIVATION</span>
+          </div>
+
+          <p class="file-small-label">
+            Modern production
+          </p>
+
+          <h3>
+            Origin, density and purity become measurable.
+          </h3>
+
+          <p>
+            Contemporary cultivation separates each harvest by
+            botanical source, region, season and moisture level.
+          </p>
+
+          <div class="controlled-data">
+
+            <div>
+              <span>Origin</span>
+              <strong>Western Ghats</strong>
+            </div>
+
+            <div>
+              <span>Source</span>
+              <strong>Wildflower</strong>
+            </div>
+
+            <div>
+              <span>Purity</span>
+              <strong>98.7%</strong>
+            </div>
+
+          </div>
+
+          <div class="file-signature">
+            NN-26 / CONTROLLED
+          </div>
+
+        </article>
+
+      </div>
+
+      <aside class="files-documentation">
+
+        <div class="documentation-title">
+          <span>Origin</span>
+          <strong>Log: Honey</strong>
+        </div>
+
+        <div class="documentation-content">
+
+          <p class="documentation-label">
+            Documented history of liquid gold
+          </p>
+
+          <p>
+            An overview of honey’s earliest collection,
+            transmitted methods, managed cultivation and
+            modern classification.
+          </p>
 
         </div>
 
-      </article>
+        <div class="documentation-index">
+
+          <span class="documentation-index-active"></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+
+        </div>
+
+      </aside>
+
+      <div class="files-stage-footer">
+
+        <span>01. First collection</span>
+        <span>02. Method transfer</span>
+        <span>03. Formalization</span>
+        <span>04. Preserved use</span>
+        <span>05. Controlled cultivation</span>
+
+      </div>
 
     </div>
 
   </div>
 
 </section>
+
     <div class="texture-intro-footer">
 
   <div class="texture-wordmark-wrapper">

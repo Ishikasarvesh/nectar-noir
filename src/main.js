@@ -3203,7 +3203,58 @@ const preparationSteps = [
     status: "Status / Complete",
   },
 ];
+function updatePreparationText(step) {
+  const recordElements = [
+    ".preparation-record-step",
+    ".preparation-record-title",
+    ".preparation-record-description",
+    ".preparation-record-action",
+    ".preparation-record-status",
+  ];
 
+  gsap.killTweensOf(recordElements);
+
+  gsap.to(recordElements, {
+    opacity: 0,
+    y: 7,
+    duration: 0.16,
+
+    onComplete: () => {
+      document.querySelector(
+        ".preparation-record-step"
+      ).textContent = `Step ${step.number}`;
+
+      document.querySelector(
+        ".preparation-record-title"
+      ).textContent = step.title;
+
+      document.querySelector(
+        ".preparation-record-description"
+      ).textContent = step.description;
+
+      document.querySelector(
+        ".preparation-record-action"
+      ).textContent = step.action;
+
+      document.querySelector(
+        ".preparation-record-status"
+      ).textContent = step.status;
+
+      document.querySelector(
+        ".preparation-current"
+      ).textContent =
+        `Step ${step.number} / 04`;
+
+      gsap.to(recordElements, {
+        opacity: 1,
+        y: 0,
+        stagger: 0.035,
+        duration: 0.28,
+        clearProps: "transform",
+      });
+    },
+  });
+}
 let activePreparationStep = 0;
 
 function updatePreparationStep(index) {

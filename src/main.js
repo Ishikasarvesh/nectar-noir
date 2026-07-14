@@ -9,18 +9,15 @@ document.querySelector("#app").innerHTML = `
   class="bee-cursor"
   aria-hidden="true"
 >
-  <div class="bee-wing bee-wing-left"></div>
-  <div class="bee-wing bee-wing-right"></div>
+  <div class="bee-cursor" aria-hidden="true">
+  <img
+    src="/cursor/lego-bee.png"
+    alt=""
+    draggable="false"
+  />
 
-  <div class="bee-body">
-    <span class="bee-stripe"></span>
-    <span class="bee-stripe"></span>
-  </div>
-
-  <div class="bee-head">
-    <span class="bee-antenna bee-antenna-left"></span>
-    <span class="bee-antenna bee-antenna-right"></span>
-  </div>
+  <span class="bee-cursor-glow"></span>
+</div>
 </div>
 <div class="access-gate">
 

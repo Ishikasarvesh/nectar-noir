@@ -3153,3 +3153,251 @@ ScrollTrigger.create({
     verticalMainVideo.pause();
   },
 });
+/* ========================================
+   PREPARATION PROCEDURE
+======================================== */
+
+const preparationStage = document.querySelector(
+  ".preparation-stage"
+);
+
+const preparationImages = gsap.utils.toArray(
+  ".preparation-step-image"
+);
+
+const preparationIndicators = gsap.utils.toArray(
+  ".preparation-indicator"
+);
+
+const preparationSteps = [
+  {
+    number: "01",
+    title: "Unseal",
+    description:
+      "Release the lid and inspect the colour, aroma and natural crystallisation.",
+    action: "Action / Open",
+    status: "Status / Ready",
+  },
+  {
+    number: "02",
+    title: "Drizzle",
+    description:
+      "Allow the honey to fall slowly and observe its viscosity before combination.",
+    action: "Action / Pour",
+    status: "Status / Flowing",
+  },
+  {
+    number: "03",
+    title: "Blend",
+    description:
+      "Introduce the measured reserve into a warm liquid and combine until evenly dissolved.",
+    action: "Action / Combine",
+    status: "Status / Mixing",
+  },
+  {
+    number: "04",
+    title: "Serve",
+    description:
+      "Finish with a controlled final drizzle and consume while the preparation remains warm.",
+    action: "Action / Present",
+    status: "Status / Complete",
+  },
+];
+
+let activePreparationStep = 0;
+
+function updatePreparationStep(index) {
+  if (
+    index === activePreparationStep ||
+    !preparationSteps[index]
+  ) {
+    return;
+  }
+
+  const previousImage =
+    preparationImages[activePreparationStep];
+
+  const nextImage =
+    preparationImages[index];
+
+  const step = preparationSteps[index];
+
+  activePreparationStep = index;
+
+  preparationImages.forEach((image, imageIndex) => {
+    image.classList.toggle(
+      "is-active",
+      imageIndex === index
+    );
+  });
+
+  preparationIndicators.forEach(
+    (indicator, indicatorIndex) => {
+      indicator.classList.toggle(
+        "is-active",
+        indicatorIndex === index
+      );
+    }
+  );
+
+  if (previousImage && previousImage !== nextImage) {
+    gsap.to(previousImage, {
+      opacity: 0,
+      scale: 0.86,
+      rotation: 2,
+      filter: "blur(14px) brightness(0.55)",
+      duration: 0.45,
+      ease: "power2.in",
+    });
+  }
+
+  gsap.fromTo(
+    nextImage,
+    {
+      opacity: 0,
+      scale: 1.16,
+      rotation: -1.5,
+      filter: "blur(12px) brightness(0.62)",
+    },
+    {
+      opacity: 1,
+      scale: 1,
+      rotation: 0,
+      filter: "blur(0px) brightness(1)",
+      duration: 0.7,
+      ease: "power3.out",
+    }
+  );
+
+  const recordElements = [
+    ".preparation-record-step",
+    ".preparation-record-title",
+    ".preparation-record-description",
+    ".preparation-record-action",
+    ".preparation-record-status",
+  ];
+
+  gsap.to(recordElements, {
+    opacity: 0,
+    y: 8,
+    duration: 0.2,
+
+    onComplete: () => {
+      document.querySelector(
+        ".preparation-record-step"
+      ).textContent = `Step ${step.number}`;
+
+      document.querySelector(
+        ".preparation-record-title"
+      ).textContent = step.title;
+
+      document.querySelector(
+        ".preparation-record-description"
+      ).textContent = step.description;
+
+      document.querySelector(
+        ".preparation-record-action"
+      ).textContent = step.action;
+
+      document.querySelector(
+        ".preparation-record-status"
+      ).textContent = step.status;
+
+      document.querySelector(
+        ".preparation-current"
+      ).textContent =
+        `Step ${step.number} / 04`;
+
+      gsap.to(recordElements, {
+        opacity: 1,
+        y: 0,
+        stagger: 0.04,
+        duration: 0.35,
+      });
+    },
+  });
+}
+
+/* Scroll forward and backward between steps */
+
+ScrollTrigger.create({
+  trigger: ".preparation-scroll-space",
+  start: "top top",
+  end: "bottom bottom",
+
+  onUpdate: (self) => {
+    const index = Math.min(
+      Math.floor(
+        self.progress * preparationSteps.length
+      ),
+      preparationSteps.length - 1
+    );
+
+    updatePreparationStep(index);
+  },
+});
+
+/* Flashlight follows the pointer */
+
+preparationStage.addEventListener(
+  "pointerenter",
+  () => {
+    preparationStage.classList.add(
+      "is-inspecting"
+    );
+  }
+);
+
+preparationStage.addEventListener(
+  "pointerleave",
+  () => {
+    preparationStage.classList.remove(
+      "is-inspecting"
+    );
+  }
+);
+
+preparationStage.addEventListener(
+  "pointermove",
+  (event) => {
+    const bounds =
+      preparationStage.getBoundingClientRect();
+
+    const pointerX =
+      event.clientX - bounds.left;
+
+    const pointerY =
+      event.clientY - bounds.top;
+
+    preparationStage.style.setProperty(
+      "--flashlight-x",
+      `${pointerX}px`
+    );
+
+    preparationStage.style.setProperty(
+      "--flashlight-y",
+      `${pointerY}px`
+    );
+  }
+);
+
+/* Animate the initial image */
+
+gsap.fromTo(
+  preparationImages[0],
+  {
+    opacity: 0,
+    scale: 1.15,
+    filter: "blur(12px) brightness(0.6)",
+  },
+  {
+    opacity: 1,
+    scale: 1,
+    filter: "blur(0px) brightness(1)",
+    duration: 0.8,
+    scrollTrigger: {
+      trigger: ".preparation-scroll-space",
+      start: "top 70%",
+    },
+  }
+);

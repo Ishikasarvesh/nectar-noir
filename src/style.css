@@ -5082,10 +5082,7 @@ button {
 
   perspective: 1400px;
 }
-.preparation-step-image {
-  backface-visibility: hidden;
-  transform-style: preserve-3d;
-}
+
 
 .preparation-step-image {
   position: absolute;
@@ -5104,15 +5101,9 @@ button {
   opacity: 0;
   visibility: hidden;
 
-  transform:
-    scale(0.92)
-    rotate(-8deg);
-
-  transform-origin: center center;
-
-  filter:
-    blur(8px)
-    brightness(0.7);
+  transform-origin: center;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
 
   will-change:
     transform,
@@ -5122,13 +5113,7 @@ button {
   border:
     1px solid rgba(255, 199, 90, 0.12);
 
-  background:
-    radial-gradient(
-      circle at center,
-      rgba(255, 184, 55, 0.12),
-      transparent 55%
-    ),
-    #050200;
+  background: #050200;
 }
 
 .preparation-step-image.is-active {

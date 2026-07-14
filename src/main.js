@@ -2313,3 +2313,139 @@ ScrollTrigger.create({
     );
   },
 });
+/* ========================================
+   HONEY HYPERFIXATION DEPTH ANIMATION
+======================================== */
+
+const obsessionTimeline = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".obsession-space",
+    start: "top top",
+    end: "bottom bottom",
+    scrub: 0.8,
+  },
+});
+
+obsessionTimeline
+  .fromTo(
+    ".obsession-title",
+    {
+      scale: 0.15,
+      z: -1200,
+      opacity: 0,
+      filter: "blur(16px)",
+    },
+    {
+      scale: 1,
+      z: 0,
+      opacity: 1,
+      filter: "blur(0px)",
+      duration: 1,
+      ease: "none",
+    }
+  )
+  .fromTo(
+    ".obsession-image-one",
+    {
+      scale: 0.08,
+      x: -250,
+      y: -100,
+      opacity: 0,
+      filter: "blur(18px)",
+    },
+    {
+      scale: 1,
+      x: 0,
+      y: 0,
+      opacity: 1,
+      filter: "blur(0px)",
+      duration: 1,
+      ease: "none",
+    },
+    "-=0.72"
+  )
+  .fromTo(
+    ".obsession-image-two",
+    {
+      scale: 0.06,
+      x: 220,
+      y: -170,
+      opacity: 0,
+      filter: "blur(20px)",
+    },
+    {
+      scale: 1,
+      x: 0,
+      y: 0,
+      opacity: 1,
+      filter: "blur(0px)",
+      duration: 1,
+      ease: "none",
+    },
+    "-=0.68"
+  )
+  .fromTo(
+    ".obsession-image-three",
+    {
+      scale: 0.05,
+      x: -180,
+      y: 250,
+      opacity: 0,
+      filter: "blur(20px)",
+    },
+    {
+      scale: 1,
+      x: 0,
+      y: 0,
+      opacity: 1,
+      filter: "blur(0px)",
+      duration: 1,
+      ease: "none",
+    },
+    "-=0.62"
+  )
+  .fromTo(
+    ".obsession-image-four",
+    {
+      scale: 0.07,
+      x: 400,
+      y: 220,
+      opacity: 0,
+      filter: "blur(22px)",
+    },
+    {
+      scale: 1,
+      x: 0,
+      y: 0,
+      opacity: 1,
+      filter: "blur(0px)",
+      duration: 1,
+      ease: "none",
+    },
+    "-=0.58"
+  )
+  .fromTo(
+    ".obsession-image-five",
+    {
+      scale: 0.04,
+      opacity: 0,
+      filter: "blur(18px)",
+    },
+    {
+      scale: 1,
+      opacity: 1,
+      filter: "blur(0px)",
+      duration: 0.8,
+      ease: "none",
+    },
+    "-=0.5"
+  )
+  .from(
+    ".obsession-center-copy",
+    {
+      opacity: 0,
+      y: 30,
+      duration: 0.5,
+    },
+    "-=0.3"
+  );

@@ -3726,12 +3726,6 @@ if (beeCursor) {
   let beeX = mouseX;
   let beeY = mouseY;
 
-  let previousX = mouseX;
-  let previousY = mouseY;
-
-  let currentRotation = 0;
-  let targetRotation = 0;
-
   let currentScale = 1;
   let targetScale = 1;
 
@@ -3746,36 +3740,14 @@ if (beeCursor) {
     beeX += (mouseX - beeX) * 0.22;
     beeY += (mouseY - beeY) * 0.22;
 
-    const movementX = beeX - previousX;
-    const movementY = beeY - previousY;
-
-    if (
-      Math.abs(movementX) > 0.1 ||
-      Math.abs(movementY) > 0.1
-    ) {
-      targetRotation =
-        Math.atan2(movementY, movementX) *
-        (180 / Math.PI);
-    }
-
-    let rotationDifference =
-      targetRotation - currentRotation;
-
-    rotationDifference =
-      ((rotationDifference + 180) % 360) - 180;
-
-    currentRotation += rotationDifference * 0.16;
-    currentScale += (targetScale - currentScale) * 0.16;
+    currentScale +=
+      (targetScale - currentScale) * 0.16;
 
     beeCursor.style.transform = `
       translate3d(${beeX}px, ${beeY}px, 0)
       translate(-50%, -50%)
-      rotate(${currentRotation}deg)
       scale(${currentScale})
     `;
-
-    previousX = beeX;
-    previousY = beeY;
 
     requestAnimationFrame(animateBeeCursor);
   }
@@ -3802,17 +3774,17 @@ if (beeCursor) {
       isInteractive
     );
 
-    targetScale = isInteractive ? 1.16 : 1;
+    targetScale = isInteractive ? 1.14 : 1;
   });
 
   document.addEventListener("pointerdown", () => {
-    targetScale = 0.82;
+    targetScale = 0.86;
   });
 
   document.addEventListener("pointerup", () => {
     targetScale =
       beeCursor.classList.contains("is-hovering")
-        ? 1.16
+        ? 1.14
         : 1;
   });
 

@@ -5,20 +5,17 @@ import Lenis from "lenis";
 
 gsap.registerPlugin(ScrollTrigger);
 document.querySelector("#app").innerHTML = `
-  <div
-  class="bee-cursor"
-  aria-hidden="true"
->
   <div class="bee-cursor" aria-hidden="true">
-  <img
-    src="/cursor/lego-bee.png"
-    alt=""
-    draggable="false"
-  />
+    <img
+      src="/cursor/lego-bee.png"
+      alt=""
+      draggable="false"
+    />
 
-  <span class="bee-cursor-glow"></span>
-</div>
-</div>
+    <span class="bee-cursor-glow"></span>
+  </div>
+
+  <div class="access-gate">
 <div class="access-gate">
 
   <div class="access-cities">
@@ -3721,210 +3718,120 @@ if (honeyPourVideo) {
    GLOBAL LEGO BEE CURSOR
 ======================================== */
 
-const beeCursor = document.querySelector(
-  ".bee-cursor"
-);
+const beeCursor = document.querySelector(".bee-cursor");
 
-const supportsFinePointer = window.matchMedia(
-  "(pointer: fine)"
-).matches;
+if (beeCursor) {
+  let mouseX = window.innerWidth / 2;
+  let mouseY = window.innerHeight / 2;
 
-if (beeCursor && supportsFinePointer) {
-  let currentX = window.innerWidth / 2;
-  let currentY = window.innerHeight / 2;
+  let beeX = mouseX;
+  let beeY = mouseY;
 
-  let targetX = currentX;
-  let targetY = currentY;
+  let previousX = mouseX;
+  let previousY = mouseY;
 
-  let previousX = currentX;
-  let previousY = currentY;
-
-  let targetRotation = 0;
   let currentRotation = 0;
+  let targetRotation = 0;
 
-  let targetScale = 1;
   let currentScale = 1;
+  let targetScale = 1;
 
-  let idleTime = 0;
+  window.addEventListener("pointermove", (event) => {
+    mouseX = event.clientX;
+    mouseY = event.clientY;
+
+    beeCursor.classList.add("is-visible");
+  });
 
   function animateBeeCursor() {
-    /*
-      Smoothly follow the real pointer.
-      Increase 0.2 for faster movement.
-      Decrease it for a softer floating movement.
-    */
+    beeX += (mouseX - beeX) * 0.22;
+    beeY += (mouseY - beeY) * 0.22;
 
-    currentX +=
-      (targetX - currentX) * 0.2;
+    const movementX = beeX - previousX;
+    const movementY = beeY - previousY;
 
-    currentY +=
-      (targetY - currentY) * 0.2;
-
-    const movementX =
-      currentX - previousX;
-
-    const movementY =
-      currentY - previousY;
-
-    const movementDistance = Math.hypot(
-      movementX,
-      movementY
-    );
-
-    /*
-      Rotate the bee toward the direction
-      in which the cursor is travelling.
-    */
-
-    if (movementDistance > 0.15) {
+    if (
+      Math.abs(movementX) > 0.1 ||
+      Math.abs(movementY) > 0.1
+    ) {
       targetRotation =
-        Math.atan2(
-          movementY,
-          movementX
-        ) *
+        Math.atan2(movementY, movementX) *
         (180 / Math.PI);
-
-      idleTime = 0;
-    } else {
-      idleTime += 1;
     }
-
-    /*
-      Use the shortest rotational path so
-      the bee does not spin unnecessarily.
-    */
 
     let rotationDifference =
       targetRotation - currentRotation;
 
     rotationDifference =
-      ((rotationDifference + 180) % 360) -
-      180;
+      ((rotationDifference + 180) % 360) - 180;
 
-    currentRotation +=
-      rotationDifference * 0.14;
-
-    currentScale +=
-      (targetScale - currentScale) * 0.16;
+    currentRotation += rotationDifference * 0.16;
+    currentScale += (targetScale - currentScale) * 0.16;
 
     beeCursor.style.transform = `
-      translate3d(
-        ${currentX}px,
-        ${currentY}px,
-        0
-      )
+      translate3d(${beeX}px, ${beeY}px, 0)
       translate(-50%, -50%)
       rotate(${currentRotation}deg)
       scale(${currentScale})
     `;
 
-    previousX = currentX;
-    previousY = currentY;
+    previousX = beeX;
+    previousY = beeY;
 
-    requestAnimationFrame(
-      animateBeeCursor
-    );
+    requestAnimationFrame(animateBeeCursor);
   }
 
-  window.addEventListener(
-    "pointermove",
-    (event) => {
-      targetX = event.clientX;
-      targetY = event.clientY;
+  document.addEventListener("pointerover", (event) => {
+    const interactiveElement = event.target.closest(`
+      a,
+      button,
+      input,
+      textarea,
+      select,
+      video,
+      .texture-cell,
+      .archive-file,
+      .vertical-video-thumb,
+      .dealer-photo-glitch,
+      .preparation-step-image
+    `);
 
-      beeCursor.classList.add(
-        "is-visible"
-      );
-    }
-  );
+    const isInteractive = Boolean(interactiveElement);
 
-  /*
-    Highlight the bee over interactive
-    elements.
-  */
+    beeCursor.classList.toggle(
+      "is-hovering",
+      isInteractive
+    );
 
-  document.addEventListener(
-    "pointerover",
-    (event) => {
-      const interactiveElement =
-        event.target.closest(
-          `
-            a,
-            button,
-            input,
-            textarea,
-            select,
-            video,
-            .texture-cell,
-            .archive-file,
-            .vertical-video-thumb,
-            .dealer-photo-glitch,
-            .preparation-step-image
-          `
-        );
+    targetScale = isInteractive ? 1.16 : 1;
+  });
 
-      const isInteractive =
-        Boolean(interactiveElement);
+  document.addEventListener("pointerdown", () => {
+    targetScale = 0.82;
+  });
 
-      beeCursor.classList.toggle(
-        "is-hovering",
-        isInteractive
-      );
-
-      targetScale =
-        isInteractive ? 1.16 : 1;
-    }
-  );
-
-  /*
-    Clicking makes the bee compress,
-    like it quickly moved closer.
-  */
-
-  document.addEventListener(
-    "pointerdown",
-    () => {
-      beeCursor.classList.add(
-        "is-clicking"
-      );
-
-      targetScale = 0.82;
-    }
-  );
-
-  document.addEventListener(
-    "pointerup",
-    () => {
-      beeCursor.classList.remove(
-        "is-clicking"
-      );
-
-      targetScale =
-        beeCursor.classList.contains(
-          "is-hovering"
-        )
-          ? 1.16
-          : 1;
-    }
-  );
+  document.addEventListener("pointerup", () => {
+    targetScale =
+      beeCursor.classList.contains("is-hovering")
+        ? 1.16
+        : 1;
+  });
 
   document.documentElement.addEventListener(
     "mouseleave",
     () => {
-      beeCursor.classList.remove(
-        "is-visible"
-      );
+      beeCursor.classList.remove("is-visible");
     }
   );
 
   document.documentElement.addEventListener(
     "mouseenter",
     () => {
-      beeCursor.classList.add(
-        "is-visible"
-      );
+      beeCursor.classList.add("is-visible");
     }
   );
 
   animateBeeCursor();
+} else {
+  console.error("Bee cursor element was not found.");
 }

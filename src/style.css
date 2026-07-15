@@ -6080,16 +6080,6 @@ button {
     drop-shadow(0 0 14px rgba(255, 193, 63, 0.78));
 }
 
-@keyframes legoBeeFloat {
-  from {
-    translate: 0 -3px;
-  }
-
-  to {
-    translate: 0 3px;
-  }
-}
-
 @media (pointer: coarse), (max-width: 768px) {
   .bee-cursor {
     display: none !important;

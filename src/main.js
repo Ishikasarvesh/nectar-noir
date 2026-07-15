@@ -7,7 +7,7 @@ gsap.registerPlugin(ScrollTrigger);
 document.querySelector("#app").innerHTML = `
   <div class="bee-cursor" aria-hidden="true">
     <img
-      src="/cursor/lego-bee.png"
+      src="./cursor/lego-bee.png"
       alt=""
       draggable="false"
     />

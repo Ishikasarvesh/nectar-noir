@@ -8,7 +8,7 @@ Nectar Noir transforms the journey of honey into an interactive digital archive 
 
 ## 🌐 Live Demo
 
-👉 https://YOUR-USERNAME.github.io/nectar-noir/
+👉 https://ishikasarvesh.github.io/nectar-noir/
 
 *(Update after hosting on GitHub Pages.)*
 

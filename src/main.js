@@ -15,7 +15,6 @@ document.querySelector("#app").innerHTML = `
     <span class="bee-cursor-glow"></span>
   </div>
 
-  <div class="access-gate">
 <div class="access-gate">
 
   <div class="access-cities">

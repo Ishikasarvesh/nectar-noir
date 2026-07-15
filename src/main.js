@@ -1,13 +1,15 @@
-import "./style.css";
+﻿import "./style.css";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
 
 gsap.registerPlugin(ScrollTrigger);
+
+const BASE_URL = import.meta.env.BASE_URL;
 document.querySelector("#app").innerHTML = `
   <div class="bee-cursor" aria-hidden="true">
     <img
-      src="./cursor/lego-bee.png"
+      src="${BASE_URL}cursor/lego-bee.png"
       alt=""
       draggable="false"
     />
@@ -129,7 +131,7 @@ document.querySelector("#app").innerHTML = `
             class="passcode-input"
             type="text"
             maxlength="4"
-            placeholder="••••"
+            placeholder="â€¢â€¢â€¢â€¢"
             aria-label="Archive passcode"
           />
 
@@ -158,7 +160,7 @@ document.querySelector("#app").innerHTML = `
     </p>
 
     <p>
-      © 2026 Nectar Noir. All rights reserved.
+      Â© 2026 Nectar Noir. All rights reserved.
       Distributed under strict control. Unauthorised access,
       reproduction or modification is prohibited.
       NN26-VLT.
@@ -205,7 +207,7 @@ document.querySelector("#app").innerHTML = `
 
       <div class="texture-frame">
         <img
-          src="/textures/honey-01.jpg"
+          src="${BASE_URL}textures/honey-01.jpg"
           alt="Golden honey texture"
         />
       </div>
@@ -220,7 +222,7 @@ document.querySelector("#app").innerHTML = `
 
       <div class="texture-frame">
         <img
-          src="/textures/honey-02.jpg"
+          src="${BASE_URL}textures/honey-02.jpg"
           alt="Honeycomb texture"
         />
       </div>
@@ -234,7 +236,7 @@ document.querySelector("#app").innerHTML = `
 
       <div class="texture-frame">
         <img
-          src="/textures/honey-03.jpg"
+          src="${BASE_URL}textures/honey-03.jpg"
           alt="Crystallized honey texture"
         />
       </div>
@@ -248,7 +250,7 @@ document.querySelector("#app").innerHTML = `
 
       <div class="texture-frame">
         <img
-          src="/textures/honey-04.jpg"
+          src="${BASE_URL}textures/honey-04.jpg"
           alt="Dark honey texture"
         />
       </div>
@@ -262,7 +264,7 @@ document.querySelector("#app").innerHTML = `
 
       <div class="texture-frame">
         <img
-          src="/textures/honey-05.jpg"
+          src="${BASE_URL}textures/honey-05.jpg"
           alt="Beeswax texture"
         />
       </div>
@@ -274,7 +276,7 @@ document.querySelector("#app").innerHTML = `
 
     <aside class="texture-statement texture-statement-top">
       <p>
-        The world’s most
+        The worldâ€™s most
         desired golden liquid.
       </p>
     </aside>
@@ -284,7 +286,7 @@ document.querySelector("#app").innerHTML = `
 
       <div class="texture-frame">
         <img
-          src="/textures/honey-06.jpg"
+          src="${BASE_URL}textures/honey-06.jpg"
           alt="Raw honey texture"
         />
       </div>
@@ -298,7 +300,7 @@ document.querySelector("#app").innerHTML = `
 
       <div class="texture-frame">
         <img
-          src="/textures/honey-07.jpg"
+          src="${BASE_URL}textures/honey-07.jpg"
           alt="Honey bubbles texture"
         />
       </div>
@@ -312,7 +314,7 @@ document.querySelector("#app").innerHTML = `
 
       <div class="texture-frame">
         <img
-          src="/textures/honey-08.jpg"
+          src="${BASE_URL}textures/honey-08.jpg"
           alt="Honey flowing texture"
         />
       </div>
@@ -326,7 +328,7 @@ document.querySelector("#app").innerHTML = `
 
       <div class="texture-frame">
         <img
-          src="/textures/honey-09.jpg"
+          src="${BASE_URL}textures/honey-09.jpg"
           alt="Honey on glass texture"
         />
       </div>
@@ -341,7 +343,7 @@ document.querySelector("#app").innerHTML = `
 
       <div class="texture-frame">
         <img
-          src="/textures/honey-10.jpg"
+          src="${BASE_URL}textures/honey-10.jpg"
           alt="Wildflower honey texture"
         />
       </div>
@@ -357,7 +359,7 @@ document.querySelector("#app").innerHTML = `
 
       <div class="texture-frame">
         <img
-          src="/textures/honey-11.jpg"
+          src="${BASE_URL}textures/honey-11.jpg"
           alt="Amber honey texture"
         />
       </div>
@@ -371,7 +373,7 @@ document.querySelector("#app").innerHTML = `
 
       <div class="texture-frame">
         <img
-          src="/textures/honey-12.jpg"
+          src="${BASE_URL}textures/honey-12.jpg"
           alt="Wax honey texture"
         />
       </div>
@@ -386,7 +388,7 @@ document.querySelector("#app").innerHTML = `
 
       <div class="texture-frame">
         <img
-          src="/textures/honey-13.jpg"
+          src="${BASE_URL}textures/honey-13.jpg"
           alt="Honey crystal texture"
         />
       </div>
@@ -400,7 +402,7 @@ document.querySelector("#app").innerHTML = `
 
       <div class="texture-frame">
         <img
-          src="/textures/honey-14.jpg"
+          src="${BASE_URL}textures/honey-14.jpg"
           alt="Dark forest honey texture"
         />
       </div>
@@ -414,7 +416,7 @@ document.querySelector("#app").innerHTML = `
 
       <div class="texture-frame">
         <img
-          src="/textures/honey-15.jpg"
+          src="${BASE_URL}textures/honey-15.jpg"
           alt="Golden wax texture"
         />
       </div>
@@ -550,7 +552,7 @@ document.querySelector("#app").innerHTML = `
         <div class="scroll-line"></div>
 
         <p>
-          18.5204° N / 73.8567° E
+          18.5204Â° N / 73.8567Â° E
         </p>
       </div>
 
@@ -563,7 +565,7 @@ document.querySelector("#app").innerHTML = `
     <div class="origin-header-meta">
       <span>Chapter 01</span>
       <span>Origin Archive</span>
-      <span>Records H-001 — H-005</span>
+      <span>Records H-001 â€” H-005</span>
     </div>
 
     <h2>
@@ -646,7 +648,7 @@ document.querySelector("#app").innerHTML = `
 
         <div class="origin-record-image">
           <img
-            src="/textures/honey-03.jpg"
+            src="${BASE_URL}textures/honey-03.jpg"
             alt="Ancient honey preservation record"
           />
 
@@ -692,7 +694,7 @@ document.querySelector("#app").innerHTML = `
 
         <div class="origin-record-image">
           <img
-            src="/textures/honey-11.jpg"
+            src="${BASE_URL}textures/honey-11.jpg"
             alt="Ancient medicinal honey archive"
           />
 
@@ -738,7 +740,7 @@ document.querySelector("#app").innerHTML = `
 
         <div class="origin-record-image">
           <img
-            src="/textures/honey-05.jpg"
+            src="${BASE_URL}textures/honey-05.jpg"
             alt="Traditional honey trade record"
           />
 
@@ -784,7 +786,7 @@ document.querySelector("#app").innerHTML = `
 
         <div class="origin-record-image">
           <img
-            src="/textures/honey-10.jpg"
+            src="${BASE_URL}textures/honey-10.jpg"
             alt="Modern beekeeping archive"
           />
 
@@ -830,7 +832,7 @@ document.querySelector("#app").innerHTML = `
 
         <div class="origin-record-image">
           <img
-            src="/textures/honey-01.jpg"
+            src="${BASE_URL}textures/honey-01.jpg"
             alt="Nectar Noir classified honey"
           />
 
@@ -951,7 +953,7 @@ document.querySelector("#app").innerHTML = `
 
           <div class="file-image file-image-organic">
             <img
-              src="/textures/honey-13.jpg"
+              src="${BASE_URL}textures/honey-13.jpg"
               alt="Raw natural honey formation"
             />
           </div>
@@ -1000,21 +1002,21 @@ document.querySelector("#app").innerHTML = `
 
             <div class="method-specimen">
               <img
-                src="/textures/honey-06.jpg"
+                src="${BASE_URL}textures/honey-06.jpg"
                 alt="Honey collection specimen"
               />
             </div>
 
             <div class="method-specimen">
               <img
-                src="/textures/honey-08.jpg"
+                src="${BASE_URL}textures/honey-08.jpg"
                 alt="Honey liquid specimen"
               />
             </div>
 
             <div class="method-specimen">
               <img
-                src="/textures/honey-11.jpg"
+                src="${BASE_URL}textures/honey-11.jpg"
                 alt="Honeycomb specimen"
               />
             </div>
@@ -1043,7 +1045,7 @@ document.querySelector("#app").innerHTML = `
 
           <div class="formalization-image">
             <img
-              src="/textures/honey-10.jpg"
+              src="${BASE_URL}textures/honey-10.jpg"
               alt="Honeycomb structure"
             />
           </div>
@@ -1074,7 +1076,7 @@ document.querySelector("#app").innerHTML = `
 
           <div class="wide-file-image">
             <img
-              src="/textures/honey-14.jpg"
+              src="${BASE_URL}textures/honey-14.jpg"
               alt="Flowing preserved honey"
             />
           </div>
@@ -1154,7 +1156,7 @@ document.querySelector("#app").innerHTML = `
           </p>
 
           <p>
-            An overview of honey’s earliest collection,
+            An overview of honeyâ€™s earliest collection,
             transmitted methods, managed cultivation and
             modern classification.
           </p>
@@ -1204,7 +1206,7 @@ document.querySelector("#app").innerHTML = `
   preload="auto"
 >
   <source
-    src="/hyperfixation/videos/honey-pour.mp4"
+    src="${BASE_URL}hyperfixation/videos/honey-pour.mp4"
     type="video/mp4"
   />
 </video>
@@ -1302,7 +1304,7 @@ document.querySelector("#app").innerHTML = `
 
       <figure class="obsession-image obsession-image-one">
         <img
-          src="/hyperfixation/images/honey-obsession-01.jpg"
+          src="${BASE_URL}hyperfixation/images/honey-obsession-01.jpg"
           alt="Honey obsession archive image one"
         />
 
@@ -1313,7 +1315,7 @@ document.querySelector("#app").innerHTML = `
 
       <figure class="obsession-image obsession-image-two">
         <img
-          src="/hyperfixation/images/honey-obsession-02.jpg"
+          src="${BASE_URL}hyperfixation/images/honey-obsession-02.jpg"
           alt="Honey obsession archive image two"
         />
 
@@ -1324,7 +1326,7 @@ document.querySelector("#app").innerHTML = `
 
       <figure class="obsession-image obsession-image-three">
         <img
-          src="/hyperfixation/images/honey-obsession-03.jpg"
+          src="${BASE_URL}hyperfixation/images/honey-obsession-03.jpg"
           alt="Honey obsession archive image three"
         />
 
@@ -1335,7 +1337,7 @@ document.querySelector("#app").innerHTML = `
 
       <figure class="obsession-image obsession-image-four">
         <img
-          src="/hyperfixation/images/honey-obsession-04.jpg"
+          src="${BASE_URL}hyperfixation/images/honey-obsession-04.jpg"
           alt="Honey obsession archive image four"
         />
 
@@ -1346,7 +1348,7 @@ document.querySelector("#app").innerHTML = `
 
       <figure class="obsession-image obsession-image-five">
         <img
-          src="/hyperfixation/images/honey-obsession-05.jpg"
+          src="${BASE_URL}hyperfixation/images/honey-obsession-05.jpg"
           alt="Honey obsession archive image five"
         />
 
@@ -1405,7 +1407,7 @@ document.querySelector("#app").innerHTML = `
             preload="metadata"
           >
             <source
-              src="/hyperfixation/videos/archive-video-01.mp4"
+              src="${BASE_URL}hyperfixation/videos/archive-video-01.mp4"
               type="video/mp4"
             />
           </video>
@@ -1424,7 +1426,7 @@ document.querySelector("#app").innerHTML = `
             preload="metadata"
           >
             <source
-              src="/hyperfixation/videos/archive-video-02.mp4"
+              src="${BASE_URL}hyperfixation/videos/archive-video-02.mp4"
               type="video/mp4"
             />
           </video>
@@ -1443,7 +1445,7 @@ document.querySelector("#app").innerHTML = `
             preload="metadata"
           >
             <source
-              src="/hyperfixation/videos/archive-video-03.mp4"
+              src="${BASE_URL}hyperfixation/videos/archive-video-03.mp4"
               type="video/mp4"
             />
           </video>
@@ -1463,7 +1465,7 @@ document.querySelector("#app").innerHTML = `
           preload="auto"
         >
           <source
-            src="/hyperfixation/videos/archive-video-01.mp4"
+            src="${BASE_URL}hyperfixation/videos/archive-video-01.mp4"
             type="video/mp4"
           />
         </video>
@@ -1489,7 +1491,7 @@ document.querySelector("#app").innerHTML = `
   </div>
 
   <p class="vertical-coordinates">
-    18°31'13.4"N, 73°51'24.1"E
+    18Â°31'13.4"N, 73Â°51'24.1"E
   </p>
 
   <div class="vertical-record-terminal">
@@ -1575,7 +1577,7 @@ document.querySelector("#app").innerHTML = `
           data-step-image="0"
         >
           <img
-            src="/preparation/step-1.png"
+            src="${BASE_URL}preparation/step-1.png"
             alt="Opening a premium honey jar"
           />
         </figure>
@@ -1585,7 +1587,7 @@ document.querySelector("#app").innerHTML = `
           data-step-image="1"
         >
           <img
-            src="/preparation/step-2.png"
+            src="${BASE_URL}preparation/step-2.png"
             alt="Honey slowly pouring from a dipper"
           />
         </figure>
@@ -1595,7 +1597,7 @@ document.querySelector("#app").innerHTML = `
           data-step-image="2"
         >
           <img
-            src="/preparation/step-3.png"
+            src="${BASE_URL}preparation/step-3.png"
             alt="Honey being blended into a warm drink"
           />
         </figure>
@@ -1605,7 +1607,7 @@ document.querySelector("#app").innerHTML = `
           data-step-image="3"
         >
           <img
-            src="/preparation/step-4.png"
+            src="${BASE_URL}preparation/step-4.png"
             alt="Final honey serving"
           />
         </figure>
@@ -1727,20 +1729,20 @@ document.querySelector("#app").innerHTML = `
 
               <img
                 class="dealer-photo dealer-photo-base"
-                src="/dealer/ishika.jpeg"
+                src="${BASE_URL}dealer/ishika.jpeg"
                 alt="Ishika Sawant"
               />
 
               <img
                 class="dealer-photo dealer-photo-echo dealer-photo-echo-one"
-                src="/dealer/ishika.jpeg"
+                src="${BASE_URL}dealer/ishika.jpeg"
                 alt=""
                 aria-hidden="true"
               />
 
               <img
                 class="dealer-photo dealer-photo-echo dealer-photo-echo-two"
-                src="/dealer/ishika.jpeg"
+                src="${BASE_URL}dealer/ishika.jpeg"
                 alt=""
                 aria-hidden="true"
               />
@@ -2025,7 +2027,7 @@ passcodeForm.addEventListener("submit", (event) => {
 
 function denyArchiveAccess() {
   passcodeFeedback.textContent =
-    "Access denied — invalid passcode";
+    "Access denied â€” invalid passcode";
 
   passcodeFeedback.classList.remove("is-success");
   passcodeFeedback.classList.add("is-error");
@@ -2052,7 +2054,7 @@ function denyArchiveAccess() {
 
 function grantArchiveAccess() {
   passcodeFeedback.textContent =
-    "Identity verified — access granted";
+    "Identity verified â€” access granted";
 
   passcodeFeedback.classList.remove("is-error");
   passcodeFeedback.classList.add("is-success");
@@ -2427,15 +2429,15 @@ const nectarLanguages = [
     language: "English",
   },
   {
-    text: "नेक्टर नॉयर",
+    text: "à¤¨à¥‡à¤•à¥à¤Ÿà¤° à¤¨à¥‰à¤¯à¤°",
     language: "Marathi",
   },
   {
-    text: "नेक्टर नॉयर",
+    text: "à¤¨à¥‡à¤•à¥à¤Ÿà¤° à¤¨à¥‰à¤¯à¤°",
     language: "Hindi",
   },
   {
-    text: "ネクター・ノワール",
+    text: "ãƒã‚¯ã‚¿ãƒ¼ãƒ»ãƒŽãƒ¯ãƒ¼ãƒ«",
     language: "Japanese",
   },
   {
@@ -2447,11 +2449,11 @@ const nectarLanguages = [
     language: "French",
   },
   {
-    text: "넥타르 누아르",
+    text: "ë„¥íƒ€ë¥´ ëˆ„ì•„ë¥´",
     language: "Korean",
   },
  {
-    text: "花蜜诺瓦",
+    text: "èŠ±èœœè¯ºç“¦",
     language: "Chinese",
   },
 ];
@@ -2973,9 +2975,9 @@ const verticalThumbs = gsap.utils.toArray(
 
 const verticalVideos = [
   {
-    src: "/hyperfixation/videos/archive-video-01.mp4",
+    src: `${BASE_URL}hyperfixation/videos/archive-video-01.mp4`,
     number: "01",
-    coordinates: "18°31'13.4\"N, 73°51'24.1\"E",
+    coordinates: "18Â°31'13.4\"N, 73Â°51'24.1\"E",
     title: "WILDFLOWER POUR",
     location: "LOCATION : WESTERN GHATS, INDIA",
     source: "SOURCE : PRIVATE HONEY ARCHIVE",
@@ -2984,9 +2986,9 @@ const verticalVideos = [
       "A controlled pour documenting viscosity, colour, movement and the repeated ritual surrounding liquid gold.",
   },
   {
-    src: "/hyperfixation/videos/archive-video-02.mp4",
+    src: `${BASE_URL}hyperfixation/videos/archive-video-02.mp4`,
     number: "02",
-    coordinates: "19°04'42.2\"N, 72°52'31.8\"E",
+    coordinates: "19Â°04'42.2\"N, 72Â°52'31.8\"E",
     title: "GOLDEN RITUAL",
     location: "LOCATION : MUMBAI, INDIA",
     source: "SOURCE : DAILY CONSUMPTION LOG",
@@ -2995,9 +2997,9 @@ const verticalVideos = [
       "A repeated serving ritual where measurement, movement and timing become part of the experience.",
   },
   {
-    src: "/hyperfixation/videos/archive-video-03.mp4",
+    src: `${BASE_URL}hyperfixation/videos/archive-video-03.mp4`,
     number: "03",
-    coordinates: "30°04'12.6\"N, 79°19'43.7\"E",
+    coordinates: "30Â°04'12.6\"N, 79Â°19'43.7\"E",
     title: "COMB EXPOSURE",
     location: "LOCATION : HIMALAYAN REGION",
     source: "SOURCE : RAW HARVEST RECORD",
@@ -3552,7 +3554,7 @@ preparationStage.addEventListener(
   }
 );
 /* ========================================
-   DEALER PAGE — PAPER RISE
+   DEALER PAGE â€” PAPER RISE
 ======================================== */
 
 const dealerSection = document.querySelector(
